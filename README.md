@@ -19,7 +19,7 @@ index.html                      главная (единственная стр�
 files/chek-list-uvedomlenie-15-minut.pdf   лид-магнит, слинкован с 5 страниц
 files/shablon-poyasneniya-k-povtornoy-podache.docx   шаблон пояснения к повторной подаче, слинкован с index.html, obzhalovanie-priostanovki.html, osnovaniya-priostanovleniya.html, otkaz-rosreestr.html, priostanovka-rosreestr.html, razbor-priostanovki.html, uvedomlenie-o-priostanovlenii.html
 yandex_*.html, google*.html   файлы подтверждения прав на сайт (Вебмастер, Search Console) — не удалять
-icon-192.png                    иконка 192 px, слинкована с 
+icon-192.png                    иконка 192 px, лежит на сервере, со страниц не слинкована
 img/samples/*.png               шесть фрагментов образцов на синтетическом номере 77:99:0000000:1 (для новых страниц)
 sitemap.xml  robots.txt  favicon.ico  apple-touch-icon.png  og-image.jpg
 ```
