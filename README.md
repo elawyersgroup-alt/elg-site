@@ -8,7 +8,7 @@
 
 ## Как получена первая копия (17.09.2026)
 
-Сайт снят по HTTPS с `https://argument-law.ru/` по `sitemap.xml` (51 адрес) с обходом всех локальных ссылок и `url()` в стилях; серверные файлы этим способом не видны и не снимались. Получено: 51 HTML, `sitemap.xml`, `robots.txt`, `favicon.ico`, `apple-touch-icon.png`, `og-image.jpg`, `files/chek-list-uvedomlenie-15-minut.pdf`. В статусе фирмы от 30.08 упоминаются 54 HTML: три «недостающих» оказались файлами подтверждения прав на сайт (`yandex_37105458dbb58aee.html`, `yandex_9d103d24ec8f8aea.html`, `google2939358c74fa1e6a.html`) — сверено 17.09 по списку каталога `htdocs/www` в панели Hostland; они и ещё два несвязанных публичных файла (`icon-192.png`, `files/shablon-poyasneniya-k-povtornoy-podache.docx`) добавлены в репозиторий. **Не трогать и не удалять на сервере** при выгрузке: без файлов подтверждения слетят Вебмастер и Search Console.
+Сайт снят по HTTPS с `https://argument-law.ru/` по `sitemap.xml` (51 адрес) с обходом всех локальных ссылок и `url()` в стилях; серверные файлы этим способом не видны и не снимались. Получено: 51 HTML, `sitemap.xml`, `robots.txt`, `favicon.ico`, `apple-touch-icon.png`, `og-image.jpg`, `files/chek-list-uvedomlenie-15-minut.pdf`. В статусе фирмы от 30.08 упоминаются 54 HTML: три «недостающих» оказались файлами подтверждения прав на сайт (`yandex_37105458dbb58aee.html`, `yandex_9d103d24ec8f8aea.html`, `google2939358c74fa1e6a.html`) — сверено 17.09 по списку каталога `htdocs/www` в панели Hostland; они и ещё два публичных файла, пропущенных первым снимком (`icon-192.png`, `files/shablon-poyasneniya-k-povtornoy-podache.docx`; первый снимок не следовал за ссылками на .docx и на иконку в `<link>`), добавлены в репозиторий. **Не трогать и не удалять на сервере** при выгрузке: без файлов подтверждения слетят Вебмастер и Search Console.
 
 ## Структура
 
@@ -17,9 +17,9 @@ tools/add_nav_links.py          скрипт массовой правки ме�
 index.html                      главная (единственная страница без класса .svc-hero)
 *.html                          51 сервисная страница и статья: услуги, основания ст. 26, дела, реквизиты, контакты; proverka-izyatie-krt.html — новая (17.09), до публикации ждёт ссылку ЮKassa и рабочее время в оферте
 files/chek-list-uvedomlenie-15-minut.pdf   лид-магнит, слинкован с 5 страниц
-files/shablon-poyasneniya-k-povtornoy-podache.docx   шаблон, лежит на сервере, со страниц не слинкован
+files/shablon-poyasneniya-k-povtornoy-podache.docx   шаблон пояснения к повторной подаче, слинкован с index.html, obzhalovanie-priostanovki.html, osnovaniya-priostanovleniya.html, otkaz-rosreestr.html, priostanovka-rosreestr.html, razbor-priostanovki.html, uvedomlenie-o-priostanovlenii.html
 yandex_*.html, google*.html   файлы подтверждения прав на сайт (Вебмастер, Search Console) — не удалять
-icon-192.png                    иконка, со страниц не слинкована
+icon-192.png                    иконка 192 px, слинкована с 
 img/samples/*.png               шесть фрагментов образцов на синтетическом номере 77:99:0000000:1 (для новых страниц)
 sitemap.xml  robots.txt  favicon.ico  apple-touch-icon.png  og-image.jpg
 ```
