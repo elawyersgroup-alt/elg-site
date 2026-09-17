@@ -15,7 +15,7 @@
 ```
 tools/add_nav_links.py          скрипт массовой правки меню и подвала (не выгружается на Hostland)
 index.html                      главная (единственная страница без класса .svc-hero)
-*.html                          51 сервисная страница и статья: услуги, основания ст. 26, дела, реквизиты, контакты; proverka-izyatie-krt.html — новая (17.09), до публикации ждёт ссылку ЮKassa и рабочее время в оферте
+*.html                          51 сервисная страница и статья: услуги, основания ст. 26, дела, реквизиты, контакты; proverka-izyatie-krt.html — новая (17.09): кнопки ведут на счёт ЮKassa № 1450084-2 (2 900 ₽), рабочее время в оферте вписано; ждёт проверки на телефоне и выгрузки
 files/chek-list-uvedomlenie-15-minut.pdf   лид-магнит, слинкован с 5 страниц
 files/shablon-poyasneniya-k-povtornoy-podache.docx   шаблон пояснения к повторной подаче, слинкован с index.html, obzhalovanie-priostanovki.html, osnovaniya-priostanovleniya.html, otkaz-rosreestr.html, priostanovka-rosreestr.html, razbor-priostanovki.html, uvedomlenie-o-priostanovlenii.html
 yandex_*.html, google*.html   файлы подтверждения прав на сайт (Вебмастер, Search Console) — не удалять
@@ -87,6 +87,7 @@ for f in glob.glob('*.html'):
 ## Что не снято и почему
 
 - Серверные файлы (`.htaccess`, конфиги, логи) — не отдаются браузеру, в репозиторий не входят по правилу выше.
+- `data/leads.csv` по прямому адресу **не отдаётся**: `https://argument-law.ru/data/leads.csv` → 403, как и `data/` и `data/.htaccess` (проверено 17.09 дважды); закрыт файлом `data/.htaccess` (91 байт) на сервере. `lead.php` отвечает 405 на GET, `srok.php` — 403. А вот `ekspress-razbor.html.bak-2026-09-02` **отдаётся публично** (200): это копия старой страницы, не утечка, но дубль для поисковиков — удалить с сервера или закрыть решает Игорь.
 - На сервере (каталог `htdocs/www`, список 17.09) есть и **не подлежит переносу в публичный репозиторий**: `.htaccess`, `lead.php` и `srok.php` (серверные скрипты формы и расчёта срока), `data/leads.csv` и `data/.htaccess` (заявки с формы — клиентские данные), `ekspress-razbor.html.bak-2026-09-02`, каталоги `cgi-bin/`, `webalizer/`, `.well-known/`. При выгрузке архивом с заменой эти файлы не затрагиваются, но удалять «лишнее» на сервере нельзя.
 - Оферта экспресс-разбора живёт внутри `ekspress-razbor.html` (якорь `#oferta`), отдельного файла нет.
 
