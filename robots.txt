@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Clean-param: etext&ybaip&ysclid&yclid&gclid&utm_source&utm_medium&utm_campaign&utm_term&utm_content&from&_openstat&v&m&a&nocache
+
+Sitemap: https://argument-law.ru/sitemap.xml

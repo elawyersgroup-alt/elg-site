@@ -1,0 +1,9 @@
+.DS_Store
+._*
+*.log
+# серверное не кладём: см. README, раздел «Правило»
+.htaccess
+*.conf
+*.ini
+*.key
+*.pem
