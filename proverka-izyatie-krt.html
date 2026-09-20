@@ -247,18 +247,41 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <div class="facts" style="margin:24px 0 8px">
       <div class="fact"><b>2 900 ₽</b><span>Фиксированная стоимость. Засчитывается в справку «Градпрофиль» при заказе в течение 30 дней.</span></div>
 <!-- С 20.09.2026 заказ идёт через бота: кнопка открывает @elawyers_bot на команде «Номер участка» (start=cmd_run_4249318155), ссылку на оплату (счёт ЮKassa № 1450084-2, 2 900 ₽) бот присылает после номера -->
-<p class="pay-inline" style="margin:6px 0 4px;padding:0 24px"><a class="btn btn-primary" href="https://t.me/elawyers_bot?start=cmd_run_4249318155" target="_blank" rel="noopener" onclick="try{ym(110859643,'reachGoal','pay_click_g1a')}catch(e){}">Заказать — 2 900 ₽</a></p>
-      <p class="muted" style="font-size:13px;margin:8px 0 0;padding:0 24px">Шаг 1 — номер участка в бот, шаг 2 — оплата, шаг 3 — отчёт</p>
+<p class="pay-inline" style="margin:6px 0 4px;padding:0 24px"><a class="btn btn-primary" href="#zakaz">Заказать — 2 900 ₽</a></p>
+      <p class="muted" style="font-size:13px;margin:8px 0 0;padding:0 24px">Номер участка → оплата → отчёт</p>
       <p class="muted" style="font-size:13px;margin-top:10px;padding:0 24px 18px"><a href="#oferta">Условия услуги — договор-оферта</a></p>
       <div class="fact"><b>1 час</b><span>В рабочее время, с момента оплаты и получения кадастрового номера. Заказ вне рабочего времени берём с начала ближайшего рабочего дня.</span></div>
       <div class="fact"><b>PDF</b><span>Одна-две страницы: итог в первой строке, что проверено и на какую дату, что найдено, что не проверено, что делать дальше.</span></div>
     </div>
-<div class="paybox" style="margin:8px 0 28px;padding:20px;border:1px solid #e6e1d6;border-radius:12px;background:#fbf9f4">
-  <a class="btn btn-primary" href="https://t.me/elawyers_bot?start=cmd_run_4249318155" target="_blank" rel="noopener" onclick="try{ym(110859643,'reachGoal','pay_click_g1a')}catch(e){}">Заказать — 2 900 ₽</a>
-  <p style="margin:10px 0 0;font-size:14px;line-height:1.5"><b>Шаг 1 — номер участка в бот, шаг 2 — оплата, шаг 3 — отчёт</b></p>
-  <p style="margin:12px 0 0;font-size:14px;line-height:1.5">Заказывая, вы принимаете условия <a href="#oferta">договора-оферты</a>. Оплата — через ЮKassa, кассовый чек придёт автоматически. Если участок вне Москвы или номер не определяет объект однозначно, скажем об этом до начала работы и вернём оплату.</p>
-  <p style="margin:10px 0 0;font-size:14px;line-height:1.5;color:var(--ink-soft)"><b>С выпиской ЕГРН — 3 900 ₽, один рабочий день.</b> Единственный вариант, в котором итог может быть «в реестре записей нет». Открываем в ближайшее время; до этого свою выписку можно приложить к заказу — разберём без доплаты.</p>
+
+<div class="card" id="zakaz" style="margin:8px 0 28px;max-width:760px">
+  <span class="mono">Заказ</span>
+  <h3 style="margin-top:6px">Проверка на изъятие и КРТ — 2 900 ₽</h3>
+  <div id="ord-form" style="margin-top:12px">
+    <label for="ord-cad" style="display:block;font-size:14px;color:var(--ink-soft);margin-bottom:6px">Кадастровый номер или адрес участка</label>
+    <input type="text" id="ord-cad" placeholder="77:06:0012020:18277 или ул. Брусилова, 33А" autocomplete="off" style="font-family:var(--body);font-size:15px;padding:12px 14px;border:1.5px solid var(--line);border-radius:var(--radius);width:100%;max-width:520px;background:#fff;color:var(--ink);box-sizing:border-box">
+    <label for="ord-contact" style="display:block;font-size:14px;color:var(--ink-soft);margin:14px 0 6px">E-mail или телефон — куда прислать отчёт</label>
+    <input type="text" id="ord-contact" placeholder="you@company.ru или +7 ..." autocomplete="email" style="font-family:var(--body);font-size:15px;padding:12px 14px;border:1.5px solid var(--line);border-radius:var(--radius);width:100%;max-width:520px;background:#fff;color:var(--ink);box-sizing:border-box">
+    <input type="text" id="ord-web" style="display:none" tabindex="-1" autocomplete="off">
+    <label style="display:flex;gap:10px;align-items:flex-start;margin:14px 0 0;font-size:14px;line-height:1.45;max-width:520px;cursor:pointer"><input type="checkbox" id="ord-consent" style="margin-top:3px;flex:none"><span>Принимаю условия <a href="#oferta">договора-оферты</a> и <a href="/politika-konfidencialnosti.html">политики конфиденциальности</a>, согласен на обработку персональных данных.</span></label>
+    <p style="margin:16px 0 0;display:flex;gap:12px;align-items:center;flex-wrap:wrap"><button class="btn btn-primary" id="ord-btn" type="button">Перейти к оплате</button><span id="ord-err" style="display:none;color:var(--deny);font-size:13.5px"></span></p>
+    <p class="muted" style="font-size:13px;margin:10px 0 0">Оплата — на следующем шаге, через ЮKassa, кассовый чек придёт автоматически. Номер участка можно прислать и в <a href="https://t.me/elawyers_bot?start=cmd_run_4249318155" rel="noopener">Telegram-бот</a> или на <a href="mailto:info@el-group.com.ru">почту</a>.</p>
+  </div>
+  <div id="ord-done" style="display:none;margin-top:12px">
+    <p><b>Номер получен.</b> Осталось оплатить — после оплаты отчёт придёт в течение часа в рабочее время — по рабочим дням с 10:00 до 19:00.</p>
+    <p style="margin:14px 0 0"><a class="btn btn-primary" href="https://yookassa.ru/my/i/aqxEj_cEOMGK/l" target="_blank" rel="noopener" onclick="try{ym(110859643,'reachGoal','pay_click_g1a')}catch(e){}">Оплатить 2 900 ₽</a></p>
+    <p class="muted" style="font-size:13px;margin:12px 0 0;line-height:1.5">Если страница оплаты не открывается — отключите VPN и откройте ссылку снова: платёжный сервис работает только из российской сети. Если участок вне Москвы или номер не определяет объект однозначно, скажем об этом до начала работы и вернём оплату.</p>
+  </div>
+  <div id="ord-fail" style="display:none;margin-top:12px">
+    <p><b>Не удалось отправить номер с сайта.</b> Пришлите его в <a href="https://t.me/elawyers_bot?start=cmd_run_4249318155" rel="noopener">Telegram-бот</a> или на <a href="mailto:info@el-group.com.ru">info@el-group.com.ru</a> — и оплатите здесь:</p>
+    <p style="margin:14px 0 0"><a class="btn btn-primary" href="https://yookassa.ru/my/i/aqxEj_cEOMGK/l" target="_blank" rel="noopener" onclick="try{ym(110859643,'reachGoal','pay_click_g1a')}catch(e){}">Оплатить 2 900 ₽</a></p>
+  </div>
+<p style="margin:12px 0 0;font-size:14px;line-height:1.5;color:var(--ink-soft)"><b>С выпиской ЕГРН — 3 900 ₽, один рабочий день.</b> Единственный вариант, в котором итог может быть «в реестре записей нет». Открываем в ближайшее время; до этого свою выписку можно приложить к заказу — разберём без доплаты.</p>
 </div>
+<script>
+(function(){var b=document.getElementById('ord-btn');if(!b)return;var er=document.getElementById('ord-err');function show(m){er.textContent=m;er.style.display='inline';}b.addEventListener('click',function(){var cad=document.getElementById('ord-cad').value.trim(),ct=document.getElementById('ord-contact').value.trim(),ok=document.getElementById('ord-consent').checked;var isCad=/^\d{2}:\d{2}:\d{6,7}:\d+$/.test(cad);if(!isCad&&cad.length<8){show('Укажите кадастровый номер вида 77:06:0012020:18277 или адрес');return;}var isMail=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(ct),isTel=ct.replace(/\D/g,'').length>=10;if(!isMail&&!isTel){show('Укажите e-mail или телефон');return;}if(!ok){show('Нужно согласие с офертой');return;}er.style.display='none';b.disabled=true;var fd=new FormData();fd.append('cadnum',cad);fd.append('contact',ct);fd.append('product','g1a');fd.append('consent','1');fd.append('page',location.pathname);fd.append('website',document.getElementById('ord-web').value);fetch('/order.php',{method:'POST',body:fd}).then(function(r){if(!r.ok)throw 0;return r;}).then(function(){document.getElementById('ord-form').style.display='none';document.getElementById('ord-done').style.display='block';}).catch(function(){document.getElementById('ord-form').style.display='none';document.getElementById('ord-fail').style.display='block';}).finally(function(){try{ym(110859643,'reachGoal','order_form_g1a')}catch(e){}});});})();
+</script>
+
 
     <h2>Что проверяется</h2>
     <p>Четыре источника, по каждому в отчёте стоит дата данных.</p>
@@ -306,8 +329,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
     <h2>Как это устроено</h2>
     <ol class="steps-num">
-      <li><h3>Присылаете номер или адрес</h3><p>Кнопка выше открывает Telegram-бот. Кадастровый номер участка — туда или на почту. Если номера нет — адрес: участок найдём по нему.</p></li>
-      <li><h3>Оплачиваете</h3><p>Ссылку на оплату бот присылает сразу после номера. Оплата через ЮKassa, чек приходит автоматически.</p></li>
+      <li><h3>Присылаете номер или адрес</h3><p>В форме выше: кадастровый номер участка и контакт, куда прислать отчёт. Если номера нет — адрес: участок найдём по нему. Можно и через Telegram-бот или почту.</p></li>
+      <li><h3>Оплачиваете</h3><p>Кнопка оплаты появляется сразу после отправки номера. Оплата через ЮKassa, чек приходит автоматически; страница оплаты открывается только без VPN.</p></li>
       <li><h3>Получаете отчёт</h3><p>PDF в течение часа в рабочее время. Если какой-то из публичных сервисов не ответил, это будет написано в разделе «Что не проверено», а недостающее дошлём бесплатно.</p></li>
       <li><h3>Дальше — ваше решение</h3><p>Приложить выписку ЕГРН и получить пересборку бесплатно; заказать справку «Градпрофиль» с зачётом этой оплаты; или ничего — обязательств нет.</p></li>
     </ol>
@@ -326,12 +349,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <div class="faq-item"><h3>Как засчитывается оплата?</h3><p>2 900 ₽ полностью идут в зачёт справки «Градпрофиль» по тому же участку при заказе в течение 30 дней. Пересборка отчёта после получения выписки — бесплатно в тот же срок.</p></div>
 
     <p style="margin-top:24px;display:flex;gap:14px;flex-wrap:wrap">
-      <a class="btn btn-primary" href="https://t.me/elawyers_bot?start=cmd_run_4249318155" target="_blank" rel="noopener" onclick="try{ym(110859643,'reachGoal','pay_click_g1a')}catch(e){}">Заказать — 2 900 ₽</a>
+      <a class="btn btn-primary" href="#zakaz">Заказать — 2 900 ₽</a>
       <a class="btn btn-ghost" href="https://t.me/elawyers_bot" rel="noopener" onclick="try{ym(110859643,'reachGoal','tg_click_g1')}catch(e){}">Написать в Telegram</a>
       <a class="btn btn-ghost" href="mailto:info@el-group.com.ru">Написать на почту</a>
       <a class="btn btn-ghost" href="tel:+79852807376">+7 (985) 280-73-76</a>
     </p>
-    <p class="muted" style="font-size:13px;margin-top:10px">Шаг 1 — номер участка в бот, шаг 2 — оплата, шаг 3 — отчёт</p>
+    <p class="muted" style="font-size:13px;margin-top:10px">Номер участка → оплата → отчёт</p>
     <p style="margin-top:22px;font-size:14.5px;color:var(--ink-soft)">Отчёт носит информационный характер, составлен по открытым и официальным источникам на дату проверки и не является юридической консультацией, заключением о возможности строительства и не заменяет выписку из ЕГРН.</p>
   </div>
 </section>

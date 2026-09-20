@@ -250,8 +250,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <h3 style="margin-top:6px">9 900 ₽ · 1 рабочий день</h3>
         <p>Полная справка по открытым и официальным источникам. Параметры застройки — только со статусом источника; там, где доступна лишь редакция 2017 года, стоит пометка «ориентировочно».</p>
 <!-- С 20.09.2026 заказ идёт через бота: кнопка открывает @elawyers_bot на команде «Номер участка» (start=cmd_run_4249318155), ссылку на оплату (счёт ЮKassa № 1450084-3, 9 900 ₽) бот присылает после номера -->
-        <p style="margin-top:14px"><a class="btn btn-primary" href="https://t.me/elawyers_bot?start=cmd_run_4249318155" target="_blank" rel="noopener" onclick="try{ym(110859643,'reachGoal','pay_click_g2')}catch(e){}">Заказать — 9 900 ₽</a></p>
-        <p class="muted" style="font-size:13px;margin-top:8px">Шаг 1 — номер участка в бот, шаг 2 — оплата, шаг 3 — отчёт</p>
+        <p style="margin-top:14px"><a class="btn btn-primary" href="#zakaz">Заказать — 9 900 ₽</a></p>
+        <p class="muted" style="font-size:13px;margin-top:8px">Номер участка → оплата → справка</p>
         <p class="muted" style="font-size:13px;margin-top:10px"><a href="#oferta">Условия услуги — договор-оферта</a></p>
       </div>
       <div class="card">
@@ -263,6 +263,33 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </div>
     </div>
     <p style="margin-top:18px;font-size:14.5px;color:var(--ink-soft)">Оплаченная <a href="/proverka-izyatie-krt.html">проверка на изъятие и КРТ</a> засчитывается в справку при заказе в течение 30 дней; экспресс засчитывается в полный.</p>
+<div class="card" id="zakaz" style="margin:8px 0 28px;max-width:760px">
+  <span class="mono">Заказ</span>
+  <h3 style="margin-top:6px">Градпрофиль-экспресс — 9 900 ₽</h3>
+  <div id="ord-form" style="margin-top:12px">
+    <label for="ord-cad" style="display:block;font-size:14px;color:var(--ink-soft);margin-bottom:6px">Кадастровый номер или адрес участка</label>
+    <input type="text" id="ord-cad" placeholder="77:06:0012020:18277 или ул. Брусилова, 33А" autocomplete="off" style="font-family:var(--body);font-size:15px;padding:12px 14px;border:1.5px solid var(--line);border-radius:var(--radius);width:100%;max-width:520px;background:#fff;color:var(--ink);box-sizing:border-box">
+    <label for="ord-contact" style="display:block;font-size:14px;color:var(--ink-soft);margin:14px 0 6px">E-mail или телефон — куда прислать отчёт</label>
+    <input type="text" id="ord-contact" placeholder="you@company.ru или +7 ..." autocomplete="email" style="font-family:var(--body);font-size:15px;padding:12px 14px;border:1.5px solid var(--line);border-radius:var(--radius);width:100%;max-width:520px;background:#fff;color:var(--ink);box-sizing:border-box">
+    <input type="text" id="ord-web" style="display:none" tabindex="-1" autocomplete="off">
+    <label style="display:flex;gap:10px;align-items:flex-start;margin:14px 0 0;font-size:14px;line-height:1.45;max-width:520px;cursor:pointer"><input type="checkbox" id="ord-consent" style="margin-top:3px;flex:none"><span>Принимаю условия <a href="#oferta">договора-оферты</a> и <a href="/politika-konfidencialnosti.html">политики конфиденциальности</a>, согласен на обработку персональных данных.</span></label>
+    <p style="margin:16px 0 0;display:flex;gap:12px;align-items:center;flex-wrap:wrap"><button class="btn btn-primary" id="ord-btn" type="button">Перейти к оплате</button><span id="ord-err" style="display:none;color:var(--deny);font-size:13.5px"></span></p>
+    <p class="muted" style="font-size:13px;margin:10px 0 0">Оплата — на следующем шаге, через ЮKassa, кассовый чек придёт автоматически. Номер участка можно прислать и в <a href="https://t.me/elawyers_bot?start=cmd_run_4249318155" rel="noopener">Telegram-бот</a> или на <a href="mailto:info@el-group.com.ru">почту</a>.</p>
+  </div>
+  <div id="ord-done" style="display:none;margin-top:12px">
+    <p><b>Номер получен.</b> Осталось оплатить — после оплаты справка придёт в течение одного рабочего дня — рабочие дни с 10:00 до 19:00. Вариант «полный» обсуждаем отдельно после номера.</p>
+    <p style="margin:14px 0 0"><a class="btn btn-primary" href="https://yookassa.ru/my/i/aqxKnjtu58z2/l" target="_blank" rel="noopener" onclick="try{ym(110859643,'reachGoal','pay_click_g2')}catch(e){}">Оплатить 9 900 ₽</a></p>
+    <p class="muted" style="font-size:13px;margin:12px 0 0;line-height:1.5">Если страница оплаты не открывается — отключите VPN и откройте ссылку снова: платёжный сервис работает только из российской сети. Если участок вне Москвы или номер не определяет объект однозначно, скажем об этом до начала работы и вернём оплату.</p>
+  </div>
+  <div id="ord-fail" style="display:none;margin-top:12px">
+    <p><b>Не удалось отправить номер с сайта.</b> Пришлите его в <a href="https://t.me/elawyers_bot?start=cmd_run_4249318155" rel="noopener">Telegram-бот</a> или на <a href="mailto:info@el-group.com.ru">info@el-group.com.ru</a> — и оплатите здесь:</p>
+    <p style="margin:14px 0 0"><a class="btn btn-primary" href="https://yookassa.ru/my/i/aqxKnjtu58z2/l" target="_blank" rel="noopener" onclick="try{ym(110859643,'reachGoal','pay_click_g2')}catch(e){}">Оплатить 9 900 ₽</a></p>
+  </div>
+</div>
+<script>
+(function(){var b=document.getElementById('ord-btn');if(!b)return;var er=document.getElementById('ord-err');function show(m){er.textContent=m;er.style.display='inline';}b.addEventListener('click',function(){var cad=document.getElementById('ord-cad').value.trim(),ct=document.getElementById('ord-contact').value.trim(),ok=document.getElementById('ord-consent').checked;var isCad=/^\d{2}:\d{2}:\d{6,7}:\d+$/.test(cad);if(!isCad&&cad.length<8){show('Укажите кадастровый номер вида 77:06:0012020:18277 или адрес');return;}var isMail=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(ct),isTel=ct.replace(/\D/g,'').length>=10;if(!isMail&&!isTel){show('Укажите e-mail или телефон');return;}if(!ok){show('Нужно согласие с офертой');return;}er.style.display='none';b.disabled=true;var fd=new FormData();fd.append('cadnum',cad);fd.append('contact',ct);fd.append('product','g2');fd.append('consent','1');fd.append('page',location.pathname);fd.append('website',document.getElementById('ord-web').value);fetch('/order.php',{method:'POST',body:fd}).then(function(r){if(!r.ok)throw 0;return r;}).then(function(){document.getElementById('ord-form').style.display='none';document.getElementById('ord-done').style.display='block';}).catch(function(){document.getElementById('ord-form').style.display='none';document.getElementById('ord-fail').style.display='block';}).finally(function(){try{ym(110859643,'reachGoal','order_form_g2')}catch(e){}});});})();
+</script>
+
 
     <h2>Почему это не гуглится</h2>
     <p>Книги правил землепользования и застройки на mos.ru опубликованы в редакции апреля 2017 года. С тех пор вышло несколько тысяч постановлений об изменениях, и у большинства зон действующая редакция другая. Ключа, который связал бы номер зоны из реестра границ с листом карты, не существует: карты — растровые, реквизиты актов в реестре бывают неточными. Поэтому «посмотреть в интернете» не получается ни у собственника, ни у риелтора, ни у проектировщика. Справка делает эту работу за них — и честно пишет, где источник надёжен, а где нет.</p>
@@ -311,8 +338,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
     <h2>Как это устроено</h2>
     <ol class="steps-num">
-      <li><h3>Присылаете номер участка</h3><p>Экспресс — кнопка выше открывает Telegram-бот. И всё, что есть: ГПЗУ, акт, выписку ЕГРН. Приложенное разбирается без доплаты и повышает статус источника.</p></li>
-      <li><h3>Оплачиваете</h3><p>Экспресс — ссылку на оплату бот присылает сразу после номера, оплата через ЮKassa. Полный — коротко описываете цель в Telegram, мы подтверждаем состав и сроки, дальше оплата.</p></li>
+      <li><h3>Присылаете номер участка</h3><p>Экспресс — в форме выше: номер участка и контакт для справки. Если есть ГПЗУ, акт или выписка ЕГРН — пришлите их на почту вслед за номером: приложенное разбирается без доплаты и повышает статус источника.</p></li>
+      <li><h3>Оплачиваете</h3><p>Экспресс — кнопка оплаты появляется сразу после отправки номера, оплата через ЮKassa, страница открывается только без VPN. Полный — коротко описываете цель в Telegram или письмом, мы подтверждаем состав и сроки, дальше оплата.</p></li>
       <li><h3>Получаете справку</h3><p>PDF за рабочий день для экспресса; для полного — после ответа органа, в срок до семи рабочих дней при его штатной работе.</p></li>
       <li><h3>Пересборка бесплатно</h3><p>Получили ГПЗУ или сведения ИАИС ОГД позже — справка пересобирается с их учётом в течение 30 дней.</p></li>
     </ol>
@@ -324,12 +351,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <div class="faq-item"><h3>У меня уже есть ГПЗУ. Нужна ли справка?</h3><p>Для параметров — нет: ГПЗУ сильнее. Справка добавляет то, чего в ГПЗУ нет: изъятие и КРТ по опубликованным актам, проверку реквизита акта зоны, ограничения с актами и раздел о препятствиях. Приложите ГПЗУ к заказу — параметры напечатаем из него.</p></div>
 
     <p style="margin-top:24px;display:flex;gap:14px;flex-wrap:wrap">
-      <a class="btn btn-primary" href="https://t.me/elawyers_bot?start=cmd_run_4249318155" target="_blank" rel="noopener" onclick="try{ym(110859643,'reachGoal','pay_click_g2')}catch(e){}">Заказать — 9 900 ₽</a>
+      <a class="btn btn-primary" href="#zakaz">Заказать — 9 900 ₽</a>
       <a class="btn btn-ghost" href="https://t.me/elawyers_bot" rel="noopener" onclick="try{ym(110859643,'reachGoal','tg_click_g3')}catch(e){}">Обсудить полный в Telegram</a>
       <a class="btn btn-ghost" href="mailto:info@el-group.com.ru">Написать на почту</a>
       <a class="btn btn-ghost" href="tel:+79852807376">+7 (985) 280-73-76</a>
     </p>
-    <p class="muted" style="font-size:13px;margin-top:10px">Шаг 1 — номер участка в бот, шаг 2 — оплата, шаг 3 — отчёт</p>
+    <p class="muted" style="font-size:13px;margin-top:10px">Номер участка → оплата → справка</p>
     <p style="margin-top:22px;font-size:14.5px;color:var(--ink-soft)">Справка носит информационный характер, составлена по открытым и официальным источникам на дату составления и не является юридической консультацией, заключением о возможности строительства и не заменяет выписку из ЕГРН, ГПЗУ и сведения ИАИС ОГД, выдаваемые уполномоченным органом.</p>
   </div>
 </section>
