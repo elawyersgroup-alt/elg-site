@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Проверка участка на изъятие и КРТ по кадастровому номеру — бесплатно</title>
+<link rel="canonical" href="https://argument-law.ru/poisk-izyatie-krt.html">
+<meta name="description" content="Введите кадастровый номер участка в Москве — узнайте, упомянут ли он в опубликованных актах об изъятии для государственных нужд и о комплексном развитии территории.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Упомянут ли ваш участок в актах об изъятии и КРТ">
+<meta property="og:description" content="Введите кадастровый номер участка в Москве — узнайте, упомянут ли он в опубликованных актах об изъятии для государственных нужд и о комплексном развитии территории.">
+<meta property="og:url" content="https://argument-law.ru/poisk-izyatie-krt.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F2EA;
+  --paper-2:#EBE5D6;
+  --ink:#241F2E;
+  --ink-soft:#4E4759;
+  --stamp:#5A35A8;      /* фиолетовые чернила ведомственной печати */
+  --stamp-soft:#EEE8F8;
+  --deny:#B4372F;       /* штамп «отказано» */
+  --line:#D6CFBE;
+  --ok:#1E6E4A;
+  --radius:6px;
+  --display:'IBM Plex Serif',Georgia,serif;
+  --body:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--stamp)}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.2}
+h2{font-size:clamp(26px,3.4vw,38px);margin-bottom:14px}
+section{padding:84px 0;border-top:1px solid var(--line)}
+.eyebrow{display:inline-block;margin-bottom:16px;padding:5px 12px;border:1px solid var(--stamp);border-radius:3px;background:var(--stamp-soft)}
+.btn{display:inline-block;font-family:var(--body);font-weight:600;font-size:16px;text-decoration:none;border-radius:var(--radius);padding:15px 28px;transition:transform .15s ease,box-shadow .15s ease;cursor:pointer;border:none}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--stamp);color:#fff;box-shadow:0 6px 18px rgba(90,53,168,.25)}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.muted{color:var(--ink-soft)}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(245,242,234,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{position:relative}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.04em;white-space:nowrap;text-decoration:none;flex-shrink:0}
+.logo img{height:30px;width:auto;display:block}
+.logo span{color:var(--stamp)}
+.nav-links{display:flex;gap:18px;align-items:center}
+.nav-links a{text-decoration:none;font-size:15px;color:var(--ink-soft)}
+.nav-links a:hover{color:var(--ink)}
+.nav-links .btn{padding:10px 18px;font-size:14px}
+.nav-links a.btn-primary,.nav-links a.btn-primary:hover{color:#fff}
+.burger{display:none;background:none;border:0;cursor:pointer;width:40px;height:40px;flex-direction:column;justify-content:center;gap:5px;padding:8px}
+.burger span{display:block;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
+.burger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.active span:nth-child(2){opacity:0}
+.burger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:1270px){
+  .burger{display:flex}
+  .nav-links{position:absolute;top:64px;right:0;left:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 12px 30px rgba(36,31,46,.1);padding:8px 0;max-height:0;overflow:hidden;opacity:0;pointer-events:none;transition:max-height .3s,opacity .2s}
+  .nav-links.open{max-height:400px;opacity:1;pointer-events:auto}
+  .nav-links a{padding:13px 24px;font-size:16px}
+  .nav-links .btn{margin:8px 24px;text-align:center}
+}
+
+/* ---------- hero ---------- */
+.hero{border-top:none;padding:90px 0 100px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;opacity:.28;pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;position:relative}
+.hero h1{font-size:clamp(30px,4.6vw,52px);margin:18px 0 20px;overflow-wrap:break-word;hyphens:manual}
+.hero h1 em{font-style:normal;color:var(--stamp)}
+.hero p.lead{font-size:19px;color:var(--ink-soft);max-width:34em;margin-bottom:32px;overflow-wrap:break-word}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+.hero-note{font-size:14px;color:var(--ink-soft)}
+
+/* документ-подпись героя */
+.doc{position:relative;background:#fff;border:1px solid var(--line);border-radius:4px;box-shadow:0 24px 60px rgba(36,31,46,.14);padding:34px 30px 42px;font-family:var(--mono);font-size:12.5px;line-height:1.9;color:var(--ink-soft);transform:rotate(1.2deg)}
+.doc .doc-head{text-align:center;color:var(--ink);font-size:11.5px;letter-spacing:.06em;margin-bottom:16px}
+.doc .doc-line{border-bottom:1px dashed var(--line);white-space:nowrap;overflow:hidden}
+.stamp{position:absolute;font-family:var(--mono);font-weight:500;letter-spacing:.14em;text-transform:uppercase;border:3px solid;border-radius:6px;padding:8px 18px;background:rgba(255,255,255,.55);mix-blend-mode:multiply}
+.stamp-deny{color:var(--deny);border-color:var(--deny);font-size:15px;top:38%;left:8%;transform:rotate(-9deg);opacity:.85}
+.stamp-ok{color:var(--stamp);border-color:var(--stamp);font-size:21px;bottom:10%;right:6%;transform:rotate(-6deg) scale(1);animation:stampIn .5s cubic-bezier(.2,1.4,.4,1) .6s both;box-shadow:0 4px 14px rgba(90,53,168,.18)}
+@keyframes stampIn{from{transform:rotate(-6deg) scale(2.2);opacity:0}to{transform:rotate(-6deg) scale(1);opacity:1}}
+@media(prefers-reduced-motion:reduce){.stamp-ok{animation:none}}
+@media(max-width:820px){.hero-grid{grid-template-columns:1fr}.doc{transform:none;margin-top:10px}}
+
+/* ---------- триггеры ---------- */
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px}
+@media(max-width:900px){.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.grid-4{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px}
+.card .ref{font-family:var(--mono);font-size:11.5px;color:var(--deny);letter-spacing:.06em;display:block;margin-bottom:10px}
+.card h3{font-size:18px;margin-bottom:8px}
+.card p{font-size:14.5px;color:var(--ink-soft)}
+
+/* ---------- асимметрия ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+@media(max-width:820px){.split{grid-template-columns:1fr}}
+.big-quote{font-family:var(--display);font-size:clamp(22px,2.6vw,30px);line-height:1.35}
+.big-quote strong{color:var(--stamp);font-weight:600}
+.facts{display:grid;gap:0;border:1px solid var(--line);border-radius:var(--radius);background:#fff;overflow:hiddenmargin-bottom:40px}
+.fact{display:flex;gap:18px;align-items:baseline;padding:20px 24px}
+.fact+.fact{border-top:1px solid var(--line)}
+.fact b{font-family:var(--display);font-size:30px;font-weight:600;flex:0 0 190px;min-width:190px;color:var(--stamp);line-height:1.1}
+.fact span{font-size:16px;line-height:1.55;color:var(--ink-soft)}
+@media (max-width:640px){.fact{flex-direction:column;align-items:flex-start;gap:6px}.fact b{flex:none;min-width:0}}
+
+/* ---------- продукт ---------- */
+.tiers{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:36px}
+@media(max-width:820px){.tiers{grid-template-columns:1fr}}
+.tier{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:34px 30px;position:relative}
+.tier.featured{border:1.5px solid var(--stamp);box-shadow:0 16px 40px rgba(90,53,168,.10)}
+.tier .step{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--stamp);text-transform:uppercase;margin-bottom:12px;display:block}
+.tier h3{font-size:23px;margin-bottom:6px}
+.tier .price{font-family:var(--display);font-size:26px;font-weight:600;margin:14px 0 4px}
+.tier .term{font-size:14px;color:var(--ink-soft);margin-bottom:18px}
+.tier ul{list-style:none;margin:0 0 24px}
+.tier li{padding:8px 0 8px 26px;position:relative;font-size:15px;color:var(--ink-soft);border-bottom:1px dashed var(--paper-2)}
+.tier li::before{content:"";position:absolute;left:0;top:15px;width:14px;height:14px;border:2px solid var(--stamp);border-radius:3px}
+.tier li.li-ok::before{background:var(--stamp)}
+
+/* ---------- гарантия ---------- */
+.guarantee{background:var(--ink);color:var(--paper);border-radius:10px;padding:52px 48px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+@media(max-width:720px){.guarantee{grid-template-columns:1fr;padding:36px 28px}}
+.guarantee .g-stamp{font-family:var(--mono);font-weight:500;letter-spacing:.12em;text-transform:uppercase;border:3px solid var(--paper);border-radius:6px;padding:14px 22px;font-size:16px;transform:rotate(-5deg);white-space:nowrap}
+.guarantee h3{font-size:24px;margin-bottom:10px;color:#fff}
+.guarantee p{color:#C1B9CF;font-size:16px;max-width:46em}
+
+/* ---------- процесс ---------- */
+.steps{counter-reset:s;display:grid;gap:0;margin-top:32px;border-left:2px solid var(--stamp)}
+.step-row{position:relative;padding:22px 0 22px 40px}
+.step-row::before{counter-increment:s;content:counter(s,decimal-leading-zero);position:absolute;left:-2px;top:24px;transform:translateX(-50%);background:var(--paper);font-family:var(--mono);font-size:13px;color:var(--stamp);padding:4px 0;font-weight:500}
+.step-row h3{font-size:18px;margin-bottom:4px}
+.step-row p{font-size:15px;color:var(--ink-soft);max-width:46em}
+
+/* ---------- контакты ---------- */
+.contact{background:var(--paper-2);border-radius:10px;padding:56px 48px;text-align:center}
+@media(max-width:720px){.contact{padding:38px 24px}}
+.contact h2{margin-bottom:10px}
+.contact p{max-width:36em;margin:0 auto 30px;color:var(--ink-soft)}
+.contact .hero-cta{justify-content:center}
+footer{padding:34px 0 44px;font-size:13.5px;color:var(--ink-soft)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media(max-width:820px){
+  html,body{overflow-x:hidden}
+  h1,h2,h3,p,li{overflow-wrap:break-word}
+  .big-quote{font-size:clamp(20px,5.4vw,30px)}
+  .doc{width:auto;max-width:100%;font-size:11px;padding:20px 16px 24px;transform:rotate(0.6deg);overflow:hidden}
+  .doc .doc-line{white-space:normal;overflow:visible}
+}
+</style>
+
+<style>
+.svc-hero{padding:70px 0 40px;background:linear-gradient(180deg,var(--stamp-soft),transparent)}
+.svc-hero .eyebrow{margin-bottom:20px}
+.svc-hero h1{font-size:clamp(28px,4.4vw,46px);margin-bottom:18px;overflow-wrap:break-word;hyphens:manual}
+.svc-hero .lead{font-size:19px;color:var(--ink-soft);max-width:680px;margin-bottom:26px}
+.svc-cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.crumbs{font-size:13px;color:var(--ink-soft);margin-bottom:22px}
+.crumbs a{color:var(--stamp);text-decoration:none}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.card h3{font-size:19px;margin-bottom:8px}
+.card p{color:var(--ink-soft);font-size:15.5px}
+.reason-list{list-style:none;margin-top:24px;display:grid;gap:12px}
+.reason-list li{background:#fff;border:1px solid var(--line);border-left:3px solid var(--deny);border-radius:4px;padding:14px 18px;font-size:16px}
+.reason-list li b{color:var(--ink)}
+.steps-num{list-style:none;counter-reset:s;margin-top:26px;display:grid;gap:16px}
+.steps-num li{counter-increment:s;position:relative;padding:18px 20px 18px 62px;background:#fff;border:1px solid var(--line);border-radius:var(--radius)}
+.steps-num li::before{content:counter(s);position:absolute;left:18px;top:16px;width:30px;height:30px;background:var(--stamp);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:500;font-size:14px}
+.steps-num li h3{font-size:17px;margin-bottom:4px}
+.steps-num li p{color:var(--ink-soft);font-size:15px}
+.expert{background:var(--stamp-soft);border:1px solid var(--stamp);border-radius:var(--radius);padding:30px;margin-top:10px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start}
+.expert .seal{width:64px;height:64px;border:2px solid var(--stamp);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);color:var(--stamp);font-size:11px;text-align:center;line-height:1.1;flex-shrink:0}
+.expert h3{font-size:20px;margin-bottom:8px}
+.expert p{color:var(--ink-soft);font-size:16px;margin-bottom:10px}
+.expert a.zlink{color:var(--stamp);font-weight:600;text-decoration:none;border-bottom:1px solid var(--stamp)}
+.faq-item{border-top:1px solid var(--line);padding:20px 0}
+.faq-item h3{font-size:18px;margin-bottom:8px}
+.faq-item p{color:var(--ink-soft);font-size:16px}
+.big-cta{background:var(--ink);color:#fff;border-radius:10px;padding:44px;text-align:center;margin-top:10px}
+.big-cta h2{color:#fff;margin-bottom:12px}
+.big-cta p{color:#C9C3D4;margin-bottom:24px;font-size:17px}
+.big-cta .btn-primary{background:var(--stamp)}
+@media(max-width:820px){.grid2{grid-template-columns:1fr}.expert{grid-template-columns:1fr}}
+</style>
+
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
+   ym(110859643,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110859643" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:image" content="https://argument-law.ru/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<style>.facts{margin-bottom:44px !important}.wrap h2 + *{margin-top:0}.wrap > h2{margin-top:44px}.wrap > h2:first-child{margin-top:0}</style>
+<style>@media (min-width:961px){.nav-links{gap:14px}.nav-links a{font-size:14px;white-space:nowrap}.nav-links .btn{white-space:nowrap;padding-left:16px;padding-right:16px}}</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://argument-law.ru/poisk-izyatie-krt.html#page", "url": "https://argument-law.ru/poisk-izyatie-krt.html", "name": "Проверка участка на изъятие и КРТ по кадастровому номеру — бесплатно", "headline": "Упомянут ли ваш участок в актах об изъятии и КРТ", "description": "Введите кадастровый номер участка в Москве — узнайте, упомянут ли он в опубликованных актах об изъятии для государственных нужд и о комплексном развитии территории.", "inLanguage": "ru", "isPartOf": {"@type": "WebSite", "url": "https://argument-law.ru/", "name": "ELAWYERS GROUP"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://argument-law.ru/"}, {"@type": "ListItem", "position": 2, "name": "Поиск по актам об изъятии и КРТ", "item": "https://argument-law.ru/poisk-izyatie-krt.html"}]}]}</script>
+</head>
+<body>
+<header>
+  <nav class="wrap nav">
+    <a class="logo" href="/"><img src="/img/logo.png" width="256" height="236" alt="ELAWYERS GROUP — колонна ELg"><span class="logo-text">ELAWYERS<span>&nbsp;</span>GROUP</span></a>
+    <nav class="nav-links">
+      <a href="/#problems">С чем работаем</a>
+      <a href="/#product">Как устроено</a>
+      <a href="/partneram.html">Партнёрам</a>
+      <a href="/kadastrovym-inzheneram.html">Инженерам</a>
+        <a href="/proverka-izyatie-krt.html">Изъятие и КРТ</a>
+      <a href="/gradprofil.html">Градпрофиль</a>
+      <a class="btn btn-primary" href="/#contact">Заказать экспертизу</a>
+    </nav>
+    <button class="burger" aria-label="Меню" onclick="document.querySelector('.nav-links').classList.toggle('open');this.classList.toggle('active')"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+<section class="svc-hero">
+  <div class="wrap">
+    <div class="crumbs"><a href="/">Главная</a> → Поиск по актам об изъятии и КРТ</div>
+    <span class="mono" style="display:block;margin:8px 0 14px;color:var(--ink-soft)">Обновлено: сентябрь 2026</span>
+    <span class="mono eyebrow">Бесплатно · сразу · Москва</span>
+    <h1>Упомянут ли ваш участок в&nbsp;актах об&nbsp;изъятии и&nbsp;КРТ</h1>
+    <p class="lead">Введите кадастровый номер участка в Москве. Мы проверим его по опубликованным актам Правительства Москвы и Департамента городского имущества об изъятии для государственных нужд, о комплексном развитии территории и об утверждении проектов планировки. Бесплатно, сразу.</p>
+<div class="card" id="poisk" style="margin:24px 0 28px;max-width:760px">
+  <form id="ps-form" novalidate autocomplete="off">
+    <label for="ps-kn" style="display:block;font-size:14px;color:var(--ink-soft);margin-bottom:6px">Кадастровый номер</label>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+      <input type="text" id="ps-kn" name="kn" placeholder="Кадастровый номер, например 77:01:0001001:1" autocomplete="off" spellcheck="false" style="font-family:var(--body);font-size:15px;padding:12px 14px;border:1.5px solid var(--line);border-radius:var(--radius);flex:1 1 300px;max-width:520px;background:#fff;color:var(--ink);box-sizing:border-box">
+      <button class="btn btn-primary" id="ps-btn" type="submit">Проверить</button>
+    </div>
+    <input type="text" id="ps-web" name="website" style="display:none" tabindex="-1" autocomplete="off">
+  </form>
+  <div id="ps-out" aria-live="polite" style="margin-top:16px"></div>
+  <p class="muted" style="font-size:13px;margin:16px 0 0">Поиск носит информационный характер и не является юридической консультацией. Проверяются только опубликованные акты, дата формирования указана в ответе. Реновация жилищного фонда — отдельный перечень домов, в поиск не входит.</p>
+</div>
+  </div>
+</section>
+<script>
+(function(){var f=document.getElementById('ps-form');if(!f)return;var inp=document.getElementById('ps-kn'),out=document.getElementById('ps-out'),btn=document.getElementById('ps-btn');
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function show(h){out.innerHTML=h;}
+function order(kn){return '<p style="margin:14px 0 0"><a class="btn btn-primary" href="/proverka-izyatie-krt.html?kn='+encodeURIComponent(kn)+'#zakaz" onclick="try{ym(110859643,\'reachGoal\',\'poisk_order\')}catch(e){}">Заказать полную проверку — 2 900 ₽</a></p>';}
+function act(a){return esc(a.vid)+(a.nomer?' № '+esc(a.nomer):'')+(a.data?' от '+esc(a.data):'')+(a.skan?' — номер прочитан со скана акта':'');}
+var HINT='<p>Кадастровый номер, например 77:01:0001001:1</p>',DOWN='<p>Поиск временно недоступен. Попробуйте позже.</p>';
+f.addEventListener('submit',function(e){e.preventDefault();var kn=inp.value.replace(/[\s\u00a0]/g,'').replace(/\uff1a/g,':');
+if(!/^\d{2}:\d{2}:\d{6,7}:\d{1,7}$/.test(kn)){show(HINT);inp.focus();return;}
+btn.disabled=true;show('<p class="muted">Проверяем…</p>');var fd=new FormData();fd.append('kn',kn);fd.append('website',document.getElementById('ps-web').value);
+fetch('/poisk.php',{method:'POST',body:fd,headers:{'X-ELG-Poisk':'1'},credentials:'same-origin'}).then(function(r){return r.json();}).then(function(d){
+try{ym(110859643,'reachGoal','poisk_check')}catch(x){}
+if(d.status==='found'){show('<p><b>Участок упомянут в опубликованных актах:</b></p><ul style="margin:8px 0 0;padding-left:20px">'+(d.acts||[]).map(function(a){return '<li>'+act(a)+'</li>';}).join('')+'</ul><p style="margin-top:12px">Что это значит для участка — действует ли акт, исполнено ли изъятие, какие ещё есть ограничения — покажет полная проверка: зона, ограничения по реестру, все найденные акты с реквизитами, письменный отчёт за час.</p>'+order(kn));}
+else if(d.status==='not_found'){show('<p><b>В опубликованных актах, проиндексированных на '+esc(d.index_date)+', участок не упомянут.</b></p><p style="margin-top:8px">Это не значит, что ограничений нет: акты публикуются с задержкой, а решение об изъятии официально существует как запись в ЕГРН. Полная проверка добавит зону и ограничения по реестру границ.</p>'+order(kn));}
+else if(d.status==='not_moscow'){show('<p>Поиск работает по актам Москвы. По участкам в Московской области <a href="/kontakty.html">напишите нам</a> — посмотрим, чем поможем.</p>');}
+else if(d.status==='invalid'){show(HINT);}
+else if(d.status==='limit'){show('<p>Слишком много проверок с вашего адреса. Попробуйте через час.</p>');}
+else{show(DOWN);}
+}).catch(function(){show(DOWN);}).then(function(){btn.disabled=false;});});
+})();
+</script>
+<footer>
+  <div class="wrap">
+    <div>© 2026 · ELAWYERS GROUP · <a href="/rekvizity.html">Реквизиты</a> · <a href="/politika-konfidencialnosti.html">Политика конфиденциальности</a></div>
+    <div><a href="/#process" style="color:inherit;text-decoration:none;margin-right:18px">Порядок</a> · <a href="/#cadastre" style="color:inherit;text-decoration:none;margin-right:18px">Кадастр</a> · <a href="/gradprofil.html" style="color:inherit;text-decoration:none;margin-right:18px">Градпрофиль</a> · <a href="/proverka-izyatie-krt.html" style="color:inherit;text-decoration:none;margin-right:18px">Проверка на изъятие и КРТ</a> · <a href="/o-kompanii.html" style="color:inherit;text-decoration:none;margin-right:18px">О компании</a><a href="/kontakty.html" style="color:inherit;text-decoration:none;margin-right:18px">Контакты</a><a href="https://t.me/rosreestr_iznutri" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;margin-right:18px">Telegram</a>Москва и Московская область</div>
+  </div>
+</footer>
+
+<script>
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+</script>
+<div id="ck-bar" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#241d33;color:#F5F1E8;padding:12px 16px;font-size:14px;line-height:1.4;text-align:center">Сайт использует cookies и Яндекс Метрику для анализа посещаемости. Продолжая, вы соглашаетесь с <a href="/politika-konfidencialnosti.html" style="color:#c9b8ec;text-decoration:underline">политикой конфиденциальности</a>. <button onclick="localStorage.setItem('ckOk','1');document.getElementById('ck-bar').style.display='none'" style="margin-left:12px;background:#5A35A8;color:#fff;border:0;border-radius:6px;padding:6px 14px;cursor:pointer">Понятно</button></div><script>if(!localStorage.getItem('ckOk')){document.getElementById('ck-bar').style.display='block'}</script></body>
+</html>
