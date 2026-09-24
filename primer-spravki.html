@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Пример градостроительной справки: участок с торгов в Москве</title>
+<link rel="canonical" href="https://argument-law.ru/primer-spravki.html">
+<meta name="description" content="Настоящая справка Градпрофиль-экспресс по участку с торгов: ГПЗУ разошёлся с книгой ПЗЗ, третий пояс ЗСО вне реестра, зоны подтопления ушли из реестра.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Пример справки: участок с торгов на улице Брусилова, 33А">
+<meta property="og:description" content="Настоящая справка Градпрофиль-экспресс по городскому участку с торгов; все документы публичные. Документы расходятся друг с другом, и справка это показывает: по ГПЗУ плотность на 41 % выше, чем по книге правил землепользования 2017 года; весь участок — в третьем поясе зоны санитарной охраны, которой нет в реестре; зоны подтопления исчезли из реестра за сутки. Сведения реестра границ — на 24.09.2026, 14:51.">
+<meta property="og:url" content="https://argument-law.ru/primer-spravki.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F2EA;
+  --paper-2:#EBE5D6;
+  --ink:#241F2E;
+  --ink-soft:#4E4759;
+  --stamp:#5A35A8;      /* фиолетовые чернила ведомственной печати */
+  --stamp-soft:#EEE8F8;
+  --deny:#B4372F;       /* штамп «отказано» */
+  --line:#D6CFBE;
+  --ok:#1E6E4A;
+  --radius:6px;
+  --display:'IBM Plex Serif',Georgia,serif;
+  --body:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--stamp)}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.2}
+h2{font-size:clamp(26px,3.4vw,38px);margin-bottom:14px}
+section{padding:84px 0;border-top:1px solid var(--line)}
+.eyebrow{display:inline-block;margin-bottom:16px;padding:5px 12px;border:1px solid var(--stamp);border-radius:3px;background:var(--stamp-soft)}
+.btn{display:inline-block;font-family:var(--body);font-weight:600;font-size:16px;text-decoration:none;border-radius:var(--radius);padding:15px 28px;transition:transform .15s ease,box-shadow .15s ease;cursor:pointer;border:none}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--stamp);color:#fff;box-shadow:0 6px 18px rgba(90,53,168,.25)}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.muted{color:var(--ink-soft)}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(245,242,234,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{position:relative}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.04em;white-space:nowrap;text-decoration:none;flex-shrink:0}
+.logo img{height:30px;width:auto;display:block}
+.logo span{color:var(--stamp)}
+.nav-links{display:flex;gap:18px;align-items:center}
+.nav-links a{text-decoration:none;font-size:15px;color:var(--ink-soft)}
+.nav-links a:hover{color:var(--ink)}
+.nav-links .btn{padding:10px 18px;font-size:14px}
+.nav-links a.btn-primary,.nav-links a.btn-primary:hover{color:#fff}
+.burger{display:none;background:none;border:0;cursor:pointer;width:40px;height:40px;flex-direction:column;justify-content:center;gap:5px;padding:8px}
+.burger span{display:block;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
+.burger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.active span:nth-child(2){opacity:0}
+.burger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:1270px){
+  .burger{display:flex}
+  .nav-links{position:absolute;top:64px;right:0;left:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 12px 30px rgba(36,31,46,.1);padding:8px 0;max-height:0;overflow:hidden;opacity:0;pointer-events:none;transition:max-height .3s,opacity .2s}
+  .nav-links.open{max-height:400px;opacity:1;pointer-events:auto}
+  .nav-links a{padding:13px 24px;font-size:16px}
+  .nav-links .btn{margin:8px 24px;text-align:center}
+}
+
+/* ---------- hero ---------- */
+.hero{border-top:none;padding:90px 0 100px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;opacity:.28;pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;position:relative}
+.hero h1{font-size:clamp(30px,4.6vw,52px);margin:18px 0 20px;overflow-wrap:break-word;hyphens:manual}
+.hero h1 em{font-style:normal;color:var(--stamp)}
+.hero p.lead{font-size:19px;color:var(--ink-soft);max-width:34em;margin-bottom:32px;overflow-wrap:break-word}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+.hero-note{font-size:14px;color:var(--ink-soft)}
+
+/* документ-подпись героя */
+.doc{position:relative;background:#fff;border:1px solid var(--line);border-radius:4px;box-shadow:0 24px 60px rgba(36,31,46,.14);padding:34px 30px 42px;font-family:var(--mono);font-size:12.5px;line-height:1.9;color:var(--ink-soft);transform:rotate(1.2deg)}
+.doc .doc-head{text-align:center;color:var(--ink);font-size:11.5px;letter-spacing:.06em;margin-bottom:16px}
+.doc .doc-line{border-bottom:1px dashed var(--line);white-space:nowrap;overflow:hidden}
+.stamp{position:absolute;font-family:var(--mono);font-weight:500;letter-spacing:.14em;text-transform:uppercase;border:3px solid;border-radius:6px;padding:8px 18px;background:rgba(255,255,255,.55);mix-blend-mode:multiply}
+.stamp-deny{color:var(--deny);border-color:var(--deny);font-size:15px;top:38%;left:8%;transform:rotate(-9deg);opacity:.85}
+.stamp-ok{color:var(--stamp);border-color:var(--stamp);font-size:21px;bottom:10%;right:6%;transform:rotate(-6deg) scale(1);animation:stampIn .5s cubic-bezier(.2,1.4,.4,1) .6s both;box-shadow:0 4px 14px rgba(90,53,168,.18)}
+@keyframes stampIn{from{transform:rotate(-6deg) scale(2.2);opacity:0}to{transform:rotate(-6deg) scale(1);opacity:1}}
+@media(prefers-reduced-motion:reduce){.stamp-ok{animation:none}}
+@media(max-width:820px){.hero-grid{grid-template-columns:1fr}.doc{transform:none;margin-top:10px}}
+
+/* ---------- триггеры ---------- */
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px}
+@media(max-width:900px){.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.grid-4{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px}
+.card .ref{font-family:var(--mono);font-size:11.5px;color:var(--deny);letter-spacing:.06em;display:block;margin-bottom:10px}
+.card h3{font-size:18px;margin-bottom:8px}
+.card p{font-size:14.5px;color:var(--ink-soft)}
+
+/* ---------- асимметрия ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+@media(max-width:820px){.split{grid-template-columns:1fr}}
+.big-quote{font-family:var(--display);font-size:clamp(22px,2.6vw,30px);line-height:1.35}
+.big-quote strong{color:var(--stamp);font-weight:600}
+.facts{display:grid;gap:0;border:1px solid var(--line);border-radius:var(--radius);background:#fff;overflow:hidden}
+.fact{display:flex;gap:18px;align-items:baseline;padding:20px 24px}
+.fact+.fact{border-top:1px solid var(--line)}
+.fact b{font-family:var(--display);font-size:30px;font-weight:600;min-width:96px;color:var(--stamp)}
+.fact span{font-size:15px;color:var(--ink-soft)}
+
+/* ---------- продукт ---------- */
+.tiers{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:36px}
+@media(max-width:820px){.tiers{grid-template-columns:1fr}}
+.tier{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:34px 30px;position:relative}
+.tier.featured{border:1.5px solid var(--stamp);box-shadow:0 16px 40px rgba(90,53,168,.10)}
+.tier .step{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--stamp);text-transform:uppercase;margin-bottom:12px;display:block}
+.tier h3{font-size:23px;margin-bottom:6px}
+.tier .price{font-family:var(--display);font-size:26px;font-weight:600;margin:14px 0 4px}
+.tier .term{font-size:14px;color:var(--ink-soft);margin-bottom:18px}
+.tier ul{list-style:none;margin:0 0 24px}
+.tier li{padding:8px 0 8px 26px;position:relative;font-size:15px;color:var(--ink-soft);border-bottom:1px dashed var(--paper-2)}
+.tier li::before{content:"";position:absolute;left:0;top:15px;width:14px;height:14px;border:2px solid var(--stamp);border-radius:3px}
+.tier li.li-ok::before{background:var(--stamp)}
+
+/* ---------- гарантия ---------- */
+.guarantee{background:var(--ink);color:var(--paper);border-radius:10px;padding:52px 48px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+@media(max-width:720px){.guarantee{grid-template-columns:1fr;padding:36px 28px}}
+.guarantee .g-stamp{font-family:var(--mono);font-weight:500;letter-spacing:.12em;text-transform:uppercase;border:3px solid var(--paper);border-radius:6px;padding:14px 22px;font-size:16px;transform:rotate(-5deg);white-space:nowrap}
+.guarantee h3{font-size:24px;margin-bottom:10px;color:#fff}
+.guarantee p{color:#C1B9CF;font-size:16px;max-width:46em}
+
+/* ---------- процесс ---------- */
+.steps{counter-reset:s;display:grid;gap:0;margin-top:32px;border-left:2px solid var(--stamp)}
+.step-row{position:relative;padding:22px 0 22px 40px}
+.step-row::before{counter-increment:s;content:counter(s,decimal-leading-zero);position:absolute;left:-2px;top:24px;transform:translateX(-50%);background:var(--paper);font-family:var(--mono);font-size:13px;color:var(--stamp);padding:4px 0;font-weight:500}
+.step-row h3{font-size:18px;margin-bottom:4px}
+.step-row p{font-size:15px;color:var(--ink-soft);max-width:46em}
+
+/* ---------- контакты ---------- */
+.contact{background:var(--paper-2);border-radius:10px;padding:56px 48px;text-align:center}
+@media(max-width:720px){.contact{padding:38px 24px}}
+.contact h2{margin-bottom:10px}
+.contact p{max-width:36em;margin:0 auto 30px;color:var(--ink-soft)}
+.contact .hero-cta{justify-content:center}
+footer{padding:34px 0 44px;font-size:13.5px;color:var(--ink-soft)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media(max-width:820px){
+  html,body{overflow-x:hidden}
+  h1,h2,h3,p,li{overflow-wrap:break-word}
+  .big-quote{font-size:clamp(20px,5.4vw,30px)}
+  .doc{width:auto;max-width:100%;font-size:11px;padding:20px 16px 24px;transform:rotate(0.6deg);overflow:hidden}
+  .doc .doc-line{white-space:normal;overflow:visible}
+}
+.spr{max-width:860px;margin-top:6px}.spr h2{font-size:clamp(20px,2.4vw,26px);margin:34px 0 12px}.spr h3{font-size:18px;margin:22px 0 8px}.spr p{margin:0 0 12px}.spr ul{margin:0 0 14px 1.2em;padding:0}.spr li{margin:0 0 7px}.spr .tbl{overflow-x:auto;margin:6px 0 16px;border:1px solid var(--line);border-radius:var(--radius);background:#fff}.spr table{border-collapse:collapse;width:100%;font-size:15px;min-width:540px}.spr th,.spr td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.spr tr:last-child td{border-bottom:0}.spr th{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);background:var(--stamp-soft)}.spr .spr-head{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin:4px 0 8px}.spr .spr-title{font-size:clamp(19px,2.2vw,23px);margin:6px 0 12px}.spr .spr-meta{font-size:15px;margin:0 0 6px}.spr .src{font-size:14px;color:var(--ink-soft)}.spr figure{margin:10px 0 12px}.spr figure img{display:block;width:100%;max-width:100%;height:auto;border:1px solid var(--line);border-radius:var(--radius);background:#fff}.spr .spr-note{border-left:3px solid var(--stamp);background:var(--stamp-soft);padding:12px 16px;border-radius:0 var(--radius) var(--radius) 0;font-size:15px;margin:0 0 18px}</style>
+
+<style>
+.svc-hero{padding:70px 0 40px;background:linear-gradient(180deg,var(--stamp-soft),transparent)}
+.svc-hero .eyebrow{margin-bottom:20px}
+.svc-hero h1{font-size:clamp(28px,4.4vw,46px);margin-bottom:18px;overflow-wrap:break-word;hyphens:manual}
+.svc-hero .lead{font-size:19px;color:var(--ink-soft);max-width:680px;margin-bottom:26px}
+.svc-cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.crumbs{font-size:13px;color:var(--ink-soft);margin-bottom:22px}
+.crumbs a{color:var(--stamp);text-decoration:none}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.card h3{font-size:19px;margin-bottom:8px}
+.card p{color:var(--ink-soft);font-size:15.5px}
+.reason-list{list-style:none;margin-top:24px;display:grid;gap:12px}
+.reason-list li{background:#fff;border:1px solid var(--line);border-left:3px solid var(--deny);border-radius:4px;padding:14px 18px;font-size:16px}
+.reason-list li b{color:var(--ink)}
+.steps-num{list-style:none;counter-reset:s;margin-top:26px;display:grid;gap:16px}
+.steps-num li{counter-increment:s;position:relative;padding:18px 20px 18px 62px;background:#fff;border:1px solid var(--line);border-radius:var(--radius)}
+.steps-num li::before{content:counter(s);position:absolute;left:18px;top:16px;width:30px;height:30px;background:var(--stamp);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:500;font-size:14px}
+.steps-num li h3{font-size:17px;margin-bottom:4px}
+.steps-num li p{color:var(--ink-soft);font-size:15px}
+.expert{background:var(--stamp-soft);border:1px solid var(--stamp);border-radius:var(--radius);padding:30px;margin-top:10px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start}
+.expert .seal{width:64px;height:64px;border:2px solid var(--stamp);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);color:var(--stamp);font-size:11px;text-align:center;line-height:1.1;flex-shrink:0}
+.expert h3{font-size:20px;margin-bottom:8px}
+.expert p{color:var(--ink-soft);font-size:16px;margin-bottom:10px}
+.expert a.zlink{color:var(--stamp);font-weight:600;text-decoration:none;border-bottom:1px solid var(--stamp)}
+.faq-item{border-top:1px solid var(--line);padding:20px 0}
+.faq-item h3{font-size:18px;margin-bottom:8px}
+.faq-item p{color:var(--ink-soft);font-size:16px}
+.big-cta{background:var(--ink);color:#fff;border-radius:10px;padding:44px;text-align:center;margin-top:10px}
+.big-cta h2{color:#fff;margin-bottom:12px}
+.big-cta p{color:#C9C3D4;margin-bottom:24px;font-size:17px}
+.big-cta .btn-primary{background:var(--stamp)}
+@media(max-width:820px){.grid2{grid-template-columns:1fr}.expert{grid-template-columns:1fr}}
+</style>
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Пример справки: участок с торгов на улице Брусилова, 33А","description":"Настоящая справка Градпрофиль-экспресс по городскому участку с торгов; все документы публичные. Документы расходятся друг с другом, и справка это показывает: по ГПЗУ плотность на 41 % выше, чем по книге правил землепользования 2017 года; весь участок — в третьем поясе зоны санитарной охраны, которой нет в реестре; зоны подтопления исчезли из реестра за сутки. Сведения реестра границ — на 24.09.2026, 14:51.","author":{"@type":"Person","name":"Игорь Еланский"},"publisher":{"@type":"Organization","name":"ELAWYERS GROUP"},"mainEntityOfPage":"https://argument-law.ru/primer-spravki.html","inLanguage":"ru-RU","dateModified":"2026-09-24"}</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
+   ym(110859643,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110859643" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:image" content="https://argument-law.ru/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<style>@media (min-width:961px){.nav-links{gap:14px}.nav-links a{font-size:14px;white-space:nowrap}.nav-links .btn{white-space:nowrap;padding-left:16px;padding-right:16px}}</style>
+</head>
+<body>
+<header>
+  <nav class="wrap nav">
+    <a class="logo" href="/"><img src="/img/logo.png" width="256" height="236" alt="ELAWYERS GROUP — колонна ELg"><span class="logo-text">ELAWYERS<span>&nbsp;</span>GROUP</span></a>
+    <nav class="nav-links">
+      <a href="/#problems">С чем работаем</a>
+      <a href="/#product">Как устроено</a>
+      <a href="/partneram.html">Партнёрам</a>
+      <a href="/kadastrovym-inzheneram.html">Инженерам</a>
+        <a href="/proverka-izyatie-krt.html">Изъятие и КРТ</a>
+      <a href="/gradprofil.html">Градпрофиль</a>
+      <a class="btn btn-primary" href="/#contact">Заказать экспертизу</a>
+    </nav>
+    <button class="burger" aria-label="Меню" onclick="document.querySelector('.nav-links').classList.toggle('open');this.classList.toggle('active')"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<section class="svc-hero"><div class="wrap">
+  <div class="crumbs"><a href="/">Главная</a> → <a href="/gradprofil.html">Градпрофиль</a> → Пример справки</div>
+<span class="mono" style="display:block;margin:8px 0 14px;color:var(--ink-soft)">Обновлено: сентябрь 2026</span>
+  <span class="mono eyebrow">Пример · Градпрофиль-экспресс</span>
+  <h1>Пример справки: участок с торгов на улице Брусилова, 33А</h1>
+<p class="lead">Настоящая справка Градпрофиль-экспресс по городскому участку с торгов; все документы публичные. Документы расходятся друг с другом, и справка это показывает: по ГПЗУ плотность на 41 % выше, чем по книге правил землепользования 2017 года; весь участок — в третьем поясе зоны санитарной охраны, которой нет в реестре; зоны подтопления исчезли из реестра за сутки. Сведения реестра границ — на 24.09.2026, 14:51.</p>
+
+<div class="spr">
+<p class="spr-note">В публичной версии нет части «Что делать» — рекомендаций по сделке и проектированию: она есть в справке для заказчика. Остальное — как в справке, которую получает клиент.</p>
+<div class="spr-head"><span class="mono">Справка</span><h2 class="spr-title">Градпрофиль-экспресс: градостроительная справка по земельному участку 77:06:0012020:18277</h2>
+<p class="spr-meta"><strong>Адрес:</strong> Российская Федерация, город Москва, вн.тер.г. муниципальный округ Щербинка, улица Брусилова, земельный участок 33А</p>
+<p class="spr-meta"><strong>Дата составления:</strong> 24.09.2026. <strong>Данные ЕГРН и реестра границ получены:</strong> 24.09.2026 14:50 (НСПД, nspd.gov.ru (публичная часть ЕГРН и реестра границ)).</p>
+<p class="spr-meta"><strong>Исполнитель:</strong> ИП Еланский Игорь Юрьевич (ELAWYERS GROUP), ОГРНИП 323774600705065, ИНН 616303599130; 105005, Москва, ул. 2-я Бауманская, д. 9/23, стр. 3; +7 (985) 280-73-76, info@el-group.com.ru, argument-law.ru.</p></div>
+<h2>1. Резюме: правовой режим и препятствия</h2>
+<p>Выявленные препятствия и ограничения:</p>
+<ul><li>по градостроительному плану земельного участка весь участок находится в зоне: третий пояс зоны санитарной охраны источников питьевого и хозяйственно-бытового водоснабжения города Москвы — размещение объектов — по требованиям санитарных правил к третьему поясу; в реестре границ ЕГРН эта зона не отражена (раздел 7).</li><li>по градостроительному плану земельного участка часть участка находится в зоне: территории сильного подтопления внутри зон подтопления, прилегающих к зонам затопления у водотоков города Москвы — ограничения по части 6 статьи 67.1 Водного кодекса; в реестре границ ЕГРН эта зона не отражена (раздел 7).</li><li>по градостроительному плану земельного участка часть участка находится в зоне: территории слабого подтопления внутри зон подтопления, прилегающих к зонам затопления у водотоков города Москвы — ограничения по части 6 статьи 67.1 Водного кодекса; в реестре границ ЕГРН эта зона не отражена (раздел 7).</li></ul>
+<h3>Вывод юриста</h3>
+<p><strong>Режим.</strong> Участок лежит в территориальной зоне 220997 правил землепользования и застройки — книга 8, лист 1 274. По книге в редакции 2017 года зона отведена под гаражи и стоянки, в том числе многоярусные (код вида использования 4.9.0), с плотностью застройки 9,9 тыс. кв. м на гектар и высотой до 16,35 метра. Эти цифры не действуют: регламент зоны менялся после 2017 года, и действующие параметры известны из документа органа — градостроительного плана земельного участка № РФ-77-4-59-3-09-2024-5231-0, выданного Москомархитектурой 08.07.2024 по обращению Департамента городского имущества и приложенного к документам торгов. По ГПЗУ виды использования — бытовое обслуживание, культурно-досуговые объекты, магазины и спорт в помещениях, как и в ЕГРН; плотность застройки — 14 тыс. кв. м на гектар, суммарная поэтажная площадь объекта — 8 764 кв. м, из них 4 382 кв. м — физкультурно-оздоровительный комплекс и объект культурно-досуговой деятельности; высота — без ограничений; процент застройки не установлен. Ссылка реестра границ на постановление № 2325-ПП от 15.10.2024 действующего регламента не объясняет: такого акта на mos.ru нет, а ГПЗУ с плотностью 14 выдан раньше этой даты.</p>
+<p><strong>Что мешает.</strong> Сорок два процента площади участка — 2 622 кв. м по ГПЗУ — попадают в две зоны с особыми условиями использования территории по подтоплению — территории сильного и территории слабого подтопления у водотоков Москвы; обе установлены приказом Московско-Окского бассейнового водного управления № 149 от 08.05.2018. На практике это означает две вещи: строить на этой части участка можно только с инженерной защитой от подтопления — без неё капитальное строительство здесь запрещено, и защита должна быть в проекте, — и часть объектов размещать нельзя вовсе: объекты размещения отходов, хранилища химических, взрывчатых и ядовитых веществ. Расчёт того, сколько здесь можно построить, надо вести не от всей площади, а от площади с учётом этих сорока двух процентов. Кроме того, по ГПЗУ весь участок лежит в третьем поясе зоны санитарной охраны источников питьевого водоснабжения Москвы — в реестре границ этой зоны нет; размещение объектов здесь ведётся по требованиям санитарных правил к третьему поясу (СанПиН 2.1.4.1110-02 и СП 2.1.4.2625-10).</p>
+<p>На 24.09.2026 обе зоны подтопления в публичном реестре границ не отображаются; в градостроительном плане от 08.07.2024 указаны обе. Исключение зон из реестра не означает, что территория перестала быть подтопляемой: их может заменить новый акт с новыми реестровыми номерами. Перед проектированием — запросить у Московско-Окского БВУ актуальные сведения о зонах затопления и подтопления по участку.</p>
+<p><strong>Чего мы не знаем и как это закрыть.</strong> Действующие предельные параметры теперь известны из ГПЗУ; открытым остаётся одно — не менялся ли регламент зоны после 08.07.2024. Это закрывают сведения ИАИС ОГД по разделу «Правила землепользования и застройки» — пять рабочих дней; запрос подан 7 сентября, ответ пока не получен, — либо новый ГПЗУ, который правообладатель получает бесплатно за четырнадцать рабочих дней. Права, обременения и зарегистрированные решения об изъятии — по выписке ЕГРН; в справке — выписка из документов лота от 09.01.2025: прав не зарегистрировано, участок в распоряжении Департамента городского имущества, изъятия нет. Но она получена до торгов, а в апреле 2025 года участок ушёл в аренду — права с тех пор сменились, и свежая выписка нужна. По опубликованным актам об изъятии, КРТ и проектах планировки участок не упомянут, и ГПЗУ решений о комплексном развитии по участку не называет; проект планировки территории здесь утверждён постановлением № 395-ПП от 31.05.2005, границы размещения объекта в нём не установлены.</p>
+<p>Предельные параметры: получены, уровень источника указан в разделе 6.</p>
+<h3>Схема участка</h3>
+<figure><img src="/img/samples/primer-shema-uchastka.png" alt="Схема участка 77:06:0012020:18277: границы участка и пересекающие его зоны и объекты по реестру границ ЕГРН" width="1600" height="1886" loading="lazy"></figure>
+<p>Схема составлена по границам из публичной части ЕГРН и реестра границ (НСПД), полученным 24.09.2026: на ней границы участка и те зоны и объекты реестра, которые его пересекают, — перечень в условных обозначениях. За границей участка другие зоны не показаны, и их отсутствие на схеме не означает, что их нет. Зоны, которых нет в реестре границ, в том числе зоны санитарной охраны источников питьевого водоснабжения, на схеме не показаны (раздел 12). Схема не является межевым планом, топографической съёмкой или картой правил землепользования и застройки; сведения о каждой зоне — в разделах 4, 7, 8 и 10.</p>
+<h2>2. Земельный участок по ЕГРН</h2>
+<div class="tbl"><table><thead><tr><th>Показатель</th><th>Значение</th></tr></thead><tbody><tr><td>Кадастровый номер</td><td>77:06:0012020:18277</td></tr><tr><td>Площадь, м²</td><td>6 260</td></tr><tr><td>Категория земель</td><td>Земли населенных пунктов</td></tr><tr><td>Вид разрешённого использования по документу (ЕГРН)</td><td>Бытовое обслуживание (3.3); Объекты культурно-досуговой деятельности (3.6.1); Магазины (4.4); Обеспечение занятий спортом в помещениях (5.1.2)</td></tr><tr><td>Статус записи</td><td>Учтенный, Земельный участок, учтён 2023-04-11</td></tr><tr><td>Зарегистрированные права (выписка ЕГРН от 09.01.2025)</td><td>сведения о зарегистрированных правах в выписке отсутствуют: участок образован из земель, государственная собственность на которые не разграничена, распоряжается им Департамент городского имущества города Москвы; участок подлежит снятию с кадастрового учёта по истечении пяти лет со дня учёта (11.04.2023), если на него не будут зарегистрированы права</td></tr><tr><td>Обременения и ограничения прав (выписка ЕГРН)</td><td>ограничения прав на земельный участок, предусмотренные статьёй 56 Земельного кодекса Российской Федерации (зона сильного подтопления, реестровый номер границы 77:00-6.311) (с 11.04.2023) — часть участка 77:06:0012020:18277/1, 2 622 м²; ограничения прав на земельный участок, предусмотренные статьёй 56 Земельного кодекса Российской Федерации (зона слабого подтопления, реестровый номер границы 77:00-6.308) (с 11.04.2023) — часть участка 77:06:0012020:18277/2, 2 622 м²</td></tr><tr><td>Кадастровая стоимость, ₽</td><td>123 802 580,2</td></tr><tr><td>Источник</td><td>НСПД, nspd.gov.ru (публичная часть ЕГРН и реестра границ), получено 24.09.2026 14:50</td></tr></tbody></table></div>
+<h2>3. Здания и сооружения на участке</h2>
+<p>объектов капитального строительства, пересекающих границы участка, в реестре на 24.09.2026 14:50 не значится.</p>
+<p class="src">Источник: НСПД, nspd.gov.ru (публичная часть ЕГРН и реестра границ), получено 24.09.2026 14:50.</p>
+<p>По выписке ЕГРН от 09.01.2025 в пределах участка расположен объект недвижимости 77:06:0012020:18237, который в слоях зданий и сооружений НСПД на участке не значится; вид и назначение по выписке об участке не видны — закрывается выпиской по этому объекту.</p>
+<h2>4. Территориальная зона ПЗЗ</h2>
+<div class="tbl"><table><thead><tr><th>Показатель</th><th>Значение</th></tr></thead><tbody><tr><td>Зона по реестру границ ЕГРН</td><td>77:06-7.4069 (в зоне находится 100% площади участка; зона определена пересечением границ)</td></tr><tr><td>Акт об установлении или изменении зоны (по ЕГРН)</td><td>Постановление Правительства Москвы "О внесении изменений в постановление Правительства Москвы от 28 марта 2017 №120-ПП" № 2325-ПП от 15.10.2024 (Правительство Москвы); граница зарегистрирована 2023-08-07</td></tr><tr><td>Проверка реквизита акта по mos.ru</td><td><strong>постановления № 2325-ПП от 15.10.2024 на mos.ru нет</strong>; под этим номером есть изменения 120-ПП от 23.09.2025, 23.12.2020, 25.10.2022. По сверке 03.09.2026 такой реквизит обычно означает распоряжение Москомархитектуры с тем же номером — редакция зоны по этому реквизиту не устанавливается</td></tr><tr><td>Наименование зоны по документу</td><td>Территориальная зона</td></tr><tr><td>Номер зоны (подзоны) по ПЗЗ</td><td>220997 — Книга 8, лист 1 274, квадрат G9-4-4-4, прочитано с листа карты</td></tr><tr><td>Класс участка</td><td>2 — текстовая запись раздела 2 Книги 8 (зона с красной маркировкой); ВРИ по записи 2017 года 4.9.0 не совпадает с ЕГРН — зона изменена позже; действующий регламент получен из ГПЗУ № РФ-77-4-59-3-09-2024-5231-0 от 08.07.2024 (раздел 6)</td></tr><tr><td>Источник</td><td>НСПД, nspd.gov.ru (публичная часть ЕГРН и реестра границ), слой 875838, получено 24.09.2026 14:51; реквизиты акта: НСПД, тематический поиск 7, 2026-09-24T14:51:15+03:00</td></tr></tbody></table></div>
+<h2>5. Виды разрешённого использования</h2>
+<ul><li>По ЕГРН: Бытовое обслуживание (3.3); Объекты культурно-досуговой деятельности (3.6.1); Магазины (4.4); Обеспечение занятий спортом в помещениях (5.1.2).</li><li>По регламенту зоны ПЗЗ: Бытовое обслуживание (3.3); Объекты культурно-досуговой деятельности (3.6.1); Магазины (4.4); Обеспечение занятий спортом в помещениях (5.1.2) (уровень источника GPZU).</li><li>Совпадение: совпадают.</li></ul>
+<h2>6. Предельные параметры разрешённого строительства</h2>
+<div class="tbl"><table><thead><tr><th>Параметр</th><th>Значение</th><th>Статус</th><th>Уровень источника</th><th>Источник</th></tr></thead><tbody><tr><td>Плотность застройки, тыс. м²/га</td><td>14</td><td>установлен регламентом</td><td>GPZU</td><td>ГПЗУ (документ органа, редакция ПЗЗ на дату выдачи); ГПЗУ № РФ-77-4-59-3-09-2024-5231-0 от 08.07.2024, п. 2.3: максимальная плотность 14 тыс. кв. м/га</td></tr><tr><td>Высота застройки, м</td><td>без ограничений</td><td>установлен регламентом</td><td>GPZU</td><td>ГПЗУ (документ органа, редакция ПЗЗ на дату выдачи); ГПЗУ № РФ-77-4-59-3-09-2024-5231-0 от 08.07.2024, п. 2.3: предельная высота — без ограничений</td></tr><tr><td>Застроенность, %</td><td>не установлена регламентом (прочерк)</td><td>регламентом не установлен</td><td>GPZU</td><td>ГПЗУ (документ органа, редакция ПЗЗ на дату выдачи); ГПЗУ № РФ-77-4-59-3-09-2024-5231-0 от 08.07.2024, п. 2.3: максимальный процент застройки — не установлен</td></tr></tbody></table></div>
+<p>Уровни источника по убыванию доказательной силы: GPZU → ISOGD → ACT_MANUAL → CORPUS_2017. Значение уровня CORPUS_2017 — редакция апреля 2017 года и не является действующим параметром.</p>
+<h3>Градостроительный план земельного участка — документ лота</h3>
+<ul><li>Реквизиты: ГПЗУ № РФ-77-4-59-3-09-2024-5231-0, дата выдачи 08.07.2024; подготовлен: Комитет по архитектуре и градостроительству города Москвы, подписан электронной подписью заместителя председателя Комитета; по обращению: правообладатель — Департамент городского имущества города Москвы, обращение от 20.06.2024; границы и сведения ЕГРН — по выписке из ЕГРН об объекте недвижимости от 20.06.2024 № КУВИ-001/2024-164219795.</li><li>Акт, содержащий градостроительный регламент (по ГПЗУ): постановление Правительства Москвы от 28.03.2017 № 120-ПП «Об утверждении Правил землепользования и застройки города Москвы»; номер территориальной зоны в ГПЗУ не приводится.</li><li>Иные показатели (по ГПЗУ, п. 2.3): суммарная поэтажная площадь объекта в габаритах наружных стен — 8 764 кв. м, в том числе физкультурно-оздоровительный комплекс и объект культурно-досуговой деятельности — 4 382 кв. м.</li><li>Срок использования сведений ГПЗУ: сведения ГПЗУ могут использоваться для подготовки проектной документации и получения разрешения на строительство в течение трёх лет со дня выдачи — до 08.07.2027 (часть 10 статьи 57.3 Градостроительного кодекса Российской Федерации).</li><li>Объекты капитального строительства в границах участка (по ГПЗУ): отсутствуют.</li><li>Объекты культурного наследия (по ГПЗУ): информация отсутствует.</li><li>Публичные сервитуты (по ГПЗУ): информация отсутствует.</li><li>Элемент планировочной структуры (по ГПЗУ): не установлен.</li><li>Подключение к сетям инженерно-технического обеспечения (по ГПЗУ, раздел 9): по техническим условиям в составе ГПЗУ: водоснабжение — от существующего водопровода d=300 мм, 20 куб. м/сут, 1,2 л/с, наружное пожаротушение 110 л/с; водоотведение — в существующую канализационную сеть по техническим условиям АО «Мосводоканал» от 26.03.2024 № 21-3519/24, 20 куб. м/сут, 2,8 л/с; поверхностный сток — в коллектор D=800 мм по ул. Николая Сироткина, ГУП «Мосводосток», № 4-23 (ИП) от 16.01.2023, 140 л/с; теплоснабжение — ПАО «МОЭК», до 0,7 Гкал/час, № Т-фТ2-01-230110/4 от 11.01.2023.</li><li>Откуда документ: вложение к карточке торгов на investmoscow.ru (процедура № 16959804 — право аренды на 5 лет 6 месяцев, торги 17.04.2025, признаны состоявшимися; вложение № 4323637), получено 22.09.2026; документ 15 страниц с текстовым слоем.</li><li>Зоны с особыми условиями по ГПЗУ, которых нет в реестре границ ЕГРН: третий пояс зоны санитарной охраны источников питьевого и хозяйственно-бытового водоснабжения города Москвы; установлена: постановления Главного государственного санитарного врача Российской Федерации от 14.03.2002 № 10 (СанПиН 2.1.4.1110-02) и от 30.04.2010 № 45 (СП 2.1.4.2625-10); в зоне находится 6 260 м² площади участка; размещение объектов — по требованиям санитарных правил к третьему поясу (в реестре границ ЕГРН по данным НСПД эта зона не отражена); территории сильного подтопления внутри зон подтопления, прилегающих к зонам затопления у водотоков города Москвы; установлена: приказ Московско-Окского бассейнового водного управления Федерального агентства водных ресурсов от 08.05.2018 № 149; в зоне находится 2 622 м² площади участка; ограничения по части 6 статьи 67.1 Водного кодекса (в реестре границ значилась под номером 77:00-6.311 ещё 22.09.2026; на 24.09.2026 в реестре не отражена); территории слабого подтопления внутри зон подтопления, прилегающих к зонам затопления у водотоков города Москвы; установлена: приказ Московско-Окского бассейнового водного управления Федерального агентства водных ресурсов от 08.05.2018 № 149; в зоне находится 2 622 м² площади участка; ограничения по части 6 статьи 67.1 Водного кодекса (в реестре границ значилась под номером 77:00-6.308 ещё 22.09.2026; на 24.09.2026 в реестре не отражена).</li></ul>
+<h2>7. Зоны с особыми условиями использования территории (ЗОУИТ)</h2>
+<p>зон с особыми условиями использования территории, пересекающих участок, в реестре границ на 24.09.2026 14:51 не значится; это не исключает зон, ещё не внесённых в ЕГРН.</p>
+<p class="src">Источник: НСПД, nspd.gov.ru (публичная часть ЕГРН и реестра границ), слои 37577–37581, получено 24.09.2026 14:51.</p>
+<p>По градостроительному плану земельного участка участок находится ещё в 3 зонах, которые в реестре границ ЕГРН не отражены:</p>
+<ul><li>третий пояс зоны санитарной охраны источников питьевого и хозяйственно-бытового водоснабжения города Москвы; установлена: постановления Главного государственного санитарного врача Российской Федерации от 14.03.2002 № 10 (СанПиН 2.1.4.1110-02) и от 30.04.2010 № 45 (СП 2.1.4.2625-10); в зоне находится 6 260 м² площади участка; размещение объектов — по требованиям санитарных правил к третьему поясу (в реестре границ ЕГРН по данным НСПД эта зона не отражена).</li><li>территории сильного подтопления внутри зон подтопления, прилегающих к зонам затопления у водотоков города Москвы; установлена: приказ Московско-Окского бассейнового водного управления Федерального агентства водных ресурсов от 08.05.2018 № 149; в зоне находится 2 622 м² площади участка; ограничения по части 6 статьи 67.1 Водного кодекса (в реестре границ значилась под номером 77:00-6.311 ещё 22.09.2026; на 24.09.2026 в реестре не отражена).</li><li>территории слабого подтопления внутри зон подтопления, прилегающих к зонам затопления у водотоков города Москвы; установлена: приказ Московско-Окского бассейнового водного управления Федерального агентства водных ресурсов от 08.05.2018 № 149; в зоне находится 2 622 м² площади участка; ограничения по части 6 статьи 67.1 Водного кодекса (в реестре границ значилась под номером 77:00-6.308 ещё 22.09.2026; на 24.09.2026 в реестре не отражена).</li></ul>
+<h2>8. Объекты культурного наследия</h2>
+<ul><li>Территории объектов культурного наследия, пересекающие участок: в реестре границ не значатся.</li><li>Защитные и охранные зоны объектов культурного наследия: в реестре границ не значатся.</li><li>Сам участок или здание как объект культурного наследия: по реестру Мосгорнаследия не проверялось; позиция включена в раздел 12.</li></ul>
+<p class="src">сведения получены из реестра границ 24.09.2026 14:51.</p>
+<p class="src">Источник: НСПД, nspd.gov.ru (публичная часть ЕГРН и реестра границ), слои 875840 и 37577, получено 24.09.2026 14:51.</p>
+<h2>9. Изъятие для государственных нужд, КРТ и проекты планировки</h2>
+<h3>9.1. По Единому государственному реестру недвижимости (выписка) — источник истины</h3>
+<p>В выписке ЕГРН от 09.01.2025 записей о решении об изъятии участка нет; зарегистрировано 2 ограничения иных видов (раздел 2).</p>
+<p>Также по выписке: сведения о том, что участок образован на основании решения об изъятии для государственных или муниципальных нужд, — данные отсутствуют; земельного спора о границах нет; в границах особо охраняемой природной территории участок не расположен.</p>
+<p class="src">Источник: выписка ЕГРН об объекте недвижимости от 09.01.2025 № КУВИ-001/2025-3969351 (Роскадастр по Москве, 11 листов), PDF из документов лота на investmoscow.ru, прочитана по текстовому слою; получена Департаментом городского имущества до торгов 17.04.2025 — договор аренды по их итогам в ней не отражён.</p>
+<h3>9.2. По опубликованным актам (индекс mos.ru) — сведения о планируемом изъятии и о КРТ</h3>
+<p>Индекс актов Правительства Москвы, Департамента городского имущества и Москомархитектуры опережает реестр: решение об изъятии и границы КРТ публикуются раньше, чем запись появляется в ЕГРН. Индекс дополняет выписку, но не заменяет её.</p>
+<p>В проиндексированных актах, опубликованных на mos.ru по 22.09.2026 (4 695 актов), участок не обнаружен. Индекс охватывает раздел «Документы» mos.ru, раздел документов Департамента городского имущества (распоряжения об изъятии и сообщения о планируемом изъятии) и раздел документов Москомархитектуры (актов об изъятии в нём не публикуется). Изъятие дополнительно проверяется по разделу III ИАИС ОГД.</p>
+<h3>9.3. По градостроительному плану земельного участка</h3>
+<ul><li>Комплексное развитие территории: участок не расположен в границах территории, в отношении которой принято решение о комплексном развитии или заключён договор о комплексном развитии (в ГПЗУ — «отсутствует»).</li><li>Проект планировки территории: утверждён постановлением Правительства Москвы от 31.05.2005 № 395-ПП «О проекте планировки территории Щербинки района Южное Бутово»; координаты характерных точек зоны планируемого размещения объекта капитального строительства не установлены.</li><li>Проект межевания территории: проект межевания территории квартала утверждён распоряжением Департамента городского имущества города Москвы от 15.12.2016 № 38747.</li></ul>
+<h2>10. Красные линии, ООПТ, приаэродромные территории</h2>
+<ul><li>Красные линии (ЕГРН): красных линий, пересекающих участок, в реестре границ на 24.09.2026 14:51 не значится; реестр пополняется по мере внесения, отсутствие записи не исключает красных линий в ПЗЗ.</li><li>Особо охраняемые природные территории: пересечений с участком в реестре границ не значится.</li><li>Приаэродромная территория: подзоны приаэродромной территории, внесённые в реестр границ и пересекающие участок, не значатся; границы ПАТ, не внесённые в ЕГРН, проверяются по приказам Росавиации об установлении приаэродромных территорий аэродромов Московского узла.</li></ul>
+<h2>11. Правовой режим и порядок действий</h2>
+<p>Правовой режим участка определяется регламентом территориальной зоны (раздел 4), ограничениями разделов 7–10 и соответствием вида разрешённого использования (раздел 5). Препятствия перечислены в разделе 1.</p>
+<p>Оценка возможности строительства по предельным параметрам — по значениям уровня источника, указанного в разделе 6.</p>
+<h2>12. Что не удалось установить</h2>
+<ul><li>содержание ограничений по записи о зоне — в записях реестра границ о территориальных зонах Москвы это поле не заполняется (пусто у всех 387 зон, проверено 02.09.2026); содержание регламента даёт ПЗЗ, а не ЕГРН</li><li>статус самого участка/здания как объекта культурного наследия — реестр объектов культурного наследия Мосгорнаследия в этой справке не опрашивался</li><li>проверка КРТ по Книге 14 ПЗЗ — Книга 14 ПЗЗ (территории КРТ) по этому участку не проверялась</li><li>зоны санитарной охраны источников питьевого водоснабжения — по реестру границ ЕГРН не проверяются: в правилах землепользования и застройки Москвы карта границ этих зон отмечена как содержащая сведения, составляющие государственную тайну, и московских зон этого вида в открытой части реестра границ не найдено; для этого участка зона установлена по градостроительному плану — раздел 7</li></ul>
+<h2>13. Оговорки</h2>
+<p>Настоящая справка составлена по открытым и официальным источникам на указанные даты получения данных, носит информационный характер и <strong>не является юридической консультацией</strong>, заключением о возможности строительства или гарантией согласования. Сведения ЕГРН и реестра границ приведены в том виде, в каком их выдаёт публичная часть НСПД, и могут отличаться от выписки ЕГРН. Предельные параметры действуют в редакции правил землепользования и застройки на дату их получения из источника, указанного в графе «уровень источника». Отсутствие сведений о зоне, ограничении или объекте в открытом источнике не означает их отсутствия в натуре или в закрытых реестрах: такие позиции помечены в разделе «Что не удалось установить». Сведения реестра границ приведены на дату и время запроса, указанные в начале справки и у каждого раздела; реестр изменяется, в том числе исключением и заменой зон.</p>
+</div>
+
+<h2 style="margin-top:44px">Такая справка по вашему участку</h2>
+<p>Градпрофиль-экспресс — за рабочий день по кадастровому номеру: режим участка, зона и её акт, ограничения из реестра, схема участка и честный список того, что по открытым данным установить нельзя. <a href="/gradprofil.html#zakaz">Заказать справку</a></p>
+</div></section>
+
+<section>
+  <div class="wrap">
+    <div class="card" style="max-width:760px">
+      <span class="mono">О практике</span>
+      <h3 style="margin-top:6px">ELAWYERS GROUP</h3>
+      <p>Юридическая и кадастровая практика: десять лет в государственной регистрации недвижимости, Москва и область. ИП, ОГРНИП 323774600705065. Разборы основаны на делах из собственной практики — документы и основания в каждом тексте реальные.</p>
+      <p style="margin-top:10px"><a href="/o-kompanii.html">О компании</a> · <a href="https://zakon.ru/el-group" rel="noopener">Блог на Закон.ру</a> · <a href="/kontakty.html">Контакты</a></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="card" style="max-width:760px">
+      <span class="mono">Нужен разбор по объекту</span>
+      <h3 style="margin-top:6px">Напишите или позвоните</h3>
+      <p>Опишем порядок действий по ситуации и скажем, что можно сделать своими силами, а где нужна работа.</p>
+      <p style="margin-top:16px;display:flex;gap:14px;flex-wrap:wrap">
+        <a class="btn btn-primary" href="https://t.me/elawyers_bot" rel="noopener">Написать в Telegram</a>
+        <a class="btn btn-ghost" href="mailto:info@el-group.com.ru">info@el-group.com.ru</a>
+        <a class="btn btn-ghost" href="tel:+79852807376">+7 (985) 280-73-76</a>
+      </p>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <div>© 2026 · ELAWYERS GROUP · <a href="/rekvizity.html">Реквизиты</a> · <a href="/politika-konfidencialnosti.html">Политика конфиденциальности</a></div>
+    <div><a href="/#process" style="color:inherit;text-decoration:none;margin-right:18px">Порядок</a> · <a href="/#cadastre" style="color:inherit;text-decoration:none;margin-right:18px">Кадастр</a> · <a href="/gradprofil.html" style="color:inherit;text-decoration:none;margin-right:18px">Градпрофиль</a> · <a href="/proverka-izyatie-krt.html" style="color:inherit;text-decoration:none;margin-right:18px">Проверка на изъятие и КРТ</a> · <a href="/o-kompanii.html" style="color:inherit;text-decoration:none;margin-right:18px">О компании</a><a href="/kontakty.html" style="color:inherit;text-decoration:none;margin-right:18px">Контакты</a><a href="https://t.me/rosreestr_iznutri" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;margin-right:18px">Telegram</a>Москва и Московская область</div>
+  </div>
+</footer>
+
+<script>
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+</script>
+<div id="ck-bar" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#241d33;color:#F5F1E8;padding:12px 16px;font-size:14px;line-height:1.4;text-align:center">Сайт использует cookies и Яндекс Метрику для анализа посещаемости. Продолжая, вы соглашаетесь с <a href="/politika-konfidencialnosti.html" style="color:#c9b8ec;text-decoration:underline">политикой конфиденциальности</a>. <button onclick="localStorage.setItem('ckOk','1');document.getElementById('ck-bar').style.display='none'" style="margin-left:12px;background:#5A35A8;color:#fff;border:0;border-radius:6px;padding:6px 14px;cursor:pointer">Понятно</button></div><script>if(!localStorage.getItem('ckOk')){document.getElementById('ck-bar').style.display='block'}</script></body>
+</html>
