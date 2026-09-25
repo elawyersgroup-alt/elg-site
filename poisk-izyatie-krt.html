@@ -277,6 +277,7 @@ else if(d.status==='invalid'){show(HINT);}
 else if(d.status==='limit'){show('<p>Слишком много проверок с вашего адреса. Попробуйте через час.</p>');}
 else{show(DOWN);}
 }).catch(function(){show(DOWN);}).then(function(){btn.disabled=false;});});
+var qs=new URLSearchParams(location.search),qn=qs.get('n')||qs.get('kn');if(qn){inp.value=qn;if(f.requestSubmit)f.requestSubmit();else f.dispatchEvent(new Event('submit',{cancelable:true}));}
 })();
 </script>
 <footer>

@@ -44,7 +44,7 @@
   </url>
   <url>
     <loc>https://argument-law.ru/o-kompanii.html</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -77,7 +77,7 @@
   <url><loc>https://argument-law.ru/kadastrovyy-uchet-obekta.html</loc>
     <lastmod>2026-09-17</lastmod></url>
 <url><loc>https://argument-law.ru/razbory.html</loc>
-    <lastmod>2026-09-24</lastmod></url><url><loc>https://argument-law.ru/sem-proverok-pered-pokupkoy.html</loc>
+    <lastmod>2026-09-25</lastmod></url><url><loc>https://argument-law.ru/sem-proverok-pered-pokupkoy.html</loc>
     <lastmod>2026-09-24</lastmod></url><url><loc>https://argument-law.ru/registraciya-zdaniya-posle-rekonstrukcii.html</loc>
     <lastmod>2026-09-17</lastmod></url><url><loc>https://argument-law.ru/dva-puti-isklyucheniya-iz-819-pp.html</loc><lastmod>2026-09-24</lastmod></url>
 <url><loc>https://argument-law.ru/obekt-v-dvuh-reestrah-819-pp-i-700-pp.html</loc><lastmod>2026-09-17</lastmod></url>
@@ -105,7 +105,7 @@
   </url>
   <url>
     <loc>https://argument-law.ru/ekspress-razbor.html</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-25</lastmod>
   </url>
   <url>
     <loc>https://argument-law.ru/osnovanie-p7-forma-i-soderzhanie.html</loc>
@@ -186,5 +186,23 @@
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://argument-law.ru/praktika.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://argument-law.ru/dlya-sobstvennikov.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://argument-law.ru/dlya-developerov.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
