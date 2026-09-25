@@ -15,6 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
+  --sheet:#FBFAF6;
   --paper:#F5F2EA;
   --paper-2:#EBE5D6;
   --ink:#241F2E;
@@ -47,7 +48,7 @@ section{padding:84px 0;border-top:1px solid var(--line)}
 .muted{color:var(--ink-soft)}
 
 /* ---------- header ---------- */
-header{position:sticky;top:0;z-index:50;background:rgba(245,242,234,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header:not(.site-head){position:sticky;top:0;z-index:50;background:rgba(245,242,234,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .nav{position:relative}
 .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
 .logo{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.04em;white-space:nowrap;text-decoration:none;flex-shrink:0}
@@ -58,13 +59,13 @@ header{position:sticky;top:0;z-index:50;background:rgba(245,242,234,.92);backdro
 .nav-links a:hover{color:var(--ink)}
 .nav-links .btn{padding:10px 18px;font-size:14px}
 .nav-links a.btn-primary,.nav-links a.btn-primary:hover{color:#fff}
-.burger{display:none;background:none;border:0;cursor:pointer;width:40px;height:40px;flex-direction:column;justify-content:center;gap:5px;padding:8px}
-.burger span{display:block;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
-.burger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.burger.active span:nth-child(2){opacity:0}
-.burger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav .burger{display:none;background:none;border:0;cursor:pointer;width:40px;height:40px;flex-direction:column;justify-content:center;gap:5px;padding:8px}
+.nav .burger span{display:block;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
+.nav .burger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav .burger.active span:nth-child(2){opacity:0}
+.nav .burger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 @media(max-width:1270px){
-  .burger{display:flex}
+  .nav .burger{display:flex}
   .nav-links{position:absolute;top:64px;right:0;left:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 12px 30px rgba(36,31,46,.1);padding:8px 0;max-height:0;overflow:hidden;opacity:0;pointer-events:none;transition:max-height .3s,opacity .2s}
   .nav-links.open{max-height:400px;opacity:1;pointer-events:auto}
   .nav-links a{padding:13px 24px;font-size:16px}
@@ -146,8 +147,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(245,242,234,.92);backdro
 .contact h2{margin-bottom:10px}
 .contact p{max-width:36em;margin:0 auto 30px;color:var(--ink-soft)}
 .contact .hero-cta{justify-content:center}
-footer{padding:34px 0 44px;font-size:13.5px;color:var(--ink-soft)}
-footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer:not(.site-foot){padding:34px 0 44px;font-size:13.5px;color:var(--ink-soft)}
+footer:not(.site-foot) .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 /* reveal */
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
@@ -160,6 +161,53 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .doc{width:auto;max-width:100%;font-size:11px;padding:20px 16px 24px;transform:rotate(0.6deg);overflow:hidden}
   .doc .doc-line{white-space:normal;overflow:visible}
 }
+
+/* === SHELL: шапка, меню, подвал — общие для всех страниц === */
+.site-head{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line)}
+.site-head .wrap{display:flex;align-items:center;gap:28px;min-height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
+.brand img{width:34px;height:auto}
+.brand span{font-family:var(--display);font-size:17px;font-weight:600;letter-spacing:.04em;color:var(--stamp)}
+.menu{display:flex;align-items:center;gap:4px;margin-left:auto;list-style:none}
+.menu>li{position:relative}
+.menu>li>a,.menu>li>button{display:block;background:none;border:0;font:500 15px/1 var(--body);color:var(--ink);padding:12px 10px;text-decoration:none;cursor:pointer;border-radius:4px}
+.menu>li>a:hover,.menu>li>button:hover,.menu>li.open>button{background:var(--paper-2)}
+.menu .has-drop>button::after{content:"";display:inline-block;width:6px;height:6px;margin-left:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-3px) rotate(45deg)}
+.drop{display:none;position:absolute;top:calc(100% + 8px);left:0;background:var(--sheet);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:0 18px 40px -24px rgba(36,31,46,.35);min-width:300px}
+.drop.wide{left:auto;right:-220px;width:min(980px,92vw);display:none}
+.has-drop:hover>.drop,.has-drop:focus-within>.drop,.has-drop.open>.drop{display:block}
+.drop.wide .cols{display:grid;grid-template-columns:repeat(5,1fr);gap:22px}
+.drop .gtitle{font-family:var(--display);font-size:15px;font-weight:600;margin-bottom:8px;color:var(--ink)}
+.drop ul{list-style:none}
+.drop li a{display:block;padding:5px 0;font-size:14.5px;line-height:1.35;color:var(--ink-soft);text-decoration:none}
+.drop li a:hover{color:var(--stamp)}
+.menu .cta{margin-left:8px}
+.menu .cta a{background:var(--stamp);color:#fff;padding:12px 16px;border-radius:var(--radius);font-weight:600}
+.menu .cta a:hover{background:#4A2A8E}
+.burger{display:none;margin-left:auto;background:none;border:1px solid var(--line);border-radius:var(--radius);padding:10px 12px;font:600 15px var(--body);color:var(--ink);cursor:pointer}
+.site-foot{border-top:1px solid var(--line);background:var(--paper-2);padding:56px 0 36px;font-size:14.5px;color:var(--ink-soft)}
+.site-foot .cols{display:grid;grid-template-columns:1.3fr repeat(4,1fr);gap:28px}
+.site-foot .ftitle{font-family:var(--display);font-weight:600;color:var(--ink);margin-bottom:10px;font-size:15px}
+.site-foot ul{list-style:none}
+.site-foot li{margin:4px 0}
+.site-foot a{text-decoration:none}
+.site-foot a:hover{color:var(--stamp)}
+.site-foot .legal{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);font-size:13.5px;line-height:1.55}
+@media (max-width:980px){
+  .burger{display:block}
+  .menu{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 16px 18px;max-height:calc(100vh - 68px);overflow:auto}
+  .site-head.menu-open .menu{display:flex}
+  .menu>li>a,.menu>li>button{width:100%;text-align:left;padding:14px 6px;font-size:16px;border-bottom:1px solid var(--line);border-radius:0}
+  .has-drop:hover>.drop{display:none}
+  .has-drop.open>.drop{display:block}
+  .drop,.drop.wide{position:static;box-shadow:none;border:0;padding:6px 6px 14px;width:auto;min-width:0;background:transparent}
+  .drop.wide .cols{grid-template-columns:1fr;gap:12px}
+  .menu .cta{margin:14px 0 0}
+  .menu .cta a{text-align:center;border-bottom:0}
+  .site-foot .cols{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){.site-foot .cols{grid-template-columns:1fr}}
+/* === /SHELL === */
 </style>
 
 <style>
@@ -219,20 +267,73 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://argument-law.ru/osnovanie-p61-ploshchad-otlichaetsya.html#page","url":"https://argument-law.ru/osnovanie-p61-ploshchad-otlichaetsya.html","name":"П. 61 ч. 1 ст. 26: площадь разошлась более чем на 5%","headline":"«Площадь отличается более чем на пять процентов от указанной в разрешении на строительство»","description":"П. 61 ч. 1 ст. 26 № 218-ФЗ: площадь по вводу и техплану расходится с разрешением на строительство более чем на 5%. Что это значит и что делать. Москва и МО.","inLanguage":"ru-RU","isPartOf":{"@type":"WebSite","name":"ELAWYERS GROUP","url":"https://argument-law.ru/"},"publisher":{"@type":"Organization","name":"ELAWYERS GROUP","url":"https://argument-law.ru/","telephone":"+7 985 280-73-76"},"author":{"@type":"Organization","name":"ELAWYERS GROUP"},"dateModified":"2026-08-30"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://argument-law.ru/"},{"@type":"ListItem","position":2,"name":"«Площадь отличается более чем на пять процентов от указанной в разрешении на строительство»","item":"https://argument-law.ru/osnovanie-p61-ploshchad-otlichaetsya.html"}]}]}</script>
 </head>
 <body>
-<header>
-  <nav class="wrap nav">
-    <a class="logo" href="/"><img src="/img/logo.png" width="256" height="236" alt="ELAWYERS GROUP — колонна ELg"><span class="logo-text">ELAWYERS<span>&nbsp;</span>GROUP</span></a>
-    <nav class="nav-links">
-      <a href="/#problems">С чем работаем</a>
-      <a href="/#product">Как устроено</a>
-      <a href="/partneram.html">Партнёрам</a>
-      <a href="/kadastrovym-inzheneram.html">Инженерам</a>
-        <a href="/proverka-izyatie-krt.html">Изъятие и КРТ</a>
-      <a href="/gradprofil.html">Градпрофиль</a>
-      <a class="btn btn-primary" href="/#contact">Заказать экспертизу</a>
-    </nav>
-    <button class="burger" aria-label="Меню" onclick="document.querySelector('.nav-links').classList.toggle('open');this.classList.toggle('active')"><span></span><span></span><span></span></button>
-  </nav>
+<header class="site-head" id="top">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/img/logo.png" width="256" height="236" alt="ELAWYERS GROUP"><span>ELAWYERS GROUP</span></a>
+    <button class="burger" aria-expanded="false" aria-controls="menu" onclick="var h=this.closest('.site-head');h.classList.toggle('menu-open');this.setAttribute('aria-expanded',h.classList.contains('menu-open'))">Меню</button>
+    <ul class="menu" id="menu">
+      <li class="has-drop"><button type="button" aria-expanded="false">Услуги</button>
+        <div class="drop wide"><div class="cols">
+          <div><div class="gtitle">Регистрация</div><ul>
+            <li><a href="/priostanovka-rosreestr.html">Приостановили регистрацию</a></li>
+            <li><a href="/ekspress-razbor.html">Разбор уведомления за 24 часа</a></li>
+            <li><a href="/osnovaniya-priostanovleniya.html">Основания приостановления</a></li>
+            <li><a href="/obzhalovanie-priostanovki.html">Обжалование приостановки</a></li>
+            <li><a href="/otkaz-rosreestr.html">Отказ Росреестра</a></li>
+            <li><a href="/reestrovaya-oshibka.html">Реестровая ошибка</a></li>
+          </ul></div>
+          <div><div class="gtitle">Легализация и ввод</div><ul>
+            <li><a href="/uzakonit-samostroy.html">Узаконить самострой</a></li>
+            <li><a href="/obekt-v-perechne-819-pp.html">Объект в реестре 819-ПП</a></li>
+            <li><a href="/vvod-v-ekspluataciyu.html">Ввод в эксплуатацию</a></li>
+            <li><a href="/registraciya-zdaniya-posle-rekonstrukcii.html">Регистрация после реконструкции</a></li>
+            <li><a href="/kapremont-ili-rekonstrukciya.html">Капремонт или реконструкция</a></li>
+          </ul></div>
+          <div><div class="gtitle">Налог и перечни</div><ul>
+            <li><a href="/isklyuchenie-iz-perechnya-700-pp.html">Исключение из перечня 700-ПП</a></li>
+            <li><a href="/perechen-700-pp-spor-i-srok.html">Спор и срок возврата налога</a></li>
+            <li><a href="/kalendar-700-pp.html">Календарь 700-ПП</a></li>
+            <li><a href="/reestrovyy-kontrol.html">Реестровый контроль</a></li>
+            <li><a href="/obekt-v-dvuh-reestrah-819-pp-i-700-pp.html">Объект в 819-ПП и 700-ПП</a></li>
+          </ul></div>
+          <div><div class="gtitle">Покупка и продажа</div><ul>
+            <li><a href="/audit-pered-pokupkoy.html">Аудит перед покупкой</a></li>
+            <li><a href="/proverka-izyatie-krt.html">Проверка на изъятие и КРТ</a></li>
+            <li><a href="/sem-proverok-pered-pokupkoy.html">Семь проверок перед покупкой</a></li>
+          </ul></div>
+          <div><div class="gtitle">Земля и стройка</div><ul>
+            <li><a href="/gradprofil.html">Градпрофиль — что можно построить</a></li>
+            <li><a href="/krt-tri-dokumenta.html">КРТ: три документа</a></li>
+            <li><a href="/zouit-zony-s-osobymi-usloviyami.html">Зоны с особыми условиями</a></li>
+            <li><a href="/kadastrovye-raboty.html">Кадастровые работы</a></li>
+            <li><a href="/ekspertizy.html">Экспертизы</a></li>
+          </ul></div>
+        </div></div>
+      </li>
+      <li class="has-drop"><button type="button" aria-expanded="false">Кому</button>
+        <div class="drop"><ul>
+          <li><a href="/dlya-sobstvennikov.html">Собственникам и инвесторам</a></li>
+          <li><a href="/dlya-developerov.html">Девелоперам</a></li>
+          <li><a href="/partneram.html">Юридическим фирмам</a></li>
+          <li><a href="/kadastrovym-inzheneram.html">Кадастровым инженерам</a></li>
+          <li><a href="/proverka-izyatie-krt.html">Риелторам и агентствам</a></li>
+        </ul></div>
+      </li>
+      <li class="has-drop"><button type="button" aria-expanded="false">Инструменты</button>
+        <div class="drop"><ul>
+          <li><a href="/poisk-izyatie-krt.html">Бесплатный поиск по актам</a></li>
+          <li><a href="/proverka-izyatie-krt.html">Проверка на изъятие и КРТ</a></li>
+          <li><a href="/gradprofil.html">Градпрофиль</a></li>
+          <li><a href="/primer-spravki.html">Пример справки на реальном участке</a></li>
+          <li><a href="/reestrovyy-kontrol.html">Реестровый контроль</a></li>
+        </ul></div>
+      </li>
+      <li><a href="/praktika.html">Практика</a></li>
+      <li><a href="/razbory.html">Публикации</a></li>
+      <li><a href="/o-kompanii.html">О практике</a></li>
+      <li class="cta"><a href="/kontakty.html">Обсудить задачу</a></li>
+    </ul>
+  </div>
 </header>
 <section class="svc-hero">
   <div class="wrap">
@@ -276,10 +377,37 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   </div>
 </section>
 
-<footer>
+<footer class="site-foot">
   <div class="wrap">
-    <div>© 2026 · ELAWYERS GROUP · <a href="/rekvizity.html">Реквизиты</a> · <a href="/politika-konfidencialnosti.html">Политика конфиденциальности</a></div>
-    <div><a href="/#process" style="color:inherit;text-decoration:none;margin-right:18px">Порядок</a> · <a href="/#cadastre" style="color:inherit;text-decoration:none;margin-right:18px">Кадастр</a> · <a href="/gradprofil.html" style="color:inherit;text-decoration:none;margin-right:18px">Градпрофиль</a> · <a href="/proverka-izyatie-krt.html" style="color:inherit;text-decoration:none;margin-right:18px">Проверка на изъятие и КРТ</a> · <a href="/o-kompanii.html" style="color:inherit;text-decoration:none;margin-right:18px">О компании</a><a href="/kontakty.html" style="color:inherit;text-decoration:none;margin-right:18px">Контакты</a><a href="https://t.me/rosreestr_iznutri" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;margin-right:18px">Telegram</a>Москва и Московская область</div>
+    <div class="cols">
+      <div><div class="ftitle">ELAWYERS GROUP</div><p>Юридическая и кадастровая практика по недвижимости. Москва и Московская область.</p><p style="margin-top:10px"><a href="tel:+79852807376">+7 (985) 280-73-76</a><br><a href="mailto:info@el-group.com.ru">info@el-group.com.ru</a></p></div>
+      <div><div class="ftitle">Услуги</div><ul>
+        <li><a href="/priostanovka-rosreestr.html">Регистрация</a></li>
+        <li><a href="/uzakonit-samostroy.html">Легализация и ввод</a></li>
+        <li><a href="/isklyuchenie-iz-perechnya-700-pp.html">Налог и перечни</a></li>
+        <li><a href="/audit-pered-pokupkoy.html">Покупка и продажа</a></li>
+        <li><a href="/gradprofil.html">Земля и стройка</a></li>
+      </ul></div>
+      <div><div class="ftitle">Инструменты</div><ul>
+        <li><a href="/poisk-izyatie-krt.html">Поиск по актам</a></li>
+        <li><a href="/proverka-izyatie-krt.html">Проверка на изъятие и КРТ</a></li>
+        <li><a href="/gradprofil.html">Градпрофиль</a></li>
+        <li><a href="/reestrovyy-kontrol.html">Реестровый контроль</a></li>
+      </ul></div>
+      <div><div class="ftitle">Практика</div><ul>
+        <li><a href="/praktika.html">Дела и примеры</a></li>
+        <li><a href="/razbory.html">Публикации</a></li>
+        <li><a href="https://zakon.ru/el-group" rel="noopener">Закон.ру</a></li>
+        <li><a href="https://t.me/rosreestr_iznutri" rel="noopener">Telegram-канал</a></li>
+      </ul></div>
+      <div><div class="ftitle">О практике</div><ul>
+        <li><a href="/o-kompanii.html">О практике</a></li>
+        <li><a href="/kontakty.html">Контакты</a></li>
+        <li><a href="/rekvizity.html">Реквизиты</a></li>
+        <li><a href="/politika-konfidencialnosti.html">Политика конфиденциальности</a></li>
+      </ul></div>
+    </div>
+    <div class="legal">ИП Еланский Игорь Юрьевич · ОГРНИП 323774600705065 · ИНН 616303599130 · 105005, Москва, ул. 2-я Бауманская, д. 9/23, стр. 3. Материалы сайта носят информационный характер и не являются юридической консультацией.</div>
   </div>
 </footer>
 
@@ -287,5 +415,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('on')})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 </script>
-<div id="ck-bar" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#241d33;color:#F5F1E8;padding:12px 16px;font-size:14px;line-height:1.4;text-align:center">Сайт использует cookies и Яндекс Метрику для анализа посещаемости. Продолжая, вы соглашаетесь с <a href="/politika-konfidencialnosti.html" style="color:#c9b8ec;text-decoration:underline">политикой конфиденциальности</a>. <button onclick="localStorage.setItem('ckOk','1');document.getElementById('ck-bar').style.display='none'" style="margin-left:12px;background:#5A35A8;color:#fff;border:0;border-radius:6px;padding:6px 14px;cursor:pointer">Понятно</button></div><script>if(!localStorage.getItem('ckOk')){document.getElementById('ck-bar').style.display='block'}</script></body>
+<div id="ck-bar" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#241d33;color:#F5F1E8;padding:12px 16px;font-size:14px;line-height:1.4;text-align:center">Сайт использует cookies и Яндекс Метрику для анализа посещаемости. Продолжая, вы соглашаетесь с <a href="/politika-konfidencialnosti.html" style="color:#c9b8ec;text-decoration:underline">политикой конфиденциальности</a>. <button onclick="localStorage.setItem('ckOk','1');document.getElementById('ck-bar').style.display='none'" style="margin-left:12px;background:#5A35A8;color:#fff;border:0;border-radius:6px;padding:6px 14px;cursor:pointer">Понятно</button></div><script>if(!localStorage.getItem('ckOk')){document.getElementById('ck-bar').style.display='block'}</script><script>
+document.querySelectorAll('.has-drop>button').forEach(function(b){b.addEventListener('click',function(){var li=b.parentElement,o=li.classList.contains('open');document.querySelectorAll('.has-drop.open').forEach(function(x){x.classList.remove('open');x.querySelector('button').setAttribute('aria-expanded','false')});if(!o){li.classList.add('open');b.setAttribute('aria-expanded','true')}})});
+document.addEventListener('click',function(e){if(!e.target.closest('.has-drop'))document.querySelectorAll('.has-drop.open').forEach(function(x){x.classList.remove('open');x.querySelector('button').setAttribute('aria-expanded','false')})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.has-drop.open').forEach(function(x){x.classList.remove('open')})});
+</script>
+</body>
 </html>
