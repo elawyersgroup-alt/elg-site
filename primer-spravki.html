@@ -210,7 +210,44 @@ footer:not(.site-foot) .wrap{display:flex;justify-content:space-between;gap:16px
   .site-foot .cols{grid-template-columns:1fr 1fr}
 }
 @media (max-width:560px){.site-foot .cols{grid-template-columns:1fr}}
+.m-bar{display:none}
+@media (max-width:680px){
+  /* 26.09.2026, проверка на 390 px: цели нажатия не меньше 44 px, читаемый текст не мельче 15 px; метки прописными (.mono, цена экспресс-разбора) не трогаются.
+     Префикс html body — чтобы правило перекрывало стили страницы, стоящие после этого блока */
+  html body .burger{min-height:44px;padding:11px 14px}
+  html body .drop li a{padding:12px 0;font-size:15px}
+  html body .menu .cta a{padding:14px 16px}
+  html body .site-foot,html body .site-foot .legal,html body .crumbs,html body .crumbs a{font-size:15px}
+  #ck-bar,#ck-bar a{font-size:15px!important}
+  #ck-bar button{min-height:44px;padding:10px 18px!important;font-size:15px!important}
+  html body .muted,html body small:not(.xr-price small),html body label,html body figcaption,html body .card p,html body .card .ref,html body .hero-note,html body .search-note,html body .deadline-box,html body .deadline-box b,html body .privacy-note,html body .privacy-note span,html body .tool-row,html body .res-count,html body .f-norm,html body .spr .src,html body .kind,html body .src,html body .tl time,html body .cal b,html body .tier .step,html body .tier .term,html body .doc figcaption,html body .viz,html body .viz th,html body .viz td,html body .viz-cap,html body .viz-src,html body .viz .up,html body .swipe-hint,html body .m-bar a,html body main li>span,html body main li>b,html body .cases .kind,html body .pubs .src{font-size:15px}
+  [style*="font-size:12px"],[style*="font-size:13px"],[style*="font-size:13.5px"],[style*="font-size:14px"],[style*="font-size:14.5px"]{font-size:15px!important}
+  /* метки: не прописными — обычными буквами, 15 px, полужирным, цветом бренда (решение Игоря 26.09) */
+  html body .mono{text-transform:none;font-family:var(--body);font-size:15px;font-weight:600;letter-spacing:normal}
+  html body #express-razbor .xr-price small{text-transform:none;font-family:var(--body);font-size:15px;font-weight:600;letter-spacing:normal;opacity:.9}
+  /* нижняя панель быстрой связи на всех страницах (решение Игоря 26.09); прячется, пока открыто меню */
+  body{padding-bottom:76px}
+  .m-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;gap:8px;background:var(--sheet);border-top:1px solid var(--line);padding:8px 10px calc(8px + env(safe-area-inset-bottom))}
+  .m-bar a{flex:1;text-align:center;font:600 15px/1.2 var(--body);text-decoration:none;padding:12px 4px;border-radius:var(--radius);border:1px solid var(--line);color:var(--ink);background:#fff}
+  .m-bar a.hl{background:var(--stamp);color:#fff;border-color:var(--stamp)}
+  .site-head.menu-open~.m-bar{display:none}
+}
 /* === /SHELL === */
+@media (max-width:680px){
+  /* 26.09.2026: таблицы справки на телефоне — строка карточкой: подпись жирным, значение под ней; без прокрутки вбок */
+  .spr table{min-width:0}
+  .spr .tbl thead{display:none}
+  .spr .tbl tr{display:block;padding:8px 0;border-bottom:1px solid var(--line)}
+  .spr .tbl tr:last-child{border-bottom:0}
+  .spr .tbl td{display:block;border:0;padding:2px 12px}
+  .spr .tbl td:first-child{font-weight:600}
+  .spr .tbl td:not(:first-child){overflow-wrap:anywhere}
+  .spr .tbl-5 td:nth-child(2)::before{content:"Значение: ";color:var(--ink-soft)}
+  .spr .tbl-5 td:nth-child(3)::before{content:"Статус: ";color:var(--ink-soft)}
+  .spr .tbl-5 td:nth-child(4)::before{content:"Уровень источника: ";color:var(--ink-soft)}
+  .spr .tbl-5 td:nth-child(5)::before{content:"Источник: ";color:var(--ink-soft)}
+}
+
 </style>
 
 <style>
@@ -375,7 +412,7 @@ footer:not(.site-foot) .wrap{display:flex;justify-content:space-between;gap:16px
 <h2>5. Виды разрешённого использования</h2>
 <ul><li>По ЕГРН: Бытовое обслуживание (3.3); Объекты культурно-досуговой деятельности (3.6.1); Магазины (4.4); Обеспечение занятий спортом в помещениях (5.1.2).</li><li>По регламенту зоны ПЗЗ: Бытовое обслуживание (3.3); Объекты культурно-досуговой деятельности (3.6.1); Магазины (4.4); Обеспечение занятий спортом в помещениях (5.1.2) (уровень источника GPZU).</li><li>Совпадение: совпадают.</li></ul>
 <h2>6. Предельные параметры разрешённого строительства</h2>
-<div class="tbl"><table><thead><tr><th>Параметр</th><th>Значение</th><th>Статус</th><th>Уровень источника</th><th>Источник</th></tr></thead><tbody><tr><td>Плотность застройки, тыс. м²/га</td><td>14</td><td>установлен регламентом</td><td>GPZU</td><td>ГПЗУ (документ органа, редакция ПЗЗ на дату выдачи); ГПЗУ № РФ-77-4-59-3-09-2024-5231-0 от 08.07.2024, п. 2.3: максимальная плотность 14 тыс. кв. м/га</td></tr><tr><td>Высота застройки, м</td><td>без ограничений</td><td>установлен регламентом</td><td>GPZU</td><td>ГПЗУ (документ органа, редакция ПЗЗ на дату выдачи); ГПЗУ № РФ-77-4-59-3-09-2024-5231-0 от 08.07.2024, п. 2.3: предельная высота — без ограничений</td></tr><tr><td>Застроенность, %</td><td>не установлена регламентом (прочерк)</td><td>регламентом не установлен</td><td>GPZU</td><td>ГПЗУ (документ органа, редакция ПЗЗ на дату выдачи); ГПЗУ № РФ-77-4-59-3-09-2024-5231-0 от 08.07.2024, п. 2.3: максимальный процент застройки — не установлен</td></tr></tbody></table></div>
+<div class="tbl tbl-5"><table><thead><tr><th>Параметр</th><th>Значение</th><th>Статус</th><th>Уровень источника</th><th>Источник</th></tr></thead><tbody><tr><td>Плотность застройки, тыс. м²/га</td><td>14</td><td>установлен регламентом</td><td>GPZU</td><td>ГПЗУ (документ органа, редакция ПЗЗ на дату выдачи); ГПЗУ № РФ-77-4-59-3-09-2024-5231-0 от 08.07.2024, п. 2.3: максимальная плотность 14 тыс. кв. м/га</td></tr><tr><td>Высота застройки, м</td><td>без ограничений</td><td>установлен регламентом</td><td>GPZU</td><td>ГПЗУ (документ органа, редакция ПЗЗ на дату выдачи); ГПЗУ № РФ-77-4-59-3-09-2024-5231-0 от 08.07.2024, п. 2.3: предельная высота — без ограничений</td></tr><tr><td>Застроенность, %</td><td>не установлена регламентом (прочерк)</td><td>регламентом не установлен</td><td>GPZU</td><td>ГПЗУ (документ органа, редакция ПЗЗ на дату выдачи); ГПЗУ № РФ-77-4-59-3-09-2024-5231-0 от 08.07.2024, п. 2.3: максимальный процент застройки — не установлен</td></tr></tbody></table></div>
 <p>Уровни источника по убыванию доказательной силы: GPZU → ISOGD → ACT_MANUAL → CORPUS_2017. Значение уровня CORPUS_2017 — редакция апреля 2017 года и не является действующим параметром.</p>
 <h3>Градостроительный план земельного участка — документ лота</h3>
 <ul><li>Реквизиты: ГПЗУ № РФ-77-4-59-3-09-2024-5231-0, дата выдачи 08.07.2024; подготовлен: Комитет по архитектуре и градостроительству города Москвы, подписан электронной подписью заместителя председателя Комитета; по обращению: правообладатель — Департамент городского имущества города Москвы, обращение от 20.06.2024; границы и сведения ЕГРН — по выписке из ЕГРН об объекте недвижимости от 20.06.2024 № КУВИ-001/2024-164219795.</li><li>Акт, содержащий градостроительный регламент (по ГПЗУ): постановление Правительства Москвы от 28.03.2017 № 120-ПП «Об утверждении Правил землепользования и застройки города Москвы»; номер территориальной зоны в ГПЗУ не приводится.</li><li>Иные показатели (по ГПЗУ, п. 2.3): суммарная поэтажная площадь объекта в габаритах наружных стен — 8 764 кв. м, в том числе физкультурно-оздоровительный комплекс и объект культурно-досуговой деятельности — 4 382 кв. м.</li><li>Срок использования сведений ГПЗУ: сведения ГПЗУ могут использоваться для подготовки проектной документации и получения разрешения на строительство в течение трёх лет со дня выдачи — до 08.07.2027 (часть 10 статьи 57.3 Градостроительного кодекса Российской Федерации).</li><li>Объекты капитального строительства в границах участка (по ГПЗУ): отсутствуют.</li><li>Объекты культурного наследия (по ГПЗУ): информация отсутствует.</li><li>Публичные сервитуты (по ГПЗУ): информация отсутствует.</li><li>Элемент планировочной структуры (по ГПЗУ): не установлен.</li><li>Подключение к сетям инженерно-технического обеспечения (по ГПЗУ, раздел 9): по техническим условиям в составе ГПЗУ: водоснабжение — от существующего водопровода d=300 мм, 20 куб. м/сут, 1,2 л/с, наружное пожаротушение 110 л/с; водоотведение — в существующую канализационную сеть по техническим условиям АО «Мосводоканал» от 26.03.2024 № 21-3519/24, 20 куб. м/сут, 2,8 л/с; поверхностный сток — в коллектор D=800 мм по ул. Николая Сироткина, ГУП «Мосводосток», № 4-23 (ИП) от 16.01.2023, 140 л/с; теплоснабжение — ПАО «МОЭК», до 0,7 Гкал/час, № Т-фТ2-01-230110/4 от 11.01.2023.</li><li>Откуда документ: вложение к карточке торгов на investmoscow.ru (процедура № 16959804 — право аренды на 5 лет 6 месяцев, торги 17.04.2025, признаны состоявшимися; вложение № 4323637), получено 22.09.2026; документ 15 страниц с текстовым слоем.</li><li>Зоны с особыми условиями по ГПЗУ, которых нет в реестре границ ЕГРН: третий пояс зоны санитарной охраны источников питьевого и хозяйственно-бытового водоснабжения города Москвы; установлена: постановления Главного государственного санитарного врача Российской Федерации от 14.03.2002 № 10 (СанПиН 2.1.4.1110-02) и от 30.04.2010 № 45 (СП 2.1.4.2625-10); в зоне находится 6 260 м² площади участка; размещение объектов — по требованиям санитарных правил к третьему поясу (в реестре границ ЕГРН по данным НСПД эта зона не отражена); территории сильного подтопления внутри зон подтопления, прилегающих к зонам затопления у водотоков города Москвы; установлена: приказ Московско-Окского бассейнового водного управления Федерального агентства водных ресурсов от 08.05.2018 № 149; в зоне находится 2 622 м² площади участка; ограничения по части 6 статьи 67.1 Водного кодекса (в реестре границ значилась под номером 77:00-6.311 ещё 22.09.2026; на 24.09.2026 в реестре не отражена); территории слабого подтопления внутри зон подтопления, прилегающих к зонам затопления у водотоков города Москвы; установлена: приказ Московско-Окского бассейнового водного управления Федерального агентства водных ресурсов от 08.05.2018 № 149; в зоне находится 2 622 м² площади участка; ограничения по части 6 статьи 67.1 Водного кодекса (в реестре границ значилась под номером 77:00-6.308 ещё 22.09.2026; на 24.09.2026 в реестре не отражена).</li></ul>
@@ -481,5 +518,10 @@ document.querySelectorAll('.has-drop>button').forEach(function(b){b.addEventList
 document.addEventListener('click',function(e){if(!e.target.closest('.has-drop'))document.querySelectorAll('.has-drop.open').forEach(function(x){x.classList.remove('open');x.querySelector('button').setAttribute('aria-expanded','false')})});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.has-drop.open').forEach(function(x){x.classList.remove('open')})});
 </script>
+<nav class="m-bar" aria-label="Быстрая связь">
+  <a href="tel:+79852807376" onclick="try{ym(110859643,'reachGoal','mbar_call')}catch(e){}">Позвонить</a>
+  <a href="/kontakty.html" onclick="try{ym(110859643,'reachGoal','mbar_write')}catch(e){}">Написать</a>
+  <a class="hl" href="/poisk-izyatie-krt.html" onclick="try{ym(110859643,'reachGoal','mbar_poisk')}catch(e){}">Проверить участок</a>
+</nav>
 </body>
 </html>

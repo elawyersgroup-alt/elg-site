@@ -210,6 +210,28 @@ footer:not(.site-foot) .wrap{display:flex;justify-content:space-between;gap:16px
   .site-foot .cols{grid-template-columns:1fr 1fr}
 }
 @media (max-width:560px){.site-foot .cols{grid-template-columns:1fr}}
+.m-bar{display:none}
+@media (max-width:680px){
+  /* 26.09.2026, проверка на 390 px: цели нажатия не меньше 44 px, читаемый текст не мельче 15 px; метки прописными (.mono, цена экспресс-разбора) не трогаются.
+     Префикс html body — чтобы правило перекрывало стили страницы, стоящие после этого блока */
+  html body .burger{min-height:44px;padding:11px 14px}
+  html body .drop li a{padding:12px 0;font-size:15px}
+  html body .menu .cta a{padding:14px 16px}
+  html body .site-foot,html body .site-foot .legal,html body .crumbs,html body .crumbs a{font-size:15px}
+  #ck-bar,#ck-bar a{font-size:15px!important}
+  #ck-bar button{min-height:44px;padding:10px 18px!important;font-size:15px!important}
+  html body .muted,html body small:not(.xr-price small),html body label,html body figcaption,html body .card p,html body .card .ref,html body .hero-note,html body .search-note,html body .deadline-box,html body .deadline-box b,html body .privacy-note,html body .privacy-note span,html body .tool-row,html body .res-count,html body .f-norm,html body .spr .src,html body .kind,html body .src,html body .tl time,html body .cal b,html body .tier .step,html body .tier .term,html body .doc figcaption,html body .viz,html body .viz th,html body .viz td,html body .viz-cap,html body .viz-src,html body .viz .up,html body .swipe-hint,html body .m-bar a,html body main li>span,html body main li>b,html body .cases .kind,html body .pubs .src{font-size:15px}
+  [style*="font-size:12px"],[style*="font-size:13px"],[style*="font-size:13.5px"],[style*="font-size:14px"],[style*="font-size:14.5px"]{font-size:15px!important}
+  /* метки: не прописными — обычными буквами, 15 px, полужирным, цветом бренда (решение Игоря 26.09) */
+  html body .mono{text-transform:none;font-family:var(--body);font-size:15px;font-weight:600;letter-spacing:normal}
+  html body #express-razbor .xr-price small{text-transform:none;font-family:var(--body);font-size:15px;font-weight:600;letter-spacing:normal;opacity:.9}
+  /* нижняя панель быстрой связи на всех страницах (решение Игоря 26.09); прячется, пока открыто меню */
+  body{padding-bottom:76px}
+  .m-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;gap:8px;background:var(--sheet);border-top:1px solid var(--line);padding:8px 10px calc(8px + env(safe-area-inset-bottom))}
+  .m-bar a{flex:1;text-align:center;font:600 15px/1.2 var(--body);text-decoration:none;padding:12px 4px;border-radius:var(--radius);border:1px solid var(--line);color:var(--ink);background:#fff}
+  .m-bar a.hl{background:var(--stamp);color:#fff;border-color:var(--stamp)}
+  .site-head.menu-open~.m-bar{display:none}
+}
 /* === /SHELL === */
 </style>
 
@@ -430,5 +452,10 @@ document.querySelectorAll('.has-drop>button').forEach(function(b){b.addEventList
 document.addEventListener('click',function(e){if(!e.target.closest('.has-drop'))document.querySelectorAll('.has-drop.open').forEach(function(x){x.classList.remove('open');x.querySelector('button').setAttribute('aria-expanded','false')})});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.has-drop.open').forEach(function(x){x.classList.remove('open')})});
 </script>
+<nav class="m-bar" aria-label="Быстрая связь">
+  <a href="tel:+79852807376" onclick="try{ym(110859643,'reachGoal','mbar_call')}catch(e){}">Позвонить</a>
+  <a href="/kontakty.html" onclick="try{ym(110859643,'reachGoal','mbar_write')}catch(e){}">Написать</a>
+  <a class="hl" href="/poisk-izyatie-krt.html" onclick="try{ym(110859643,'reachGoal','mbar_poisk')}catch(e){}">Проверить участок</a>
+</nav>
 </body>
 </html>
