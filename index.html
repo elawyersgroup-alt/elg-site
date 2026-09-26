@@ -342,6 +342,17 @@ details.fold>summary::-webkit-details-marker{display:none}
 }
 @media (prefers-reduced-motion:reduce){#uslugi .dots circle{animation:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media (max-width:680px){
+  /* 26.09.2026: «С чем приходят к нам» на телефоне — компактный список: значок, заголовок, стрелка */
+  html body #uslugi .tasks{margin-top:16px}
+  html body #uslugi .tasks a{flex-direction:row;align-items:center;gap:14px;min-height:60px;padding:10px 44px 10px 14px}
+  html body #uslugi .tasks a>div{gap:0}
+  html body #uslugi .ico{width:38px;height:38px;flex:none}
+  html body #uslugi .ico svg{width:22px;height:22px}
+  html body #uslugi .tasks h3{font-size:18px;line-height:1.25}
+  html body #uslugi .tasks a p{display:none}
+  html body #uslugi .tasks a::after{top:50%;right:16px;transform:translateY(-50%);font-size:20px}
+}
 </style>
 </head>
 <body>
@@ -544,7 +555,7 @@ details.fold>summary::-webkit-details-marker{display:none}
     <div class="tasks">
       <a href="/priostanovka-rosreestr.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><circle cx="12" cy="14" r="3.2"/><path d="M9 20h6"/></svg></span><div><h3>Росреестр приостановил или отказал</h3><p>Устраняем причины и доводим до записи в ЕГРН.</p></div></a>
       <a href="/uzakonit-samostroy.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l6-3v15"/><path d="M10 21V4l10 4v13"/><path d="M13 9h1M16 10h1M13 13h1M16 14h1M13 17h1M16 18h1M6.5 12h1M6.5 16h1"/><path d="M2 21h20"/></svg></span><div><h3>Объект в 819-ПП или без разрешений</h3><p>Выход из реестра, легализация, ввод.</p></div></a>
-      <a href="/isklyuchenie-iz-perechnya-700-pp.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21V3h6a4 4 0 0 1 0 8H6"/><path d="M6 15h8"/></svg></span><div><h3>Налог вырос из-за 700-ПП</h3><p>Оспариваем включение, возвращаем переплату.</p></div></a>
+      <a href="/isklyuchenie-iz-perechnya-700-pp.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21V3h6a4 4 0 0 1 0 8H6"/><path d="M6 15h8"/></svg></span><div><h3>Налог вырос из-за <span style="white-space:nowrap">700-ПП</span></h3><p>Оспариваем включение, возвращаем переплату.</p></div></a>
       <a href="/audit-pered-pokupkoy.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="14" r="4"/><path d="M11 11l9-9M16 6l2 2M14 8l2 2"/></svg></span><div><h3>Покупаете объект</h3><p>Проверка до аванса: права, изъятие, самострой.</p></div></a>
       <a href="/gradprofil.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l7-3 9 4-2 11-12 1z"/><path d="M8 5.5l-1 14M4 12l15 1.5"/></svg></span><div><h3>Что можно построить</h3><p>Зона, ограничения, параметры — с источником.</p></div></a>
       <a href="/kadastrovye-raboty.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 16H4z"/><circle cx="12" cy="13" r="1.6"/><path d="M12 3v7"/></svg></span><div><h3>Кадастровые работы</h3><p>Технический и межевой план с нашими инженерами.</p></div></a>
