@@ -57,7 +57,7 @@ p{max-width:68ch}
 
 /* === SHELL: шапка, меню, подвал — общие для всех страниц === */
 .site-head{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line)}
-.site-head .wrap{display:flex;align-items:center;gap:28px;min-height:68px}
+.site-head .wrap{display:flex;align-items:center;gap:28px;min-height:68px;position:relative}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
 .brand img{width:34px;height:auto}
 .brand span{font-family:var(--display);font-size:17px;font-weight:600;letter-spacing:.04em;color:var(--stamp)}
@@ -67,7 +67,9 @@ p{max-width:68ch}
 .menu>li>a:hover,.menu>li>button:hover,.menu>li.open>button{background:var(--paper-2)}
 .menu .has-drop>button::after{content:"";display:inline-block;width:6px;height:6px;margin-left:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-3px) rotate(45deg)}
 .drop{display:none;position:absolute;top:calc(100% + 8px);left:0;background:var(--sheet);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:0 18px 40px -24px rgba(36,31,46,.35);min-width:300px}
-.drop.wide{left:auto;right:-220px;width:min(980px,92vw);display:none}
+.menu>li:has(>.drop.wide){position:static}
+.drop.wide{left:50%;right:auto;top:calc(100% - 4px);transform:translateX(-50%);width:min(980px,calc(100vw - 32px));display:none}
+.drop::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:16px}
 .has-drop:hover>.drop,.has-drop:focus-within>.drop,.has-drop.open>.drop{display:block}
 .drop.wide .cols{display:grid;grid-template-columns:repeat(5,1fr);gap:22px}
 .drop .gtitle{font-family:var(--display);font-size:15px;font-weight:600;margin-bottom:8px;color:var(--ink)}
@@ -93,7 +95,8 @@ p{max-width:68ch}
   .menu>li>a,.menu>li>button{width:100%;text-align:left;padding:14px 6px;font-size:16px;border-bottom:1px solid var(--line);border-radius:0}
   .has-drop:hover>.drop{display:none}
   .has-drop.open>.drop{display:block}
-  .drop,.drop.wide{position:static;box-shadow:none;border:0;padding:6px 6px 14px;width:auto;min-width:0;background:transparent}
+  .drop,.drop.wide{position:static;box-shadow:none;border:0;padding:6px 6px 14px;width:auto;min-width:0;background:transparent;transform:none}
+  .drop::before{display:none}
   .drop.wide .cols{grid-template-columns:1fr;gap:12px}
   .menu .cta{margin:14px 0 0}
   .menu .cta a{text-align:center;border-bottom:0}
@@ -109,7 +112,7 @@ section{padding:88px 0;border-top:1px solid var(--line)}
 .hero h1{font-size:46px;font-size:clamp(34px,4.6vw,54px);margin-bottom:22px}
 .hero .sub{font-size:19px;line-height:1.55;color:var(--ink-soft);margin-bottom:32px;max-width:36em}
 .hero .actions{display:flex;gap:12px;flex-wrap:wrap}
-.doc img{max-height:560px;width:100%;object-fit:contain}
+.doc img{max-height:560px;width:100%;height:auto;object-fit:contain}
 .doc{background:#fff;border:1px solid var(--line);border-radius:4px;padding:12px;box-shadow:0 30px 60px -40px rgba(36,31,46,.45)}
 .doc figcaption{font-size:13.5px;color:var(--ink-soft);padding:12px 4px 2px;line-height:1.45}
 .strip{background:var(--stamp-soft);border-top:1px solid #DCD2F0;border-bottom:1px solid #DCD2F0;padding:22px 0}
@@ -179,6 +182,97 @@ section{padding:88px 0;border-top:1px solid var(--line)}
   .strip p{font-size:16.5px}
   .strip .btn{width:100%;text-align:center}
 }
+
+.excl-main{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;align-items:center;background:var(--ink);color:var(--paper);border-radius:var(--radius);padding:32px 36px}
+.excl-main h3{font-size:24px;color:#fff;margin-bottom:8px}
+.excl-main p{color:#D9D3E4}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px}
+.trio .item{border:1px solid var(--line);border-radius:var(--radius);padding:22px;background:var(--sheet);display:flex;flex-direction:column;gap:8px}
+.trio .item p{color:var(--ink-soft);font-size:16px;margin-bottom:4px}
+.trio .item .link{align-self:flex-start;margin-top:auto}
+.viz{background:#fff;border:1px solid var(--line);border-radius:4px;padding:14px 14px 10px;margin-bottom:10px;font-size:13.5px;line-height:1.4}
+.viz-cap{font-weight:600;font-size:13px;color:var(--ink);margin-bottom:8px}
+.viz-src{font-size:12px;color:var(--ink-soft);margin-top:8px;border-top:1px dashed var(--line);padding-top:6px}
+.viz table{width:100%;border-collapse:collapse}
+.viz th,.viz td{text-align:left;vertical-align:top;padding:5px 6px;border-bottom:1px solid #EEEAE0}
+.viz thead th{font-weight:600;color:var(--ink-soft);font-size:12px}
+.viz tbody th{font-weight:500;color:var(--ink-soft);width:34%}
+.viz td b{font-family:var(--display);font-size:16px}
+.viz .up{display:inline-block;background:var(--stamp-soft);color:var(--stamp);font-weight:600;border-radius:3px;padding:0 5px;font-size:12px}
+.tl{list-style:none;position:relative;padding-left:16px}
+.tl:before{content:"";position:absolute;left:4px;top:6px;bottom:6px;border-left:2px solid var(--stamp-soft)}
+.tl li{position:relative;padding:4px 0}
+.tl li:before{content:"";position:absolute;left:-16px;top:10px;width:10px;height:10px;border-radius:50%;background:var(--stamp)}
+.tl li:last-child:before{background:var(--deny)}
+.tl time{display:block;font-weight:600;font-size:12.5px;color:var(--ink)}
+.tl span{color:var(--ink-soft)}
+.cal{list-style:none;display:grid;gap:6px}
+.cal li{padding:6px 8px;border-radius:3px;background:var(--paper)}
+.cal li:nth-child(2){background:var(--stamp-soft)}
+.cal b{display:block;font-weight:600;font-size:13px}
+.cal span{color:var(--ink-soft)}
+.tasks a{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+.ico{display:inline-flex;width:44px;height:44px;border-radius:50%;background:var(--stamp-soft);color:var(--stamp);align-items:center;justify-content:center;margin-top:2px}
+.map img{max-height:none}
+@media (max-width:980px){.excl-main{grid-template-columns:1fr;padding:26px 22px}.trio{grid-template-columns:1fr}}
+/* === Главная 26.09.2026: фактурный блок поиска, «С чем приходят к нам» сеткой, объёмная карта участка === */
+.excl-main{position:relative;overflow:hidden;isolation:isolate;background-color:#EEE8F6;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 420' preserveAspectRatio='xMidYMid slice'%3E%3Cstyle%3Epath%7Bfill:none;stroke:rgb(90,53,168);stroke-opacity:.17;stroke-width:1.1%7D.s%7Bstroke-opacity:.11;stroke-width:.8%7D.z%7Bstroke:rgb(90,53,168);stroke-opacity:.30;stroke-width:1.4;stroke-dasharray:7 6%7D.f%7Bfill:rgb(90,53,168);fill-opacity:.07;stroke-opacity:.35;stroke-width:1.6%7D%3C/style%3E%3Cpath d='M-111,-101L4,-86L-15,13L-104,0Z'/%3E%3Cpath class='s' d='M-107,-37L-8,-23'/%3E%3Cpath d='M-104,0L-15,13L-17,78L-106,67Z'/%3E%3Cpath class='s' d='M-105,28L-16,40'/%3E%3Cpath d='M-106,67L-17,78L-11,162L-98,178Z'/%3E%3Cpath class='s' d='M-102,129L-13,125'/%3E%3Cpath d='M-98,178L-11,162L-3,266L-77,239Z'/%3E%3Cpath class='s' d='M-42,168L-30,256'/%3E%3Cpath d='M-77,239L-3,266L18,352L-81,343Z'/%3E%3Cpath d='M-81,343L18,352L-11,429L-83,428Z'/%3E%3Cpath class='s' d='M-20,349L-38,428'/%3E%3Cpath d='M-83,428L-11,429L13,492L-87,493Z'/%3E%3Cpath class='s' d='M-35,428L-21,493'/%3E%3Cpath d='M4,-86L87,-85L104,-12L-15,13Z'/%3E%3Cpath d='M-15,13L104,-12L100,86L-17,78Z'/%3E%3Cpath class='s' d='M62,-3L59,83'/%3E%3Cpath d='M-17,78L100,86L88,156L-11,162Z'/%3E%3Cpath d='M-11,162L88,156L102,262L-3,266Z'/%3E%3Cpath class='s' d='M-7,214L95,209'/%3E%3Cpath d='M-3,266L102,262L74,331L18,352Z'/%3E%3Cpath class='s' d='M47,264L45,342'/%3E%3Cpath d='M18,352L74,331L72,432L-11,429Z'/%3E%3Cpath class='s' d='M41,344L23,430'/%3E%3Cpath d='M-11,429L72,432L113,503L13,492Z'/%3E%3Cpath d='M87,-85L202,-92L199,-3L104,-12Z'/%3E%3Cpath d='M104,-12L199,-3L201,67L100,86Z'/%3E%3Cpath class='s' d='M167,-6L166,74'/%3E%3Cpath d='M100,86L201,67L167,183L88,156Z'/%3E%3Cpath class='s' d='M154,76L130,170'/%3E%3Cpath d='M88,156L167,183L196,238L102,262Z'/%3E%3Cpath class='s' d='M122,168L143,252'/%3E%3Cpath d='M102,262L196,238L188,339L74,331Z'/%3E%3Cpath d='M74,331L188,339L172,438L72,432Z'/%3E%3Cpath class='s' d='M122,335L114,434'/%3E%3Cpath d='M72,432L172,438L191,502L113,503Z'/%3E%3Cpath class='s' d='M91,465L181,468'/%3E%3Cpath d='M202,-92L272,-75L261,-17L199,-3Z'/%3E%3Cpath class='s' d='M201,-50L267,-47'/%3E%3Cpath d='M199,-3L261,-17L261,89L201,67Z'/%3E%3Cpath d='M201,67L261,89L273,185L167,183Z'/%3E%3Cpath d='M167,183L273,185L289,245L196,238Z'/%3E%3Cpath class='s' d='M210,184L233,241'/%3E%3Cpath d='M196,238L289,245L297,337L188,339Z'/%3E%3Cpath class='s' d='M258,243L261,337'/%3E%3Cpath d='M188,339L297,337L295,435L172,438Z'/%3E%3Cpath class='s' d='M178,403L295,400'/%3E%3Cpath d='M172,438L295,435L274,497L191,502Z'/%3E%3Cpath d='M272,-75L388,-96L365,3L261,-17Z'/%3E%3Cpath class='s' d='M320,-83L304,-9'/%3E%3Cpath d='M261,-17L365,3L383,102L261,89Z'/%3E%3Cpath d='M261,89L383,102L360,168L273,185Z'/%3E%3Cpath class='s' d='M299,93L300,180'/%3E%3Cpath d='M273,185L360,168L355,251L289,245Z'/%3E%3Cpath class='s' d='M317,176L323,248'/%3E%3Cpath d='M289,245L355,251L374,319L297,337Z'/%3E%3Cpath class='s' d='M313,247L324,330'/%3E%3Cpath d='M297,337L374,319L368,411L295,435Z'/%3E%3Cpath d='M295,435L368,411L371,504L274,497Z'/%3E%3Cpath class='s' d='M338,421L331,501'/%3E%3Cpath d='M388,-96L461,-68L457,-7L365,3Z'/%3E%3Cpath class='s' d='M429,-80L416,-3'/%3E%3Cpath d='M365,3L457,-7L465,70L383,102Z'/%3E%3Cpath class='s' d='M371,38L460,20'/%3E%3Cpath d='M383,102L465,70L474,170L360,168Z'/%3E%3Cpath class='s' d='M410,91L397,169'/%3E%3Cpath d='M360,168L474,170L468,246L355,251Z'/%3E%3Cpath class='s' d='M357,216L471,214'/%3E%3Cpath d='M355,251L468,246L441,327L374,319Z'/%3E%3Cpath class='s' d='M393,250L396,322'/%3E%3Cpath d='M374,319L441,327L455,431L368,411Z'/%3E%3Cpath class='s' d='M412,323L417,422'/%3E%3Cpath d='M368,411L455,431L466,506L371,504Z'/%3E%3Cpath class='s' d='M370,464L461,473'/%3E%3Cpath d='M461,-68L553,-68L550,15L457,-7Z'/%3E%3Cpath class='s' d='M507,-68L503,4'/%3E%3Cpath d='M457,-7L550,15L548,85L465,70Z'/%3E%3Cpath class='s' d='M491,1L496,75'/%3E%3Cpath d='M465,70L548,85L574,182L474,170Z'/%3E%3Cpath class='s' d='M516,79L535,178'/%3E%3Cpath d='M474,170L574,182L549,247L468,246Z'/%3E%3Cpath d='M468,246L549,247L557,344L441,327Z'/%3E%3Cpath class='s' d='M458,277L552,284'/%3E%3Cpath d='M441,327L557,344L570,418L455,431Z'/%3E%3Cpath class='s' d='M485,334L499,426'/%3E%3Cpath d='M455,431L570,418L537,515L466,506Z'/%3E%3Cpath class='s' d='M532,422L514,512'/%3E%3Cpath d='M553,-68L625,-72L664,4L550,15Z'/%3E%3Cpath class='s' d='M552,-28L643,-36'/%3E%3Cpath d='M550,15L664,4L631,96L548,85Z'/%3E%3Cpath d='M548,85L631,96L642,178L574,182Z'/%3E%3Cpath class='s' d='M560,129L636,133'/%3E%3Cpath d='M574,182L642,178L658,234L549,247Z'/%3E%3Cpath class='s' d='M621,179L624,238'/%3E%3Cpath d='M549,247L658,234L626,323L557,344Z'/%3E%3Cpath d='M557,344L626,323L627,416L570,418Z'/%3E%3Cpath class='s' d='M604,330L609,416'/%3E%3Cpath d='M570,418L627,416L637,491L537,515Z'/%3E%3Cpath class='s' d='M550,477L633,462'/%3E%3Cpath d='M625,-72L724,-76L743,-14L664,4Z'/%3E%3Cpath class='s' d='M681,-74L709,-6'/%3E%3Cpath d='M664,4L743,-14L719,86L631,96Z'/%3E%3Cpath class='s' d='M700,-4L671,91'/%3E%3Cpath d='M631,96L719,86L760,176L642,178Z'/%3E%3Cpath class='s' d='M670,91L695,177'/%3E%3Cpath d='M642,178L760,176L733,254L658,234Z'/%3E%3Cpath class='s' d='M715,177L704,247'/%3E%3Cpath d='M658,234L733,254L740,322L626,323Z'/%3E%3Cpath class='s' d='M687,242L670,323'/%3E%3Cpath d='M626,323L740,322L734,430L627,416Z'/%3E%3Cpath class='s' d='M684,323L681,423'/%3E%3Cpath d='M627,416L734,430L742,520L637,491Z'/%3E%3Cpath class='s' d='M680,423L689,505'/%3E%3Cpath d='M724,-76L849,-88L847,5L743,-14Z'/%3E%3Cpath class='s' d='M770,-80L782,-7'/%3E%3Cpath d='M743,-14L847,5L838,101L719,86Z'/%3E%3Cpath d='M719,86L838,101L814,171L760,176Z'/%3E%3Cpath class='s' d='M743,139L824,142'/%3E%3Cpath d='M760,176L814,171L810,266L733,254Z'/%3E%3Cpath class='s' d='M746,216L812,220'/%3E%3Cpath d='M733,254L810,266L835,319L740,322Z'/%3E%3Cpath class='s' d='M777,261L795,320'/%3E%3Cpath d='M740,322L835,319L840,421L734,430Z'/%3E%3Cpath d='M734,430L840,421L843,513L742,520Z'/%3E%3Cpath class='s' d='M738,478L842,470'/%3E%3Cpath d='M849,-88L923,-80L921,11L847,5Z'/%3E%3Cpath class='s' d='M848,-43L922,-36'/%3E%3Cpath d='M847,5L921,11L909,67L838,101Z'/%3E%3Cpath d='M838,101L909,67L902,161L814,171Z'/%3E%3Cpath class='s' d='M823,146L905,126'/%3E%3Cpath d='M814,171L902,161L934,241L810,266Z'/%3E%3Cpath d='M810,266L934,241L919,323L835,319Z'/%3E%3Cpath d='M835,319L919,323L926,435L840,421Z'/%3E%3Cpath d='M840,421L926,435L903,497L843,513Z'/%3E%3Cpath class='s' d='M842,476L913,472'/%3E%3Cpath d='M923,-80L1021,-71L1021,-14L921,11Z'/%3E%3Cpath d='M921,11L1021,-14L1034,94L909,67Z'/%3E%3Cpath class='s' d='M915,42L1028,47'/%3E%3Cpath d='M909,67L1034,94L1034,178L902,161Z'/%3E%3Cpath class='s' d='M906,106L1034,129'/%3E%3Cpath d='M902,161L1034,178L1020,252L934,241Z'/%3E%3Cpath class='s' d='M947,167L963,245'/%3E%3Cpath d='M934,241L1020,252L1011,344L919,323Z'/%3E%3Cpath class='s' d='M925,294L1014,311'/%3E%3Cpath d='M919,323L1011,344L1006,429L926,435Z'/%3E%3Cpath class='s' d='M977,336L976,431'/%3E%3Cpath d='M926,435L1006,429L998,492L903,497Z'/%3E%3Cpath class='s' d='M981,431L969,493'/%3E%3Cpath d='M1021,-71L1126,-83L1113,3L1021,-14Z'/%3E%3Cpath d='M1021,-14L1113,3L1109,85L1034,94Z'/%3E%3Cpath d='M1034,94L1109,85L1106,152L1034,178Z'/%3E%3Cpath class='s' d='M1074,89L1072,164'/%3E%3Cpath d='M1034,178L1106,152L1111,269L1020,252Z'/%3E%3Cpath class='s' d='M1029,206L1108,196'/%3E%3Cpath d='M1020,252L1111,269L1103,342L1011,344Z'/%3E%3Cpath class='s' d='M1067,261L1058,343'/%3E%3Cpath d='M1011,344L1103,342L1116,402L1006,429Z'/%3E%3Cpath class='s' d='M1046,343L1047,419'/%3E%3Cpath d='M1006,429L1116,402L1120,503L998,492Z'/%3E%3Cpath class='s' d='M1074,412L1074,499'/%3E%3Cpath d='M1126,-83L1221,-85L1217,-11L1113,3Z'/%3E%3Cpath class='s' d='M1159,-84L1148,-1'/%3E%3Cpath d='M1113,3L1217,-11L1220,76L1109,85Z'/%3E%3Cpath class='s' d='M1161,-3L1161,81'/%3E%3Cpath d='M1109,85L1220,76L1216,185L1106,152Z'/%3E%3Cpath class='s' d='M1147,82L1144,163'/%3E%3Cpath d='M1106,152L1216,185L1191,265L1111,269Z'/%3E%3Cpath class='s' d='M1166,170L1154,267'/%3E%3Cpath d='M1111,269L1191,265L1187,346L1103,342Z'/%3E%3Cpath class='s' d='M1163,266L1157,345'/%3E%3Cpath d='M1103,342L1187,346L1217,411L1116,402Z'/%3E%3Cpath class='s' d='M1108,369L1200,375'/%3E%3Cpath d='M1116,402L1217,411L1190,519L1120,503Z'/%3E%3Cpath class='s' d='M1148,405L1142,508'/%3E%3Cpath d='M1221,-85L1305,-102L1308,10L1217,-11Z'/%3E%3Cpath class='s' d='M1258,-93L1257,-2'/%3E%3Cpath d='M1217,-11L1308,10L1312,95L1220,76Z'/%3E%3Cpath class='s' d='M1272,2L1276,87'/%3E%3Cpath d='M1220,76L1312,95L1275,173L1216,185Z'/%3E%3Cpath class='s' d='M1252,82L1237,181'/%3E%3Cpath d='M1216,185L1275,173L1298,259L1191,265Z'/%3E%3Cpath class='s' d='M1241,180L1237,262'/%3E%3Cpath d='M1191,265L1298,259L1275,325L1187,346Z'/%3E%3Cpath class='s' d='M1188,317L1283,302'/%3E%3Cpath d='M1187,346L1275,325L1273,419L1217,411Z'/%3E%3Cpath d='M1217,411L1273,419L1307,502L1190,519Z'/%3E%3Cpath class='s' d='M1236,414L1231,513'/%3E%3Cpath class='f' d='M261,89L383,102L360,168L273,185Z'/%3E%3Cpath class='z' d='M-106,67L-11,162L100,86L167,183L261,89L360,168L465,70L574,182L631,96L760,176L838,101L902,161L1034,94L1106,152L1220,76L1275,173'/%3E%3C/svg%3E");background-size:cover;background-position:center;color:var(--ink);border:1px solid #D8CDEB}
+.excl-main::before{content:"";position:absolute;inset:0;z-index:-1;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .24 0 0 0 0 .42 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.5;mix-blend-mode:multiply;pointer-events:none}
+.excl-main h3{color:var(--ink)}
+.excl-main p{color:var(--ink-soft)}
+.excl-main .search input{border-color:#B7AACF}
+.excl-main .search .btn-primary{background:var(--stamp);color:#fff}
+.excl-main .search .btn-primary:hover{background:#4A2A8E}
+#uslugi{background:#221D2B;color:#E9E4F2;position:relative;overflow:hidden;border-top:0}
+#uslugi .wrap{position:relative;z-index:1}
+#uslugi h2{color:#fff}
+#uslugi .orbits{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+#uslugi .tasks{grid-template-columns:repeat(3,1fr);gap:0;margin-top:40px;border:1px solid rgba(255,255,255,.16);background:rgba(34,29,43,.55)}
+#uslugi .tasks a{display:flex;flex-direction:column;gap:20px;min-height:268px;padding:28px 28px 26px;border-top:0;border-right:1px solid rgba(255,255,255,.16);border-bottom:1px solid rgba(255,255,255,.16);color:inherit;position:relative;transition:background-color .25s}
+#uslugi .tasks a:nth-child(3n){border-right:0}
+#uslugi .tasks a:nth-child(n+4){border-bottom:0}
+#uslugi .tasks a>div{display:flex;flex-direction:column;justify-content:space-between;flex:1;gap:24px}
+#uslugi .tasks h3{font-weight:400;font-size:28px;font-size:clamp(23px,2.3vw,30px);line-height:1.17;color:#fff;margin:0;transition:color .25s}
+#uslugi .tasks p{font-family:var(--display);font-size:17px;line-height:1.45;color:#C9C1D8;max-width:none}
+#uslugi .tasks a:hover,#uslugi .tasks a:focus-visible{background-color:rgba(255,255,255,.05)}
+#uslugi .tasks a:hover h3{color:#D6C7FF}
+#uslugi .tasks a::after{content:"\2192";position:absolute;right:26px;top:28px;font-size:22px;line-height:1;color:#D6C7FF;opacity:0;transform:translateX(-6px);transition:opacity .25s,transform .25s}
+#uslugi .tasks a:hover::after,#uslugi .tasks a:focus-visible::after{opacity:1;transform:none}
+#uslugi .ico{width:50px;height:50px;margin:0;background:transparent;border:1px solid rgba(214,199,255,.4);color:#D6C7FF}
+#uslugi .dots circle{animation:tw 5s ease-in-out infinite}
+#uslugi .dots circle:nth-child(2n){animation-delay:-2.5s}
+@keyframes tw{50%{opacity:.35}}
+.hero .doc.shema{background:none;border:0;padding:0;box-shadow:none}
+.k3d{position:relative;border-radius:14px;overflow:hidden;background:#15121c;aspect-ratio:1/1;box-shadow:0 44px 80px -40px rgba(20,16,28,.75),0 0 0 1px rgba(36,31,46,.18);user-select:none;-webkit-user-select:none}
+.k3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
+.k3d canvas.drag{cursor:grabbing}
+.k3d noscript img{position:absolute;inset:0;width:100%;height:100%;max-height:none;object-fit:contain;background:#fff}
+.k3d-ui{position:absolute;top:12px;right:12px;display:flex;gap:6px;z-index:2}
+.k3d-ui button{height:32px;min-width:32px;padding:0 10px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:rgba(28,24,38,.72);color:#EDE7F8;font:500 13px/1 var(--body);cursor:pointer;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.k3d-ui button:hover{background:rgba(66,54,96,.9)}
+.k3d-north{position:absolute;top:12px;left:12px;width:36px;height:36px;border-radius:50%;background:rgba(28,24,38,.72);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;z-index:2}
+.k3d-pin{position:absolute;left:-999px;top:0;transform:translate(-50%,-100%);background:rgba(245,242,234,.96);color:var(--ink);font:600 12.5px/1.3 var(--body);padding:6px 10px;border-radius:8px;white-space:nowrap;pointer-events:none;box-shadow:0 10px 24px -10px rgba(0,0,0,.7);z-index:1}
+.k3d-tip{position:absolute;left:0;top:0;max-width:230px;background:rgba(18,15,24,.94);color:#F1ECF8;font-size:12.5px;line-height:1.4;padding:8px 10px;border-radius:6px;pointer-events:none;opacity:0;transition:opacity .15s;z-index:3}
+.k3d-tip.on{opacity:1}
+.k3d-hint{position:absolute;left:12px;bottom:10px;font-size:11.5px;color:rgba(237,231,248,.72);pointer-events:none;z-index:1}
+.k3d-hint .h-touch{display:none}
+.k3d:not(.on) .k3d-ui,.k3d:not(.on) .k3d-north,.k3d:not(.on) .k3d-hint,.k3d:not(.on) .k3d-pin{display:none}
+.k3d-legend{list-style:none;margin:16px 0 0;display:grid;gap:8px;font-size:13px;line-height:1.45;color:var(--ink-soft)}
+.k3d-legend li{display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:start}
+.k3d-legend i{display:block;width:24px;height:15px;border-radius:3px;margin-top:2px}
+.k3d-legend .lg-u{background:rgba(203,184,255,.6);border:2px solid #7F5CE0}
+.k3d-legend .lg-z{background:#9A92B0;border:1px solid #5B5470}
+.k3d-legend .lg-g{background:repeating-linear-gradient(45deg,#E6DEF6 0 3px,#FBFAF6 3px 6px);border:1px dashed #9B88C9}
+.k3d-src{font-size:12px;line-height:1.45;color:var(--ink-soft);margin:10px 0 0;max-width:none}
+.k3d-open{background:none;border:0;padding:0;margin:0;color:var(--stamp);font:600 12.5px var(--body);border-bottom:1px solid currentColor;cursor:pointer}
+dialog.shema-big{margin:auto;padding:0;border:0;border-radius:8px;width:min(900px,94vw);max-height:94vh;overflow:auto;background:#fff;box-shadow:0 30px 80px rgba(0,0,0,.4)}
+dialog.shema-big::backdrop{background:rgba(36,31,46,.72)}
+dialog.shema-big img{display:block;width:100%;height:auto}
+.shema-close{position:sticky;top:10px;float:right;margin:10px 10px -46px 0;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:#fff;font:400 22px/1 var(--body);color:var(--ink);cursor:pointer;z-index:2}
+@media (max-width:980px){#uslugi .tasks{grid-template-columns:1fr 1fr}#uslugi .tasks a:nth-child(3n){border-right:1px solid rgba(255,255,255,.16)}#uslugi .tasks a:nth-child(2n){border-right:0}#uslugi .tasks a:nth-child(n+4){border-bottom:1px solid rgba(255,255,255,.16)}#uslugi .tasks a:nth-child(n+5){border-bottom:0}}
+@media (max-width:640px){#uslugi .tasks{grid-template-columns:1fr}#uslugi .tasks a{min-height:0;border-right:0!important;border-bottom:1px solid rgba(255,255,255,.16)!important}#uslugi .tasks a:last-child{border-bottom:0!important}#uslugi .tasks a::after{opacity:1;transform:none}}
+@media (hover:none){.k3d-hint .h-mouse{display:none}.k3d-hint .h-touch{display:inline}}
+@media (prefers-reduced-motion:reduce){#uslugi .dots circle{animation:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -264,8 +358,22 @@ section{padding:88px 0;border-top:1px solid var(--line)}
         <a class="btn btn-ghost" href="/poisk-izyatie-krt.html" onclick="try{ym(110859643,'reachGoal','home_to_poisk')}catch(e){}">Проверить участок бесплатно</a>
       </div>
     </div>
-    <figure class="doc">
-      <img src="/img/samples/shema-glavnaya.png" alt="Схема участка из справки: границы участка, зоны по реестру и по градостроительному плану" width="1600" height="1886" loading="eager">
+    <figure class="doc shema">
+      <div class="k3d" id="k3d">
+        <canvas role="img" aria-label="Объёмная карта: участок, соседние участки и здания по ЕГРН"></canvas>
+        <noscript><img src="/img/samples/shema-glavnaya.png" alt="Схема участка из справки: границы участка, зоны по реестру и по градостроительному плану" width="1600" height="1886"></noscript>
+        <div class="k3d-north" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 2.5l4.2 10.5H7.8z" fill="#D6C7FF"/><path d="M12 21.5L7.8 13h8.4z" fill="rgba(255,255,255,.32)"/></svg></div>
+        <div class="k3d-ui"><button type="button" data-k="plan" aria-pressed="false">План</button><button type="button" data-k="minus" aria-label="Отдалить">&minus;</button><button type="button" data-k="plus" aria-label="Приблизить">+</button><button type="button" data-k="reset" aria-label="Вернуть вид">&#8634;</button></div>
+        <div class="k3d-pin" aria-hidden="true"></div>
+        <div class="k3d-tip" aria-hidden="true"></div>
+        <div class="k3d-hint" aria-hidden="true"><span class="h-mouse">Потяните — повернуть · наведите — подробности</span><span class="h-touch">Проведите пальцем — повернуть</span></div>
+      </div>
+      <ul class="k3d-legend">
+        <li><i class="lg-u"></i><span>Участок с городских торгов — границы по ЕГРН, 6 260 м²; вся площадь — в одной территориальной зоне по реестру границ.</span></li>
+        <li><i class="lg-z"></i><span>Соседние участки и здания — по ЕГРН; высота зданий условная: этажность × 3 м.</span></li>
+        <li><i class="lg-g"></i><span>По градплану от 08.07.2024 весь участок — в третьем поясе зоны санитарной охраны, часть — в зонах подтопления. В реестре границ этих зон нет, поэтому на карте их нет.</span></li>
+      </ul>
+      <p class="k3d-src">Сведения НСПД: участок — на 24.09.2026, окрестности — на 26.09.2026. Не межевой план и не топографическая съёмка. <button class="k3d-open" type="button">Схема из справки</button></p>
       <figcaption>Схема из справки по участку с городских торгов: что показывает реестр и что — градостроительный план.</figcaption>
     </figure>
   </div>
@@ -281,36 +389,76 @@ section{padding:88px 0;border-top:1px solid var(--line)}
 <section>
   <div class="wrap">
     <h2>Чего нет у других</h2>
-    <p class="lead-in">Правила землепользования на mos.ru опубликованы в редакции 2017 года, поиска по актам об изъятии нет ни у города, ни у Росреестра. Поэтому мы собрали свои данные — и показываем их клиенту.</p>
-    <div class="excl">
-      <div class="main">
+    <p class="lead-in">Собственные данные по каждому участку Москвы — и мы показываем их клиенту.</p>
+    <div class="excl-main">
+      <div>
         <h3>Поиск по актам об изъятии и КРТ</h3>
-        <p>Введите кадастровый номер участка в Москве — сразу увидите, упомянут ли он в опубликованных актах, с номером и датой акта. Бесплатно.</p>
-        <form class="search" action="/poisk-izyatie-krt.html" method="get" onsubmit="try{ym(110859643,'reachGoal','home_search')}catch(e){}">
-          <label for="home-cad" class="visually-hidden" style="position:absolute;left:-9999px">Кадастровый номер</label>
-          <input id="home-cad" name="n" type="text" inputmode="numeric" placeholder="77:01:0001001:1" autocomplete="off">
-          <button class="btn btn-primary" type="submit">Проверить</button>
-        </form>
-        <p class="search-note">Только опубликованные акты Москвы. «Не найден» не значит, что ограничений нет.</p>
+        <p>Кадастровый номер — и сразу видно, упомянут ли участок в опубликованных актах. Бесплатно.</p>
       </div>
-      <div class="side">
-        <div class="item">
-          <h3>Справка, где у каждого числа есть источник</h3>
-          <p>Правила землепользования, градостроительный план и реестр противоречат друг другу чаще, чем кажется. На одном участке расхождение по плотности застройки — 41 %.</p>
-          <a class="link" href="/primer-spravki.html">Пример справки</a>
+      <form class="search" action="/poisk-izyatie-krt.html" method="get" onsubmit="try{ym(110859643,'reachGoal','home_search')}catch(e){}">
+        <label for="home-cad" style="position:absolute;left:-9999px">Кадастровый номер</label>
+        <input id="home-cad" name="n" type="text" inputmode="numeric" placeholder="77:01:0001001:1" autocomplete="off">
+        <button class="btn btn-primary" type="submit">Проверить</button>
+      </form>
+    </div>
+    <div class="trio">
+      <div class="item">
+        <div class="viz">
+          <div class="viz-cap">Участок с городских торгов</div>
+          <table>
+            <thead><tr><th></th><th>Открытые данные</th><th>Документ органа</th></tr></thead>
+            <tbody>
+              <tr><th>Плотность</th><td>9,9</td><td><b>14</b> <span class="up">+41 %</span></td></tr>
+              <tr><th>Виды использования</th><td>гаражи</td><td>магазины, бытовое обслуживание, культура, спорт</td></tr>
+              <tr><th>Санитарная зона</th><td>в реестре нет</td><td>вся площадь</td></tr>
+            </tbody>
+          </table>
+          <div class="viz-src">Правила землепользования 2017 · градплан 2024 · реестр границ</div>
         </div>
-        <div class="item">
-          <h3>Наблюдение за реестром</h3>
-          <p>Зоны на участке могут исчезнуть из реестра за сутки, а объект — появиться в перечне. Следим за этим по вашим объектам.</p>
-          <a class="link" href="/reestrovyy-kontrol.html">Реестровый контроль</a>
+        <h3>Справка с источником у каждого числа</h3>
+        <p>Показываем, где правила, градплан и реестр противоречат друг другу.</p>
+        <a class="link" href="/primer-spravki.html">Пример справки</a>
+      </div>
+      <div class="item">
+        <div class="viz">
+          <div class="viz-cap">Зоны подтопления на том же участке</div>
+          <ol class="tl">
+            <li><time>22.09, 12:37</time><span>две зоны, 42 % площади</span></li>
+            <li><time>22.09, 20:41</time><span>осталась одна</span></li>
+            <li><time>23.09, 11:06</time><span>в реестре ни одной</span></li>
+          </ol>
+          <div class="viz-src">В градплане обе зоны есть</div>
         </div>
-        <div class="item">
-          <h3>Календарь 700-ПП</h3>
-          <p>Когда город обследует объекты, когда утверждает перечень и что успеть собственнику, чтобы не потерять год.</p>
-          <a class="link" href="/kalendar-700-pp.html">Календарь</a>
+        <h3>Наблюдение за реестром</h3>
+        <p>Реестр меняется за сутки. Следим за вашими объектами и сообщаем об изменениях.</p>
+        <a class="link" href="/reestrovyy-kontrol.html">Реестровый контроль</a>
+      </div>
+      <div class="item">
+        <div class="viz">
+          <div class="viz-cap">Год собственника по перечню 700-ПП</div>
+          <ol class="cal">
+            <li><b>Сентябрь–октябрь</b><span>обследования объектов</span></li>
+            <li><b>Ноябрь</b><span>утверждён перечень на следующий год</span></li>
+            <li><b>До 28 мая</b><span>первый авансовый платёж по новому перечню</span></li>
+          </ol>
+          <div class="viz-src">Налог за год — до 28 марта следующего года. Сроки — по ст. 383 НК в редакции с 1 января 2027 года.</div>
         </div>
+        <h3>Календарь 700-ПП</h3>
+        <p>Что успеть на каждом этапе, чтобы не переплачивать налог.</p>
+        <a class="link" href="/kalendar-700-pp.html">Календарь</a>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="mapsec">
+  <div class="wrap">
+    <h2>Изъятие для государственных нужд в Москве в 2026 году</h2>
+    <p class="lead-in">Опубликованные акты по округам — из нашего индекса.</p>
+    <figure class="doc map">
+      <img src="/img/karta-izyatie-krt-2026.png" alt="Карта Москвы по округам: число распоряжений об изъятии и сообщений о планируемом изъятии, датированных с 1 января 2026 года" width="1600" height="1100" loading="lazy">
+      <figcaption>Распоряжения об изъятии и сообщения о планируемом изъятии, датированные с 1 января 2026 года по дату обновления индекса.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -321,15 +469,16 @@ section{padding:88px 0;border-top:1px solid var(--line)}
 </section>
 
 <section id="uslugi">
+  <svg class="orbits" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><g fill="none" stroke="#fff" stroke-opacity=".085" stroke-width="1"><ellipse cx='800' cy='450' rx='780' ry='70'/><ellipse cx='800' cy='450' rx='780' ry='140'/><ellipse cx='800' cy='450' rx='780' ry='215'/><ellipse cx='800' cy='450' rx='780' ry='290'/><ellipse cx='800' cy='450' rx='780' ry='360'/><ellipse cx='800' cy='450' rx='60' ry='430'/><ellipse cx='800' cy='450' rx='150' ry='430'/><ellipse cx='800' cy='450' rx='250' ry='430'/><ellipse cx='800' cy='450' rx='350' ry='430'/><ellipse cx='800' cy='450' rx='450' ry='430'/></g><g class="dots" fill="#B99CFF"><circle cx='67' cy='376' r='3.6'/><circle cx='1475' cy='305' r='3.6'/><circle cx='975' cy='822' r='3.6'/><circle cx='646' cy='46' r='3.6'/><circle cx='1533' cy='498' r='3.6'/><circle cx='749' cy='854' r='3.6'/><circle cx='67' cy='573' r='3.6'/><circle cx='925' cy='78' r='3.6'/></g></svg>
   <div class="wrap">
     <h2>С чем приходят к нам</h2>
     <div class="tasks">
-      <a href="/priostanovka-rosreestr.html"><h3>Росреестр приостановил или отказал</h3><p>Разбираем основания, устраняем причины, сопровождаем до записи в ЕГРН.</p></a>
-      <a href="/uzakonit-samostroy.html"><h3>Объект в реестре 819-ПП или без разрешений</h3><p>Выход из реестра, легализация, ввод в эксплуатацию.</p></a>
-      <a href="/isklyuchenie-iz-perechnya-700-pp.html"><h3>Налог вырос из-за перечня 700-ПП</h3><p>Проверяем основание включения, оспариваем, возвращаем переплату.</p></a>
-      <a href="/audit-pered-pokupkoy.html"><h3>Покупаете объект</h3><p>Проверка до аванса: права, изъятие и КРТ, признаки самостроя, соответствие ЕГРН.</p></a>
-      <a href="/gradprofil.html"><h3>Хотите понять, что можно построить</h3><p>Зона правил землепользования и её акт, ограничения, параметры застройки с источником.</p></a>
-      <a href="/kadastrovye-raboty.html"><h3>Нужны кадастровые работы</h3><p>Технический и межевой план — с кадастровыми инженерами, с которыми работаем постоянно.</p></a>
+      <a href="/priostanovka-rosreestr.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><circle cx="12" cy="14" r="3.2"/><path d="M9 20h6"/></svg></span><div><h3>Росреестр приостановил или отказал</h3><p>Устраняем причины и доводим до записи в ЕГРН.</p></div></a>
+      <a href="/uzakonit-samostroy.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l6-3v15"/><path d="M10 21V4l10 4v13"/><path d="M13 9h1M16 10h1M13 13h1M16 14h1M13 17h1M16 18h1M6.5 12h1M6.5 16h1"/><path d="M2 21h20"/></svg></span><div><h3>Объект в 819-ПП или без разрешений</h3><p>Выход из реестра, легализация, ввод.</p></div></a>
+      <a href="/isklyuchenie-iz-perechnya-700-pp.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21V3h6a4 4 0 0 1 0 8H6"/><path d="M6 15h8"/></svg></span><div><h3>Налог вырос из-за 700-ПП</h3><p>Оспариваем включение, возвращаем переплату.</p></div></a>
+      <a href="/audit-pered-pokupkoy.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="14" r="4"/><path d="M11 11l9-9M16 6l2 2M14 8l2 2"/></svg></span><div><h3>Покупаете объект</h3><p>Проверка до аванса: права, изъятие, самострой.</p></div></a>
+      <a href="/gradprofil.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l7-3 9 4-2 11-12 1z"/><path d="M8 5.5l-1 14M4 12l15 1.5"/></svg></span><div><h3>Что можно построить</h3><p>Зона, ограничения, параметры — с источником.</p></div></a>
+      <a href="/kadastrovye-raboty.html"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 16H4z"/><circle cx="12" cy="13" r="1.6"/><path d="M12 3v7"/></svg></span><div><h3>Кадастровые работы</h3><p>Технический и межевой план с нашими инженерами.</p></div></a>
     </div>
   </div>
 </section>
@@ -338,10 +487,10 @@ section{padding:88px 0;border-top:1px solid var(--line)}
   <div class="wrap">
     <h2>Как мы работаем с данными</h2>
     <div class="principles">
-      <div><b>У каждого числа — источник и дата</b><p>Если источник слабый, так и пишем. Ничего не выдаём за действующее без документа.</p></div>
-      <div><b>«Не найдено» не значит «ограничений нет»</b><p>В каждом документе — отдельный раздел о том, что не проверялось и почему.</p></div>
-      <div><b>Документ органа сильнее открытых данных</b><p>Показываем, где градостроительный план, правила и реестр расходятся друг с другом.</p></div>
-      <div><b>Ничего не публикуем без согласия</b><p>Дела описываем только обезличенно и только с разрешения клиента. Персональные данные — только для услуги.</p></div>
+      <div><b>У каждого числа — источник и дата</b><p>Слабый источник так и называем.</p></div>
+      <div><b>«Не найдено» — не «чисто»</b><p>Всегда пишем, что не проверялось.</p></div>
+      <div><b>Документ органа сильнее карты</b><p>Показываем, где они расходятся.</p></div>
+      <div><b>Без согласия не публикуем</b><p>Дела — только обезличенно и с разрешения.</p></div>
     </div>
   </div>
 </section>
@@ -350,9 +499,9 @@ section{padding:88px 0;border-top:1px solid var(--line)}
   <div class="wrap">
     <h2>Практика</h2>
     <div class="cases">
-      <a href="/primer-spravki.html"><span class="kind">Пример справки</span><h3>Участок с городских торгов</h3><p>Градостроительный план дал плотность на 41 % выше опубликованных правил, зоны подтопления исчезли из реестра за сутки, а санитарной зоны в реестре нет вовсе.</p></a>
-      <a href="/delo-nalozhenie-kontura-na-uds.html"><span class="kind">Дело</span><h3>Контур здания на улично-дорожной сети</h3><p>Почему регистратор приостановил и как это было решено.</p></a>
-      <a href="/arenda-vri-uchastka-priostanovka.html"><span class="kind">Разбор</span><h3>Аренда и вид использования участка</h3><p>Что было в уведомлении о приостановлении и что с ним делать.</p></a>
+      <a href="/primer-spravki.html"><span class="kind">Пример справки</span><h3>Участок с городских торгов</h3><p>Градплан разошёлся с правилами на 41 %, зоны исчезли из реестра за сутки.</p></a>
+      <a href="/delo-nalozhenie-kontura-na-uds.html"><span class="kind">Дело</span><h3>Контур здания на улично-дорожной сети</h3><p>Почему приостановили и как решили.</p></a>
+      <a href="/arenda-vri-uchastka-priostanovka.html"><span class="kind">Разбор</span><h3>Аренда и вид использования участка</h3><p>Что было в уведомлении и что с ним делать.</p></a>
     </div>
     <p style="margin-top:22px"><a class="link" href="/praktika.html">Вся практика</a></p>
   </div>
@@ -362,11 +511,11 @@ section{padding:88px 0;border-top:1px solid var(--line)}
   <div class="wrap">
     <h2>Кому мы помогаем</h2>
     <div class="aud">
-      <a href="/dlya-sobstvennikov.html"><b>Собственникам и инвесторам</b><span>Налог по перечню, изъятие и КРТ, самострой, регистрация — и проверка перед покупкой.</span></a>
-      <a href="/dlya-developerov.html"><b>Девелоперам</b><span>Градостроительный режим площадки до решения, расхождения документов, ввод и регистрация.</span></a>
-      <a href="/partneram.html"><b>Юридическим фирмам</b><span>Субподряд по Росреестру и градрегулированию, в том числе под вашим именем.</span></a>
-      <a href="/kadastrovym-inzheneram.html"><b>Кадастровым инженерам</b><span>Разбор приостановки по техплану за сутки: что правится, что нет.</span></a>
-      <a href="/proverka-izyatie-krt.html"><b>Риелторам и агентствам</b><span>Проверка объекта перед сделкой за час, пакетная цена для агентств.</span></a>
+      <a href="/dlya-sobstvennikov.html"><b>Собственникам и инвесторам</b><span>Налог, изъятие, самострой, регистрация, покупка.</span></a>
+      <a href="/dlya-developerov.html"><b>Девелоперам</b><span>Режим площадки до решения, ввод и регистрация.</span></a>
+      <a href="/partneram.html"><b>Юридическим фирмам</b><span>Субподряд, в том числе под вашим именем.</span></a>
+      <a href="/kadastrovym-inzheneram.html"><b>Кадастровым инженерам</b><span>Разбор приостановки по техплану за сутки.</span></a>
+      <a href="/proverka-izyatie-krt.html"><b>Риелторам и агентствам</b><span>Проверка объекта перед сделкой за час.</span></a>
     </div>
   </div>
 </section>
@@ -375,9 +524,9 @@ section{padding:88px 0;border-top:1px solid var(--line)}
   <div class="wrap">
     <h2>Публикации</h2>
     <div class="pubs">
-      <a href="/krt-tri-dokumenta.html"><span class="src">Разбор · также на Закон.ру</span><h3>Попадает ли ваш дом в КРТ: три документа, которые решают судьбу участка</h3><p>Чем КРТ отличается от реновации и почему выписка на первом этапе ещё чистая.</p></a>
-      <a href="/perechen-700-pp-spor-i-srok.html"><span class="src">Разбор · также на Закон.ру</span><h3>Перечень 700-ПП: где спор выигрывается и где проигрывается срок</h3><p>Два основания включения, доказывание и срок на возврат переплаты.</p></a>
-      <a href="/uvedomlenie-o-priostanovlenii.html"><span class="src">Разбор</span><h3>Уведомление о приостановлении: как читать документ Росреестра</h3><p>Что в нём важно и где искать то, что регистратор написал между строк.</p></a>
+      <a href="/krt-tri-dokumenta.html"><span class="src">Разбор · Закон.ру</span><h3>Попадает ли ваш дом в КРТ: три документа</h3><p>Чем КРТ отличается от реновации.</p></a>
+      <a href="/perechen-700-pp-spor-i-srok.html"><span class="src">Разбор · Закон.ру</span><h3>Перечень 700-ПП: доказывание и срок возврата</h3><p>Где спор выигрывается и где теряется срок.</p></a>
+      <a href="/uvedomlenie-o-priostanovlenii.html"><span class="src">Разбор</span><h3>Как читать уведомление о приостановлении</h3><p>Что в нём главное.</p></a>
     </div>
     <p style="margin-top:22px"><a class="link" href="/razbory.html">Все публикации</a></p>
   </div>
@@ -460,6 +609,92 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
 <script>
 (function(){var b=document.getElementById('ld-btn');if(!b)return;b.addEventListener('click',function(){var e=document.getElementById('ld-email').value.trim(),c=document.getElementById('ld-consent').checked,er=document.getElementById('ld-err');if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)||!c){er.style.display='inline';return;}er.style.display='none';b.disabled=true;var fd=new FormData();fd.append('email',e);fd.append('consent','1');fd.append('page',location.pathname);fd.append('website',document.getElementById('ld-web').value);fetch('/lead.php',{method:'POST',body:fd}).finally(function(){document.getElementById('ld-form').style.display='none';document.getElementById('ld-done').style.display='block';if(typeof ym!=='undefined')ym(110859643,'reachGoal','lead_docs');});});})();
 </script>
+<dialog id="shema-big" class="shema-big" aria-label="Схема участка из справки"><button class="shema-close" type="button" aria-label="Закрыть">&times;</button><img src="/img/samples/shema-glavnaya.png" alt="Схема участка из справки: границы участка, зоны по реестру и по градостроительному плану" width="1600" height="1886" loading="lazy"></dialog>
+<script type="application/json" id="k3d-data">{"uchastok":[[30.6,44.1],[26.3,44.4],[-51.6,25.9],[-40.3,-21.1],[-37.1,-27.7],[-34.1,-31.7],[-27.6,-36.0],[-22.2,-38.3],[-16.6,-39.2],[1.9,-37.9],[39.0,-34.1],[49.6,-32.3],[36.2,23.8]],"ploshchad":6260,"sosedi":[[[-132.2,-40.1],[-152.0,-41.4],[-152.0,-46.3],[-90.9,-42.0],[-16.6,-39.2],[-22.2,-38.3],[-27.6,-36.0],[-34.1,-31.7],[-37.1,-27.7],[-40.3,-21.1],[-51.6,25.9],[26.3,44.4],[30.6,44.1],[36.2,23.8],[89.1,34.4],[137.7,48.9],[150.0,54.0],[150.0,103.3],[-102.2,103.3],[-101.8,101.6],[-152.0,89.3],[-152.0,-15.0],[-148.3,-14.2],[-135.7,-10.2]],[[-148.3,-14.2],[-152.0,-15.0],[-152.0,-41.4],[-132.2,-40.1],[-135.7,-10.2]],[[-20.6,-87.0],[-16.9,-98.0],[82.6,-98.0],[75.3,-69.2]],[[147.9,-8.9],[150.0,-8.1],[150.0,10.9],[137.7,48.9],[89.1,34.4],[36.2,23.8],[49.6,-32.3],[75.8,-28.0],[112.1,-19.6]]],"zdaniya":[{"r":[[-136.0,-15.3],[-152.0,-16.4],[-152.0,-40.5],[-134.3,-39.3]],"fl":1,"vid":"Нежилое здание"},{"r":[[-150.1,14.8],[-147.2,1.8],[-128.5,6.1],[-131.4,19.0]],"fl":1,"vid":"Нежилое здание"},{"r":[[-107.6,-13.8],[-93.7,-10.4],[-95.1,-4.8],[-83.8,-2.0],[-98.9,58.9],[-104.9,57.5],[-107.7,68.9],[-137.3,61.6],[-138.2,64.6],[-145.1,62.9],[-144.3,59.8],[-151.8,58.0],[-148.7,45.6],[-113.3,54.3],[-108.0,32.8],[-110.9,32.1],[-109.4,26.4],[-106.5,27.2],[-99.8,-0.1],[-110.3,-2.7]],"fl":9,"vid":"Многоквартирный дом"},{"r":[[-32.5,93.4],[-35.0,103.3],[-50.4,103.3],[-39.4,58.4],[-21.8,47.6],[-1.6,52.4],[-5.2,68.6],[-25.2,63.9],[-27.3,72.3],[-25.7,72.7],[-26.9,77.7],[-28.6,77.4],[-31.3,88.3],[-29.9,88.5],[-31.1,93.7]],"fl":10,"vid":"Многоквартирный дом"},{"r":[[62.2,8.2],[68.2,-24.1],[127.6,-12.7],[121.1,19.8]],"fl":5,"vid":"Нежилое здание"},{"r":[[79.6,95.2],[77.5,103.3],[72.8,103.3],[71.7,103.1],[71.7,103.3],[49.4,103.3],[50.4,97.6],[44.3,96.9],[46.2,86.8],[52.7,88.3],[54.8,77.9],[75.8,82.3],[73.4,93.9]],"fl":24,"vid":"Многоквартирный дом"}],"rama":[-152.0,-98.0,150.0,103.3],"data_uchastok":"2026-09-24","data_okrestnosti":"2026-09-26"}</script>
+<script>(function(){
+var root=document.getElementById('k3d');if(!root)return;
+var cv=root.querySelector('canvas'),ctx=cv.getContext&&cv.getContext('2d');if(!ctx)return;
+var D;try{D=JSON.parse(document.getElementById('k3d-data').textContent)}catch(e){return}
+root.classList.add('on');
+var tip=root.querySelector('.k3d-tip'),north=root.querySelector('.k3d-north svg'),pin=root.querySelector('.k3d-pin'),btnPlan=root.querySelector('[data-k=plan]');
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches,FINE=matchMedia('(hover:hover) and (pointer:fine)').matches;
+var AZ0=-32,EL0=38;
+var st={az:AZ0,el:EL0,elT:EL0,zoom:1,auto:!RM,idle:0,drag:null,hov:null,plan:false};
+var W=0,H=0,F=1,CX=0,CY=0,R=420,ca=1,sa=0,ce=1,se=0,camX=0,camY=0,camZ=0,hits=[],vis=true,raf=0,last=0;
+var TH=1.4,M=3,NEAR=25,GRID=520;
+function nf(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' ')}
+function et(n){var a=n%10,b=n%100;return n+' '+(b>10&&b<15?'этажей':a==1?'этаж':a>1&&a<5?'этажа':'этажей')}
+pin.textContent='Участок · '+nf(D.ploshchad)+' м²';
+var par=D.uchastok,bl=D.zdaniya.map(function(z){var cx=0,cy=0;z.r.forEach(function(p){cx+=p[0];cy+=p[1]});return{r:z.r,h:z.fl?z.fl*M:0.6,fl:z.fl,vid:z.vid,cx:cx/z.r.length,cy:cy/z.r.length}});
+var pmin=Math.min.apply(null,par.map(function(p){return p[1]}));
+var rad=Math.max(Math.hypot(D.rama[0],D.rama[1]),Math.hypot(D.rama[2],D.rama[3]));
+function size(){var r=cv.getBoundingClientRect(),d=Math.min(2,window.devicePixelRatio||1);W=r.width;H=r.height;if(!W||!H)return;cv.width=Math.round(W*d);cv.height=Math.round(H*d);ctx.setTransform(d,0,0,d,0,0);draw()}
+function cam(){var a=st.az*Math.PI/180,e=st.el*Math.PI/180;ca=Math.cos(a);sa=Math.sin(a);ce=Math.cos(e);se=Math.sin(e);
+F=Math.min(W*0.5,H*0.5/Math.max(0.62,se*0.9+0.18))*R/rad*st.zoom*1.17;CX=W/2;CY=H*(0.51+0.06*ce);camX=-R*ce*sa;camY=-R*ce*ca;camZ=R*se}
+function P(x,y,z){var x1=x*ca-y*sa,y1=x*sa+y*ca,d=y1*ce-z*se+R;return[CX+F*x1/d,CY-F*(y1*se+z*ce)/d,d]}
+function fog(d){var t=1-(d-R*0.55)/(R*2.1);return t<0?0:t>1?1:t}
+function poly(pts){ctx.beginPath();for(var i=0;i<pts.length;i++){var p=pts[i];i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1])}ctx.closePath()}
+function mix(c,f){var b=[24,20,32];return'rgb('+Math.round(b[0]+(c[0]-b[0])*f)+','+Math.round(b[1]+(c[1]-b[1])*f)+','+Math.round(b[2]+(c[2]-b[2])*f)+')'}
+function inside(pt,pts){var x=pt[0],y=pt[1],o=false;for(var i=0,j=pts.length-1;i<pts.length;j=i++){var a=pts[i],b=pts[j];if((a[1]>y)!=(b[1]>y)&&x<(b[0]-a[0])*(y-a[1])/(b[1]-a[1])+a[0])o=!o}return o}
+function hull(ps){ps=ps.slice().sort(function(a,b){return a[0]-b[0]||a[1]-b[1]});var cr=function(o,a,b){return(a[0]-o[0])*(b[1]-o[1])-(a[1]-o[1])*(b[0]-o[0])},lo=[],up=[];
+ps.forEach(function(p){while(lo.length>1&&cr(lo[lo.length-2],lo[lo.length-1],p)<=0)lo.pop();lo.push(p)});
+for(var i=ps.length-1;i>=0;i--){var p=ps[i];while(up.length>1&&cr(up[up.length-2],up[up.length-1],p)<=0)up.pop();up.push(p)}up.pop();lo.pop();return lo.concat(up)}
+function seg(x0,y0,x1,y1,buckets){var n=8;for(var i=0;i<n;i++){var ax=x0+(x1-x0)*i/n,ay=y0+(y1-y0)*i/n,bx=x0+(x1-x0)*(i+1)/n,by=y0+(y1-y0)*(i+1)/n,a=P(ax,ay,0),b=P(bx,by,0);
+if(a[2]<NEAR&&b[2]<NEAR)continue;if(a[2]<NEAR||b[2]<NEAR){var t=(NEAR-a[2])/(b[2]-a[2]);if(a[2]<NEAR){a=P(ax+(bx-ax)*t,ay+(by-ay)*t,0)}else{b=P(ax+(bx-ax)*t,ay+(by-ay)*t,0)}}
+var f=fog((a[2]+b[2])/2),k=Math.min(7,Math.floor(f*8));if(k<=0)continue;buckets[k].push(a,b)}}
+function grid(){var mi=[[],[],[],[],[],[],[],[]],ma=[[],[],[],[],[],[],[],[]];
+for(var v=-GRID;v<=GRID;v+=10){var B=v%50===0?ma:mi;seg(v,-GRID,v,GRID,B);seg(-GRID,v,GRID,v,B)}
+[[mi,0.055],[ma,0.11]].forEach(function(q){for(var k=1;k<8;k++){var L=q[0][k];if(!L.length)continue;ctx.beginPath();for(var i=0;i<L.length;i+=2){ctx.moveTo(L[i][0],L[i][1]);ctx.lineTo(L[i+1][0],L[i+1][1])}
+ctx.strokeStyle='rgba(214,199,255,'+(q[1]*k/7).toFixed(3)+')';ctx.lineWidth=1;ctx.stroke()}})}
+function walls(r,h0,h1,base,hov,out){var n=r.length,ws=[];for(var i=0;i<n;i++){var a=r[i],b=r[(i+1)%n],nx=b[1]-a[1],ny=a[0]-b[0],l=Math.hypot(nx,ny)||1;nx/=l;ny/=l;
+var mx=(a[0]+b[0])/2,my=(a[1]+b[1])/2;if(nx*(camX-mx)+ny*(camY-my)<=0)continue;var q=[P(a[0],a[1],h0),P(b[0],b[1],h0),P(b[0],b[1],h1),P(a[0],a[1],h1)];
+ws.push({q:q,d:(q[0][2]+q[1][2]+q[2][2]+q[3][2])/4,l:0.66+0.34*(nx*-0.62+ny*-0.78)});out&&out.push.apply(out,q)}
+ws.sort(function(x,y){return y.d-x.d});ws.forEach(function(w){var f=fog(w.d);poly(w.q);ctx.fillStyle=mix([base[0]*w.l,base[1]*w.l,base[2]*w.l].map(function(c){return Math.min(255,c+(hov?26:0))}),0.35+0.65*f);ctx.fill();
+ctx.strokeStyle='rgba(12,9,18,.35)';ctx.lineWidth=0.6;ctx.stroke()})}
+function draw(){if(!W)return;cam();hits=[];
+var g=ctx.createRadialGradient(CX,CY,0,CX,CY,Math.max(W,H)*0.78);g.addColorStop(0,'#302846');g.addColorStop(0.5,'#1F1A2C');g.addColorStop(1,'#120F18');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+grid();
+var hz=ctx.createLinearGradient(0,0,0,H*0.5);hz.addColorStop(0,'rgba(122,96,210,'+(0.16*ce+0.02).toFixed(3)+')');hz.addColorStop(1,'rgba(122,96,210,0)');ctx.fillStyle=hz;ctx.fillRect(0,0,W,H*0.5);
+var c0=P(0,0,0),gl=ctx.createRadialGradient(c0[0],c0[1],0,c0[0],c0[1],F*95/c0[2]);gl.addColorStop(0,'rgba(140,105,235,.30)');gl.addColorStop(1,'rgba(140,105,235,0)');ctx.fillStyle=gl;ctx.fillRect(0,0,W,H);
+D.sosedi.forEach(function(r){var pts=r.map(function(p){return P(p[0],p[1],0)}),d=0;pts.forEach(function(p){d+=p[2]});var f=fog(d/pts.length),h=st.hov&&st.hov.t=='s'&&st.hov.r===r;
+poly(pts);ctx.fillStyle='rgba(255,255,255,'+((h?0.075:0.035)*f).toFixed(3)+')';ctx.fill();ctx.strokeStyle='rgba(206,196,230,'+(0.26*f).toFixed(3)+')';ctx.lineWidth=1;ctx.stroke();hits.push({p:pts,t:'s',r:r})});
+bl.forEach(function(z){if(z.h<1)return;var o=[z.h*0.62,z.h*0.42],sh=hull(z.r.concat(z.r.map(function(q){return[q[0]+o[0],q[1]+o[1]]}))),pts=sh.map(function(q){return P(q[0],q[1],0.05)}),d=0;pts.forEach(function(q){d+=q[2]});poly(pts);ctx.fillStyle='rgba(6,4,10,'+(0.42*fog(d/pts.length)).toFixed(3)+')';ctx.fill()});
+var ph=st.hov&&st.hov.t=='u';walls(par,0,TH,[120,86,210],ph);var top=par.map(function(p){return P(p[0],p[1],TH)});poly(top);
+var tg=ctx.createLinearGradient(0,Math.min.apply(null,top.map(function(p){return p[1]})),0,Math.max.apply(null,top.map(function(p){return p[1]})));tg.addColorStop(0,ph?'rgba(214,199,255,.62)':'rgba(203,184,255,.46)');tg.addColorStop(1,ph?'rgba(170,140,250,.55)':'rgba(150,118,236,.38)');
+ctx.fillStyle=tg;ctx.fill();ctx.save();ctx.shadowColor='rgba(185,156,255,.9)';ctx.shadowBlur=ph?18:12;ctx.strokeStyle='#D6C7FF';ctx.lineWidth=2;ctx.stroke();ctx.restore();hits.push({p:top,t:'u'});
+var y=pmin-16,a=P(-25,y,0),b=P(25,y,0);ctx.strokeStyle='rgba(241,236,248,.85)';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);
+for(var t=-25;t<=25;t+=10){var u=P(t,y,0),v=P(t,y,t%25===0?2.4:1.2);ctx.moveTo(u[0],u[1]);ctx.lineTo(v[0],v[1])}ctx.stroke();
+var m=P(0,y-7,0);ctx.fillStyle='rgba(241,236,248,.9)';ctx.font='600 11px '+getComputedStyle(document.body).fontFamily;ctx.textAlign='center';ctx.fillText('50 м',m[0],m[1]+4);
+bl.map(function(z){return{z:z,d:P(z.cx,z.cy,z.h/2)[2]}}).sort(function(x,y){return y.d-x.d}).forEach(function(o){var z=o.z,h=st.hov&&st.hov.t=='z'&&st.hov.z===z,pts=[];
+walls(z.r,0,z.h,[128,118,156],h,pts);var rf=z.r.map(function(p){return P(p[0],p[1],z.h)});poly(rf);ctx.fillStyle=mix(h?[214,204,236]:[176,167,198],0.35+0.65*fog(o.d));ctx.fill();
+ctx.strokeStyle=h?'#D6C7FF':'rgba(255,255,255,.16)';ctx.lineWidth=h?1.4:0.8;ctx.stroke();hits.push({p:hull(pts.concat(rf,z.r.map(function(p){return P(p[0],p[1],0)}))),t:'z',z:z})});
+var s0=P(0,0,TH),s1=P(0,0,34);ctx.strokeStyle='rgba(214,199,255,.9)';ctx.lineWidth=1.4;ctx.beginPath();ctx.moveTo(s0[0],s0[1]);ctx.lineTo(s1[0],s1[1]);ctx.stroke();
+ctx.fillStyle='#D6C7FF';ctx.beginPath();ctx.arc(s0[0],s0[1],3.2,0,7);ctx.fill();pin.style.left=s1[0]+'px';pin.style.top=(s1[1]-4)+'px';
+var n0=P(0,0,0),n1=P(0,40,0);north.style.transform='rotate('+(Math.atan2(n1[0]-n0[0],n0[1]-n1[1])*180/Math.PI).toFixed(1)+'deg)'}
+function loop(ts){raf=0;var dt=last?Math.min(64,ts-last):16;last=ts;var moving=false;
+if(st.auto&&!st.drag&&ts>st.idle){st.az+=dt*0.0045;moving=true}
+if(Math.abs(st.el-st.elT)>0.05){st.el+=(st.elT-st.el)*Math.min(1,dt/180);moving=true}
+draw();if(moving&&vis)raf=requestAnimationFrame(loop);else last=0}
+function kick(){if(!raf&&vis)raf=requestAnimationFrame(loop)}
+function hover(e){var r=cv.getBoundingClientRect(),pt=[e.clientX-r.left,e.clientY-r.top],hv=null;
+for(var i=hits.length-1;i>=0;i--){if(inside(pt,hits[i].p)){hv=hits[i];break}}
+var same=(hv&&st.hov&&hv.t===st.hov.t&&hv.z===st.hov.z&&hv.r===st.hov.r)||(!hv&&!st.hov);st.hov=hv;
+if(hv){tip.textContent=hv.t=='u'?'Участок с городских торгов · '+nf(D.ploshchad)+' м² по ЕГРН':hv.t=='z'?(hv.z.vid+(hv.z.fl?', '+et(hv.z.fl):'')+' · по ЕГРН'):'Соседний участок · по ЕГРН';
+var tw=tip.offsetWidth,th=tip.offsetHeight;tip.style.left=(pt[0]+14+tw>W-6?Math.max(6,pt[0]-14-tw):pt[0]+14)+'px';tip.style.top=(pt[1]+14+th>H-6?Math.max(6,pt[1]-14-th):pt[1]+14)+'px';tip.classList.add('on')}else tip.classList.remove('on');if(!same)draw()}
+cv.addEventListener('pointerdown',function(e){st.drag={x:e.clientX,y:e.clientY,az:st.az,el:st.el,id:e.pointerId};st.auto=false;cv.classList.add('drag');tip.classList.remove('on');try{cv.setPointerCapture(e.pointerId)}catch(x){}});
+cv.addEventListener('pointermove',function(e){if(st.drag&&e.pointerId===st.drag.id){st.az=st.drag.az+(e.clientX-st.drag.x)*0.4;if(!st.plan){st.el=st.elT=Math.max(14,Math.min(80,st.drag.el+(e.clientY-st.drag.y)*0.25))}draw()}else if(FINE)hover(e)});
+function up(){if(!st.drag)return;st.drag=null;cv.classList.remove('drag');st.idle=performance.now()+6000;st.auto=!RM;kick()}
+cv.addEventListener('pointerup',up);cv.addEventListener('pointercancel',up);cv.addEventListener('pointerleave',function(){if(st.hov&&!st.drag){st.hov=null;tip.classList.remove('on');draw()}});
+root.querySelector('.k3d-ui').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var k=b.getAttribute('data-k');st.idle=performance.now()+6000;
+if(k=='plan'){st.plan=!st.plan;st.elT=st.plan?89.5:EL0;btnPlan.textContent=st.plan?'3D':'План';btnPlan.setAttribute('aria-pressed',st.plan?'true':'false')}
+if(k=='plus')st.zoom=Math.min(2.4,st.zoom*1.25);if(k=='minus')st.zoom=Math.max(0.7,st.zoom/1.25);
+if(k=='reset'){st.zoom=1;st.az=AZ0;st.plan=false;st.elT=EL0;btnPlan.textContent='План';btnPlan.setAttribute('aria-pressed','false')}draw();kick()});
+if('IntersectionObserver'in window)new IntersectionObserver(function(en){vis=en[0].isIntersecting;if(vis)kick()}).observe(root);
+document.addEventListener('visibilitychange',function(){vis=!document.hidden;if(vis)kick()});
+if('ResizeObserver'in window)new ResizeObserver(size).observe(cv);else window.addEventListener('resize',size);
+size();kick();
+var dlg=document.getElementById('shema-big'),ob=root.parentElement.querySelector('.k3d-open');if(dlg&&ob){ob.addEventListener('click',function(){if(dlg.showModal)dlg.showModal()});dlg.addEventListener('click',function(e){if(e.target===dlg||e.target.closest('.shema-close'))dlg.close()})}
+})();</script>
 <div id="ck-bar" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#241d33;color:#F5F1E8;padding:12px 16px;font-size:14px;line-height:1.4;text-align:center">Сайт использует cookies и Яндекс Метрику для анализа посещаемости. Продолжая, вы соглашаетесь с <a href="/politika-konfidencialnosti.html" style="color:#c9b8ec;text-decoration:underline">политикой конфиденциальности</a>. <button onclick="localStorage.setItem('ckOk','1');document.getElementById('ck-bar').style.display='none'" style="margin-left:12px;background:#5A35A8;color:#fff;border:0;border-radius:6px;padding:6px 14px;cursor:pointer">Понятно</button></div><script>if(!localStorage.getItem('ckOk')){document.getElementById('ck-bar').style.display='block'}</script>
 </body>
 </html>

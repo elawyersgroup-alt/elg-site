@@ -164,7 +164,7 @@ footer:not(.site-foot) .wrap{display:flex;justify-content:space-between;gap:16px
 
 /* === SHELL: шапка, меню, подвал — общие для всех страниц === */
 .site-head{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line)}
-.site-head .wrap{display:flex;align-items:center;gap:28px;min-height:68px}
+.site-head .wrap{display:flex;align-items:center;gap:28px;min-height:68px;position:relative}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
 .brand img{width:34px;height:auto}
 .brand span{font-family:var(--display);font-size:17px;font-weight:600;letter-spacing:.04em;color:var(--stamp)}
@@ -174,7 +174,9 @@ footer:not(.site-foot) .wrap{display:flex;justify-content:space-between;gap:16px
 .menu>li>a:hover,.menu>li>button:hover,.menu>li.open>button{background:var(--paper-2)}
 .menu .has-drop>button::after{content:"";display:inline-block;width:6px;height:6px;margin-left:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-3px) rotate(45deg)}
 .drop{display:none;position:absolute;top:calc(100% + 8px);left:0;background:var(--sheet);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:0 18px 40px -24px rgba(36,31,46,.35);min-width:300px}
-.drop.wide{left:auto;right:-220px;width:min(980px,92vw);display:none}
+.menu>li:has(>.drop.wide){position:static}
+.drop.wide{left:50%;right:auto;top:calc(100% - 4px);transform:translateX(-50%);width:min(980px,calc(100vw - 32px));display:none}
+.drop::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:16px}
 .has-drop:hover>.drop,.has-drop:focus-within>.drop,.has-drop.open>.drop{display:block}
 .drop.wide .cols{display:grid;grid-template-columns:repeat(5,1fr);gap:22px}
 .drop .gtitle{font-family:var(--display);font-size:15px;font-weight:600;margin-bottom:8px;color:var(--ink)}
@@ -200,7 +202,8 @@ footer:not(.site-foot) .wrap{display:flex;justify-content:space-between;gap:16px
   .menu>li>a,.menu>li>button{width:100%;text-align:left;padding:14px 6px;font-size:16px;border-bottom:1px solid var(--line);border-radius:0}
   .has-drop:hover>.drop{display:none}
   .has-drop.open>.drop{display:block}
-  .drop,.drop.wide{position:static;box-shadow:none;border:0;padding:6px 6px 14px;width:auto;min-width:0;background:transparent}
+  .drop,.drop.wide{position:static;box-shadow:none;border:0;padding:6px 6px 14px;width:auto;min-width:0;background:transparent;transform:none}
+  .drop::before{display:none}
   .drop.wide .cols{grid-template-columns:1fr;gap:12px}
   .menu .cta{margin:14px 0 0}
   .menu .cta a{text-align:center;border-bottom:0}
