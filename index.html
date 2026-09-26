@@ -117,7 +117,8 @@ section{padding:88px 0;border-top:1px solid var(--line)}
 .doc figcaption{font-size:13.5px;color:var(--ink-soft);padding:12px 4px 2px;line-height:1.45}
 .strip{background:var(--stamp-soft);border-top:1px solid #DCD2F0;border-bottom:1px solid #DCD2F0;padding:22px 0}
 .strip .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.strip p{font-size:18px;max-width:none}
+.strip p{font-size:18px;max-width:none;flex:1 1 420px;min-width:0}
+.strip .btn{flex:0 0 auto}
 .strip b{font-weight:600}
 .strip .price{font-family:var(--display);font-weight:600;color:var(--stamp);white-space:nowrap}
 .lead-in{font-size:19px;color:var(--ink-soft);margin-bottom:40px;max-width:40em}
@@ -381,7 +382,7 @@ dialog.shema-big img{display:block;width:100%;height:auto}
 
 <div class="strip">
   <div class="wrap">
-    <p><b>Уведомление уже пришло?</b> Письменный разбор за 24 часа — <span class="price">5 000 ₽</span></p>
+    <p><b>Уведомление о&nbsp;приостановлении регистрации в&nbsp;Росреестре уже пришло?</b> Письменный разбор за 24&nbsp;часа&nbsp;— <span class="price">5 000 ₽</span></p>
     <a class="btn btn-primary" href="/ekspress-razbor.html#oplata" onclick="try{ym(110859643,'reachGoal','home_to_razbor')}catch(e){}">Заказать разбор</a>
   </div>
 </div>
