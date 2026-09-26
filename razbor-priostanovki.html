@@ -262,6 +262,10 @@ footer:not(.site-foot) .wrap{display:flex;justify-content:space-between;gap:16px
   .m-bar a.hl{background:var(--stamp);color:#fff;border-color:var(--stamp)}
   .site-head.menu-open~.m-bar{display:none}
 }
+/* метки и подписи — обычными буквами на всех экранах (решение Игоря 26.09.2026: «мелкие прописные — примета шаблона»); штампы .stamp и .g-stamp — прописными, как печать */
+html body .mono{text-transform:none;font-family:var(--body);font-size:15px;font-weight:600;letter-spacing:normal}
+html body #express-razbor .xr-price small{text-transform:none;font-family:var(--body);font-size:15px;font-weight:600;letter-spacing:normal;opacity:.9}
+html body .spr th,html body .tier .step,html body .res-count,html body .badge{text-transform:none;letter-spacing:normal;font-family:var(--body);font-weight:600}
 /* === /SHELL === */
 </style>
 
